@@ -1,0 +1,28 @@
+{
+  "name": "schema",
+  "version": "1.0.0",
+  "description": "OpenRPC Specification JSON schemas",
+  "author": {
+    "name": "open-rpc",
+    "email": "developers@open-rpc.com",
+    "url": "https://open-rpc.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/open-rpc/schema.git"
+  },
+  "license": "Apache-2.0",
+  "readmeFilename": "README.md",
+  "files": [
+    "README.md",
+    "v*/*"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "open-rpc",
+    "JSON schema",
+    "JSON RPC",
+    "API"
+  ]
+}
