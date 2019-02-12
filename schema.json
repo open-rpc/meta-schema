@@ -39,18 +39,20 @@
               "type": "string"
             }
           },
+          "paramStructure": {
+            "type": "string",
+            "enum": [
+              "by-position",
+              "by-name"
+            ],
+            "default": "by-position",
+            "required": false
+          },
           "results": {
-            "anyOf": [
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/contentDescriptor"
-                }
-              },
-              {
-                "$ref": "#/definitions/contentDescriptor"
-              }
-            ]
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/contentDescriptor"
+            }
           },
           "params": {
             "anyOf": [
