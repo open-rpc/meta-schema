@@ -52,7 +52,7 @@
               }
             ]
           },
-          "parameters": {
+          "params": {
             "anyOf": [
               {
                 "type": "array",
