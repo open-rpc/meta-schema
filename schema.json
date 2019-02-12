@@ -39,7 +39,7 @@
               "type": "string"
             }
           },
-          "results": {
+          "result": {
             "anyOf": [
               {
                 "type": "array",
