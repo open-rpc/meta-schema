@@ -48,11 +48,18 @@
             "default": "by-position",
             "required": false
           },
-          "results": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/contentDescriptor"
-            }
+          "result": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/contentDescriptor"
+                }
+              },
+              {
+                "$ref": "#/definitions/contentDescriptor"
+              }
+            ]
           },
           "params": {
             "anyOf": [
