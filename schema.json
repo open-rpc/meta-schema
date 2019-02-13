@@ -36,6 +36,15 @@
               "type": "string"
             }
           },
+          "paramStructure": {
+            "type": "string",
+            "enum": [
+              "by-position",
+              "by-name"
+            ],
+            "default": "by-position",
+            "required": false
+          },
           "result": {
             "anyOf": [
               {
