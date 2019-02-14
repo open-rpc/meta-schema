@@ -173,10 +173,10 @@
     "methods",
     "openrpc"
   ],
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft-07/schema#",
   "definitions": {
     "schema": {
-      "$ref": "http://json-schema.org/draft-07/schema#"
+      "$ref": "https://json-schema.org/draft-07/schema#"
     },
     "externalDocs": {
       "type": "object",
