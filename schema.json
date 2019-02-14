@@ -20,6 +20,12 @@
     "methods": {
       "type": "array",
       "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "result"
+        ],
+        "additionalProperties": false,
         "properties": {
           "name": {
             "type": "string"
@@ -67,12 +73,7 @@
           "links": {
             "$ref": "#/definitions/link"
           }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "result"
-        ]
+        }
       }
     },
     "components": {
