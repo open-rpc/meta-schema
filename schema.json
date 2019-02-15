@@ -167,6 +167,7 @@
         "title",
         "version"
       ],
+      "additionalProperties": false,
       "properties": {
         "version": {
           "type": "string"
