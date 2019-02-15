@@ -1,4 +1,12 @@
 {
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "info",
+    "methods",
+    "openrpc"
+  ],
+  "additionalProperties": false,
   "properties": {
     "servers": {
       "type": "array",
@@ -178,13 +186,6 @@
       ]
     }
   },
-  "type": "object",
-  "required": [
-    "info",
-    "methods",
-    "openrpc"
-  ],
-  "$schema": "https://json-schema.org/draft-07/schema#",
   "definitions": {
     "schema": {
       "$ref": "https://json-schema.org/draft-07/schema#"
