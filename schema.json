@@ -1,5 +1,11 @@
 {
   "properties": {
+    "openrpc": {
+      "type": "string",
+      "enum": [
+        "1.0.0-rc0"
+      ]
+    },
     "servers": {
       "type": "array",
       "items": {
@@ -23,9 +29,6 @@
           "url"
         ]
       }
-    },
-    "openrpc": {
-      "type": "string"
     },
     "methods": {
       "type": "array",
