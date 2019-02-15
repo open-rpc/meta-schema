@@ -123,7 +123,7 @@
       "description": "Any property starting with x- is valid.",
       "patternProperties": {
         "^x-": {
-          "$ref": "#/definitions/vendorExtension"
+          "$ref": "#/definitions/vendorExtensions"
         }
       }
     },
