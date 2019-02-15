@@ -17,6 +17,11 @@
     "servers": {
       "type": "array",
       "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "url"
+        ],
         "properties": {
           "url": {
             "type": "string"
@@ -30,12 +35,7 @@
           "summary": {
             "type": "string"
           }
-        },
-        "additionalProperties": false,
-        "type": "object",
-        "required": [
-          "url"
-        ]
+        }
       }
     },
     "methods": {
@@ -143,6 +143,11 @@
       "type": "object"
     },
     "info": {
+      "type": "object",
+      "required": [
+        "title",
+        "version"
+      ],
       "properties": {
         "version": {
           "type": "string"
@@ -181,12 +186,7 @@
         "termsOfService": {
           "type": "string"
         }
-      },
-      "type": "object",
-      "required": [
-        "title",
-        "version"
-      ]
+      }
     }
   },
   "definitions": {
@@ -218,6 +218,11 @@
     "examples": {
       "type": "array",
       "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "value"
+        ],
         "properties": {
           "summary": {
             "type": "string"
@@ -241,12 +246,7 @@
           "name": {
             "type": "string"
           }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "value"
-        ]
+        }
       }
     },
     "error": {
@@ -256,15 +256,15 @@
       "type": "object",
       "properties": {
         "[0-z]+": {
+          "type": "object",
+          "required": [
+            "$ref"
+          ],
           "properties": {
             "$ref": {
               "type": "string"
             }
-          },
-          "type": "object",
-          "required": [
-            "$ref"
-          ]
+          }
         }
       }
     },
