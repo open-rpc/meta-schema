@@ -6,8 +6,18 @@
         "properties": {
           "url": {
             "type": "string"
-          }
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
         },
+        "additionalProperties": false,
         "type": "object",
         "required": [
           "url"
