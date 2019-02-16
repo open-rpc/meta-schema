@@ -167,7 +167,6 @@
         "title",
         "version"
       ],
-      "additionalProperties": false,
       "properties": {
         "version": {
           "type": "string"
@@ -276,16 +275,15 @@
         {
           "type": "object",
           "properties": {
-            "[0-z]+": {
-              "type": "object",
-              "required": [
-                "$ref"
-              ],
-              "properties": {
-                "$ref": {
-                  "type": "string"
-                }
-              }
+            "method": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "params": {},
+            "server": { 
+              "$ref": "#/definitions/server"
             }
           }
         },
@@ -329,9 +327,6 @@
             },
             "description": {
               "type": "string"
-            },
-            "required": {
-              "type": "boolean"
             },
             "schema": {
               "$ref": "#/definitions/schema"
