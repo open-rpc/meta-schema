@@ -1,8 +1,8 @@
 const Djv = require('djv');
 const metaSchema = require('./schema.json');
-const fetch = require('node-fetch');
-const djv = new Djv();
 const openRpcExamples = require('@open-rpc/examples');
+
+const djv = new Djv();
 
 describe('meta-schema', () => {
   let metaSchemaValidator, examples;
