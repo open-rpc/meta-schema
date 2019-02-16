@@ -1,26 +1,24 @@
-const Ajv = require('ajv');
-const ajv = new Ajv();
+const Djv = require('djv');
 const metaSchema = require('./schema.json');
 const fetch = require('node-fetch');
+const djv = new Djv();
+const openRpcExamples = require('@open-rpc/examples');
 
 describe('meta-schema', () => {
   let metaSchemaValidator, examples;
   it('can be compiled by ajv', () => {
-    metaSchemaValidator = ajv.compile(metaSchema);
+    djv.addSchema('test', metaSchema);
   });
 
   describe('validates all examples without error', () => {
-    it(`validates all the examples properly`, async () => {
-      const examples = [
-        await fetch('https://raw.githubusercontent.com/open-rpc/examples/master/service-descriptions/api-with-examples.json').then((res) => res.json()),
-        await fetch('https://raw.githubusercontent.com/open-rpc/examples/master/service-descriptions/link-example.json').then((res) => res.json()),
-        await fetch('https://raw.githubusercontent.com/open-rpc/examples/master/service-descriptions/petstore-expanded.json').then((res) => res.json()),
-        await fetch('https://raw.githubusercontent.com/open-rpc/examples/master/service-descriptions/petstore.json').then((res) => res.json())
-      ];
-      examples.forEach((example) => {
-        const valid = metaSchemaValidator(example.schema);
-        expect(valid).toBeTruthy();
-      });
+    const exampleNames = Object.keys(openRpcExamples);
+    exampleNames.forEach((exampleName) => {
+      it(`validates the example : ${exampleName}`, () => {
+        openRpcExamples[exampleName];
+        const result = djv.validate(penRpcExamples[exampleName]);
+        expect(result).toBeUndefined();
+
+      })
     });
   });
 });
