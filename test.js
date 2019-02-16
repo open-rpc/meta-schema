@@ -15,7 +15,7 @@ describe('meta-schema', () => {
     exampleNames.forEach((exampleName) => {
       it(`validates the example : ${exampleName}`, () => {
         openRpcExamples[exampleName];
-        const result = djv.validate(penRpcExamples[exampleName]);
+        const result = djv.validate(openRpcExamples[exampleName]);
         expect(result).toBeUndefined();
 
       })
