@@ -1,5 +1,5 @@
 {
-  "name": "schema",
+  "name": "@open-rpc/schema",
   "version": "1.0.0",
   "description": "OpenRPC Specification JSON schemas",
   "author": {
@@ -11,14 +11,23 @@
     "type": "git",
     "url": "https://github.com/open-rpc/schema.git"
   },
+  "scripts": {
+    "publish": "npm publish --access=public",
+    "test": "jest test.js"
+  },
   "license": "Apache-2.0",
   "readmeFilename": "README.md",
   "files": [
     "README.md",
     "v*/*"
   ],
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "@open-rpc/examples": "^1.0.0",
+    "djv": "^2.1.1"
+  },
+  "devDependencies": {
+    "jest": "^24.1.0"
+  },
   "keywords": [
     "open-rpc",
     "JSON schema",
