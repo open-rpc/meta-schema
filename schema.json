@@ -333,6 +333,9 @@
             },
             "examples": {
               "$ref": "#/definitions/examples"
+            },
+            "required": {	
+              "type": "boolean"	
             }
           }
         },
