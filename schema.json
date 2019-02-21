@@ -57,17 +57,13 @@
             "$ref": "#/definitions/contentDescriptor"
           },
           "params": {
-            "oneOf": [
-              {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/contentDescriptor"
-                }
-              },
-              {
-                "$ref": "#/definitions/referenceObject"
-              }
-            ]
+            "type": "array",
+            "items": {
+              "oneOf": [
+                { "$ref": "#/definitions/contentDescriptor" },
+                { "$ref": "#/definitions/referenceObject" }
+              ]
+            }
           },
           "links": {
             "$ref": "#/definitions/links"
