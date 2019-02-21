@@ -57,10 +57,17 @@
             "$ref": "#/definitions/contentDescriptor"
           },
           "params": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/contentDescriptor"
-            }
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/contentDescriptor"
+                }
+              },
+              {
+                "$ref": "#/definitions/referenceObject"
+              }
+            ]
           },
           "links": {
             "$ref": "#/definitions/links"
@@ -119,6 +126,16 @@
       "$ref": "https://json-schema.org/draft-07/schema#",
       "type": "object",
       "default": {}
+    },
+    "referenceObject": {
+      "type": "object",
+      "required": [ "$ref" ],
+      "properties": {
+        "$ref": {
+          "type": "string",
+          "format": "uri-reference"
+        }
+      }
     },
     "vendorExtensions": {
       "type": "object",
