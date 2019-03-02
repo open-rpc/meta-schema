@@ -23,7 +23,8 @@
     "v*/*"
   ],
   "dependencies": {
-    "djv": "^2.1.1"
+    "@open-rpc/examples": "^1.0.2",
+    "ajv": "^6.9.2"
   },
   "devDependencies": {
     "jest": "^24.1.0"
