@@ -70,7 +70,7 @@
           "type": "object",
           "patternProperties": {
             "[0-z]+": {
-              "$ref": "#/definitions/contentDescriptor"
+              "$ref": "#/definitions/contentDescriptorObject"
             }
           }
         },
@@ -98,17 +98,10 @@
         "oneOf"
       ],
       "properties": {
-        "$oneOf": {
+        "oneOf": {
           "type": "array",
           "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/contentDescriptor"
-              },
-              {
-                "$ref": "#/definitions/referenceObject"
-              }
-            ]
+            "$ref": "#/definitions/contentDescriptorObject"
           }
         }
       }
@@ -135,30 +128,6 @@
           "$ref": "#/definitions/vendorExtensions"
         }
       }
-    },
-    "externalDocs": {
-      "allOf": [
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "description": "information about external documentation",
-          "required": [
-            "url"
-          ],
-          "properties": {
-            "description": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string",
-              "format": "uri"
-            }
-          }
-        },
-        {
-          "$ref": "#/definitions/vendorExtensions"
-        }
-      ]
     },
     "errorObject": {
       "type": "object",
@@ -254,7 +223,7 @@
         }
       ]
     },
-    "server": {
+    "serverObject": {
       "allOf": [
         {
           "type": "object",
@@ -264,7 +233,8 @@
           "additionalProperties": false,
           "properties": {
             "url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "name": {
               "type": "string"
@@ -296,7 +266,7 @@
             },
             "params": {},
             "server": {
-              "$ref": "#/definitions/server"
+              "$ref": "#/definitions/serverObject"
             }
           }
         },
@@ -310,12 +280,17 @@
         {
           "type": "object",
           "additionalProperties": false,
+          "description": "information about external documentation",
+          "required": [
+            "url"
+          ],
           "properties": {
             "description": {
               "type": "string"
             },
             "url": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             }
           }
         },
@@ -379,21 +354,14 @@
               ],
               "default": "by-position"
             },
-            "result": {
-              "$ref": "#/definitions/contentDescriptor"
-            },
             "params": {
               "type": "array",
               "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/contentDescriptor"
-                  },
-                  {
-                    "$ref": "#/definitions/referenceObject"
-                  }
-                ]
+                "$ref": "#/definitions/contentDescriptorObject"
               }
+            },
+            "result": {
+              "$ref": "#/definitions/contentDescriptorObject"
             },
             "links": {
               "$ref": "#/definitions/links"
@@ -466,13 +434,14 @@
         }
       }
     },
-    "contentDescriptor": {
+    "contentDescriptorObject": {
       "oneOf": [
         {
           "allOf": [
             {
               "type": "object",
               "additionalProperties": false,
+              "required": [ "name" ],
               "properties": {
                 "name": {
                   "type": "string"
@@ -495,13 +464,16 @@
         },
         {
           "$ref": "#/definitions/oneOfObject"
+        },
+        {
+          "$ref": "#/definitions/referenceObject"
         }
       ]
     },
     "servers": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/server"
+        "$ref": "#/definitions/serverObject"
       }
     },
     "tags": {

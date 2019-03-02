@@ -18,7 +18,7 @@ describe('meta-schema', () => {
         if (metaSchemaValidator.errors && metaSchemaValidator.errors.length > 0) {
           console.error(metaSchemaValidator.errors);
         }
-        expect(metaSchemaValidator.errors.length).toBe(0);
+        expect(metaSchemaValidator.errors).toEqual([]);
         expect(result).toBe(true);
       });
     });
