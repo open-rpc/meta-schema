@@ -22,7 +22,7 @@
     "v*/*"
   ],
   "dependencies": {
-    "@open-rpc/examples": "^1.0.0",
+    "@open-rpc/examples": "^1.0.1",
     "djv": "^2.1.1"
   },
   "devDependencies": {
