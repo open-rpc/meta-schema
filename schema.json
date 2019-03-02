@@ -11,7 +11,8 @@
     "openrpc": {
       "type": "string",
       "enum": [
-        "1.0.0-rc0"
+        "1.0.0-rc0",
+        "1.0.0-rc1"
       ]
     },
     "info": {
@@ -21,55 +22,7 @@
       "$ref": "#/definitions/servers"
     },
     "methods": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "name",
-          "result"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "summary": {
-            "type": "string"
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "paramStructure": {
-            "type": "string",
-            "enum": [
-              "by-position",
-              "by-name"
-            ],
-            "default": "by-position"
-          },
-          "result": {
-            "$ref": "#/definitions/contentDescriptor"
-          },
-          "params": {
-            "type": "array",
-            "items": {
-              "oneOf": [
-                { "$ref": "#/definitions/contentDescriptor" },
-                { "$ref": "#/definitions/referenceObject" }
-              ]
-            }
-          },
-          "links": {
-            "$ref": "#/definitions/links"
-          }
-        }
-      }
+      "$ref": "#/definitions/methods"
     },
     "components": {
       "type": "object",
@@ -94,7 +47,15 @@
           "type": "object",
           "patternProperties": {
             "[0-z]+": {
-              "$ref": "#/definitions/examples"
+              "$ref": "#/definitions/exampleObject"
+            }
+          }
+        },
+        "examplePairings": {
+          "type": "object",
+          "patternProperties": {
+            "[0-z]+": {
+              "$ref": "#/definitions/examplePairingObject"
             }
           }
         },
@@ -102,7 +63,7 @@
           "type": "object",
           "patternProperties": {
             "[0-z]+": {
-              "$ref": "#/definitions/error"
+              "$ref": "#/definitions/errorObject"
             }
           }
         },
@@ -111,6 +72,14 @@
           "patternProperties": {
             "[0-z]+": {
               "$ref": "#/definitions/contentDescriptor"
+            }
+          }
+        },
+        "tags": {
+          "type": "object",
+          "patternProperties": {
+            "[0-z]+": {
+              "$ref": "#/definitions/tagObject"
             }
           }
         }
@@ -123,9 +92,34 @@
       "type": "object",
       "default": {}
     },
+    "oneOfObject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "oneOf"
+      ],
+      "properties": {
+        "$oneOf": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/contentDescriptor"
+              },
+              {
+                "$ref": "#/definitions/referenceObject"
+              }
+            ]
+          }
+        }
+      }
+    },
     "referenceObject": {
       "type": "object",
-      "required": [ "$ref" ],
+      "additionalProperties": false,
+      "required": [
+        "$ref"
+      ],
       "properties": {
         "$ref": {
           "type": "string",
@@ -135,6 +129,7 @@
     },
     "vendorExtensions": {
       "type": "object",
+      "additionalProperties": false,
       "description": "Any property starting with x- is valid.",
       "patternProperties": {
         "^x-": {
@@ -166,27 +161,48 @@
         }
       ]
     },
-    "error": {
-      "allOf": [
+    "errorObject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "message",
+        "data"
+      ],
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {}
+      }
+    },
+    "licenseObject": {
+      "anyOf": [
         {
-          "type": "object"
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          }
         },
         {
           "$ref": "#/definitions/vendorExtensions"
         }
       ]
     },
-    "info": {
-      "type": "object",
-      "required": [
-        "title",
-        "version"
-      ],
-      "properties": {
-        "version": {
-          "type": "string"
-        },
-        "contact": {
+    "contactObject": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
           "properties": {
             "name": {
               "type": "string"
@@ -197,30 +213,47 @@
             "url": {
               "type": "string"
             }
-          },
-          "type": "object"
+          }
         },
-        "title": {
-          "type": "string"
-        },
-        "license": {
+        {
+          "$ref": "#/definitions/vendorExtensions"
+        }
+      ]
+    },
+    "infoObject": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "version"
+          ],
           "properties": {
-            "name": {
+            "title": {
               "type": "string"
             },
-            "url": {
+            "description": {
               "type": "string"
+            },
+            "termsOfService": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "contact": {
+              "$ref": "#/definitions/contactObject"
+            },
+            "license": {
+              "$ref": "#/definitions/licenseObject"
             }
-          },
-          "type": "object"
+          }
         },
-        "description": {
-          "type": "string"
-        },
-        "termsOfService": {
-          "type": "string"
+        {
+          "$ref": "#/definitions/vendorExtensions"
         }
-      }
+      ]
     },
     "server": {
       "allOf": [
@@ -250,7 +283,133 @@
         }
       ]
     },
-    "example": {
+    "linkObject": {
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "method": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "params": {},
+            "server": {
+              "$ref": "#/definitions/server"
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/vendorExtensions"
+        }
+      ]
+    },
+    "externalDocumentationObject": {
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/vendorExtensions"
+        }
+      ]
+    },
+    "tagObject": {
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "externalDocs": {
+              "$ref": "#/definitions/externalDocumentationObject"
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/vendorExtensions"
+        }
+      ]
+    },
+    "methodObject": {
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "name",
+            "result"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "tags": {
+              "$ref": "#/definitions/tags"
+            },
+            "paramStructure": {
+              "type": "string",
+              "enum": [
+                "by-position",
+                "by-name"
+              ],
+              "default": "by-position"
+            },
+            "result": {
+              "$ref": "#/definitions/contentDescriptor"
+            },
+            "params": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/contentDescriptor"
+                  },
+                  {
+                    "$ref": "#/definitions/referenceObject"
+                  }
+                ]
+              }
+            },
+            "links": {
+              "$ref": "#/definitions/links"
+            },
+            "examples": {
+              "$ref": "#/definitions/examples"
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/vendorExtensions"
+        }
+      ]
+    },
+    "exampleObject": {
       "allOf": [
         {
           "type": "object",
@@ -282,28 +441,61 @@
               "type": "string"
             }
           }
-        }
-      ]
-    },
-    "link": {
-      "allOf": [
-        {
-          "type": "object",
-          "properties": {
-            "method": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "params": {},
-            "server": { 
-              "$ref": "#/definitions/server"
-            }
-          }
         },
         {
           "$ref": "#/definitions/vendorExtensions"
+        }
+      ]
+    },
+    "examplePairingObject": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "params": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/exampleObject"
+          }
+        },
+        "result": {
+          "$ref": "#/definitions/exampleObject"
+        }
+      }
+    },
+    "contentDescriptor": {
+      "oneOf": [
+        {
+          "allOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "schema": {
+                  "$ref": "#/definitions/schema"
+                },
+                "required": {
+                  "type": "boolean"
+                }
+              }
+            },
+            {
+              "$ref": "#/definitions/vendorExtensions"
+            }
+          ]
+        },
+        {
+          "$ref": "#/definitions/oneOfObject"
         }
       ]
     },
@@ -313,10 +505,22 @@
         "$ref": "#/definitions/server"
       }
     },
+    "tags": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/tagObject"
+      }
+    },
+    "methods": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/methodObject"
+      }
+    },
     "examples": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/example"
+        "$ref": "#/definitions/examplePairingObject"
       }
     },
     "errors": {
@@ -330,34 +534,6 @@
       "items": {
         "$ref": "#/definitions/link"
       }
-    },
-    "contentDescriptor": {
-      "allOf": [
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "schema": {
-              "$ref": "#/definitions/schema"
-            },
-            "examples": {
-              "$ref": "#/definitions/examples"
-            },
-            "required": {	
-              "type": "boolean"	
-            }
-          }
-        },
-        {
-          "$ref": "#/definitions/vendorExtensions"
-        }
-      ]
     }
   }
 }
