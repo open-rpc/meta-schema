@@ -24,6 +24,7 @@
     "schema.json"
   ],
   "dependencies": {
+    "@open-rpc/examples": "^1.0.7",
     "ajv": "^6.10.0"
   },
   "devDependencies": {
