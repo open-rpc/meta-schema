@@ -121,12 +121,47 @@
     },
     "vendorExtensions": {
       "type": "object",
-      "additionalProperties": false,
       "description": "Any property starting with x- is valid.",
       "patternProperties": {
         "^x-": {
           "$ref": "#/definitions/vendorExtensions"
         }
+      }
+    },
+    "servers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/serverObject"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/tagObject"
+      }
+    },
+    "methods": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/methodObject"
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/examplePairingObject"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/vendorExtensions"
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/linkObject"
       }
     },
     "errorObject": {
@@ -253,26 +288,31 @@
       ]
     },
     "linkObject": {
-      "allOf": [
+      "oneOf": [
         {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "method": {
-              "type": "string"
+          "allOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "method": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "params": {},
+                "server": {
+                  "$ref": "#/definitions/serverObject"
+                }
+              }
             },
-            "description": {
-              "type": "string"
-            },
-            "params": {},
-            "server": {
-              "$ref": "#/definitions/serverObject"
+            {
+              "$ref": "#/definitions/vendorExtensions"
             }
-          }
+          ]
         },
-        {
-          "$ref": "#/definitions/vendorExtensions"
-        }
+        { "$ref": "#/definitions/referenceObject" }
       ]
     },
     "externalDocumentationObject": {
@@ -388,19 +428,7 @@
             "summary": {
               "type": "string"
             },
-            "value": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "object"
-                },
-                {
-                  "type": "array"
-                }
-              ]
-            },
+            "value": {},
             "description": {
               "type": "string"
             },
@@ -426,11 +454,17 @@
         "params": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/exampleObject"
+            "oneOf": [
+              { "$ref": "#/definitions/exampleObject" },
+              { "$ref": "#/definitions/referenceObject" }
+            ]
           }
         },
         "result": {
-          "$ref": "#/definitions/exampleObject"
+          "oneOf": [
+            { "$ref": "#/definitions/exampleObject" },
+            { "$ref": "#/definitions/referenceObject" }
+          ]
         }
       }
     },
@@ -469,42 +503,6 @@
           "$ref": "#/definitions/referenceObject"
         }
       ]
-    },
-    "servers": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/serverObject"
-      }
-    },
-    "tags": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/tagObject"
-      }
-    },
-    "methods": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/methodObject"
-      }
-    },
-    "examples": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/examplePairingObject"
-      }
-    },
-    "errors": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/vendorExtensions"
-      }
-    },
-    "links": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/linkObject"
-      }
     }
   }
 }
