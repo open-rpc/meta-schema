@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://meta-schema.open-rpc.org/1.0.0/schema.json#",
   "type": "object",
   "required": [
     "info",
@@ -89,7 +90,6 @@
   "definitions": {
     "schema": {
       "$ref": "https://json-schema.org/draft-07/schema#",
-      "type": "object",
       "default": {}
     },
     "oneOfObject": {
@@ -469,6 +469,12 @@
     "contentDescriptorObject": {
       "oneOf": [
         {
+          "$ref": "#/definitions/oneOfObject"
+        },
+        {
+          "$ref": "#/definitions/referenceObject"
+        },
+        {
           "allOf": [
             {
               "type": "object",
@@ -493,12 +499,6 @@
               "$ref": "#/definitions/vendorExtensions"
             }
           ]
-        },
-        {
-          "$ref": "#/definitions/oneOfObject"
-        },
-        {
-          "$ref": "#/definitions/referenceObject"
         }
       ]
     }
