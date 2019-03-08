@@ -144,10 +144,7 @@
       }
     },
     "errors": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/vendorExtensions"
-      }
+      "type": "array"
     },
     "links": {
       "type": "array",
