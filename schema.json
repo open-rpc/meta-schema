@@ -104,6 +104,7 @@
       "properties": {
         "oneOf": {
           "type": "array",
+          "additionalItems": false,
           "items": {
             "oneOf": [
               { "$ref": "#/definitions/contentDescriptorObject" },
@@ -127,33 +128,6 @@
         }
       }
     },
-    "servers": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/serverObject"
-      }
-    },
-    "tags": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/tagObject"
-      }
-    },
-    "methods": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/methodObject"
-      }
-    },
-    "examples": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/examplePairingObject"
-      }
-    },
-    "errors": {
-      "type": "array"
-    },
     "vendorExtensions": {
       "type": "object",
       "description": "Any property starting with x- is valid.",
@@ -163,8 +137,44 @@
         }
       }
     },
+    "servers": {
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/serverObject"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/tagObject"
+      }
+    },
+    "methods": {
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/methodObject"
+      }
+    },
+    "examples": {
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/examplePairingObject"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/defintions/errorObject"
+      }
+    },
     "links": {
       "type": "array",
+      "additionalItems": false,
       "items": {
         "$ref": "#/definitions/linkObject"
       }
