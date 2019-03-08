@@ -105,8 +105,7 @@
           "items": {
             "oneOf": [
               { "$ref": "#/definitions/contentDescriptorObject" },
-              { "$ref": "#/definitions/referenceObject" },
-              { "$ref": "#/definitions/oneOfObject" }
+              { "$ref": "#/definitions/referenceObject" }
             ]
           }
         }
