@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json-schema.org/draft-07/schema#",
   "type": "object",
   "required": [
     "info",
@@ -58,19 +59,15 @@
             }
           }
         },
-        "errors": {
-          "type": "object",
-          "patternProperties": {
-            "[0-z]+": {
-              "$ref": "#/definitions/errorObject"
-            }
-          }
-        },
         "contentDescriptors": {
           "type": "object",
           "patternProperties": {
             "[0-z]+": {
-              "$ref": "#/definitions/contentDescriptorObject"
+              "oneOf": [
+                { "$ref": "#/definitions/contentDescriptorObject" },
+                { "$ref": "#/definitions/referenceObject" },
+                { "$ref": "#/definitions/oneOfObject" }
+              ]
             }
           }
         },
@@ -87,8 +84,7 @@
   },
   "definitions": {
     "schema": {
-      "$id": "https://json-schema.org/draft-07/schema",
-      "type": "object",
+      "$ref": "https://json-schema.org/draft-07/schema#",
       "default": {}
     },
     "oneOfObject": {
@@ -100,8 +96,13 @@
       "properties": {
         "oneOf": {
           "type": "array",
+          "additionalItems": false,
           "items": {
-            "$ref": "#/definitions/contentDescriptorObject"
+            "oneOf": [
+              { "$ref": "#/definitions/contentDescriptorObject" },
+              { "$ref": "#/definitions/referenceObject" },
+              { "$ref": "#/definitions/oneOfObject" }
+            ]
           }
         }
       }
@@ -124,42 +125,41 @@
       "description": "Any property starting with x- is valid.",
       "patternProperties": {
         "^x-": {
-          "$ref": "#/definitions/vendorExtensions"
+          "default": {}
         }
       }
     },
     "servers": {
       "type": "array",
+      "additionalItems": false,
       "items": {
         "$ref": "#/definitions/serverObject"
       }
     },
     "tags": {
       "type": "array",
+      "additionalItems": false,
       "items": {
         "$ref": "#/definitions/tagObject"
       }
     },
     "methods": {
       "type": "array",
+      "additionalItems": false,
       "items": {
         "$ref": "#/definitions/methodObject"
       }
     },
     "examples": {
       "type": "array",
+      "additionalItems": false,
       "items": {
         "$ref": "#/definitions/examplePairingObject"
       }
     },
-    "errors": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/vendorExtensions"
-      }
-    },
     "links": {
       "type": "array",
+      "additionalItems": false,
       "items": {
         "$ref": "#/definitions/linkObject"
       }
@@ -397,11 +397,19 @@
             "params": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/contentDescriptorObject"
+                "oneOf": [
+                  { "$ref": "#/definitions/contentDescriptorObject" },
+                  { "$ref": "#/definitions/referenceObject" },
+                  { "$ref": "#/definitions/oneOfObject" }
+                ]
               }
             },
             "result": {
-              "$ref": "#/definitions/contentDescriptorObject"
+              "oneOf": [
+                { "$ref": "#/definitions/contentDescriptorObject" },
+                { "$ref": "#/definitions/referenceObject" },
+                { "$ref": "#/definitions/oneOfObject" }
+              ]
             },
             "links": {
               "$ref": "#/definitions/links"
@@ -469,38 +477,28 @@
       }
     },
     "contentDescriptorObject": {
-      "oneOf": [
+      "allOf": [
         {
-          "allOf": [
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [ "name" ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "schema": {
-                  "$ref": "#/definitions/schema"
-                },
-                "required": {
-                  "type": "boolean"
-                }
-              }
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "name" ],
+          "properties": {
+            "name": {
+              "type": "string"
             },
-            {
-              "$ref": "#/definitions/vendorExtensions"
+            "description": {
+              "type": "string"
+            },
+            "schema": {
+              "$ref": "#/definitions/schema"
+            },
+            "required": {
+              "type": "boolean"
             }
-          ]
+          }
         },
         {
-          "$ref": "#/definitions/oneOfObject"
-        },
-        {
-          "$ref": "#/definitions/referenceObject"
+          "$ref": "#/definitions/vendorExtensions"
         }
       ]
     }
