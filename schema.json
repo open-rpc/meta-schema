@@ -1,6 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "https://meta-schema.open-rpc.org/1.0.0/schema.json#",
+  "$schema": "https://json-schema.org/draft-07/schema#",
   "type": "object",
   "required": [
     "info",
@@ -72,7 +71,11 @@
           "type": "object",
           "patternProperties": {
             "[0-z]+": {
-              "$ref": "#/definitions/contentDescriptorObject"
+              "oneOf": [
+                { "$ref": "#/definitions/contentDescriptorObject" },
+                { "$ref": "#/definitions/referenceObject" },
+                { "$ref": "#/definitions/oneOfObject" }
+              ]
             }
           }
         },
@@ -102,7 +105,11 @@
         "oneOf": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/contentDescriptorObject"
+            "oneOf": [
+              { "$ref": "#/definitions/contentDescriptorObject" },
+              { "$ref": "#/definitions/referenceObject" },
+              { "$ref": "#/definitions/oneOfObject" }
+            ]
           }
         }
       }
@@ -147,14 +154,14 @@
     "errors": {
       "type": "array"
     },
-    "vendorExtensions": {	
-      "type": "object",	
-      "description": "Any property starting with x- is valid.",	
-      "patternProperties": {	
-        "^x-": {	
+    "vendorExtensions": {
+      "type": "object",
+      "description": "Any property starting with x- is valid.",
+      "patternProperties": {
+        "^x-": {
           "type": "object"
-        }	
-      }	
+        }
+      }
     },
     "links": {
       "type": "array",
@@ -395,11 +402,19 @@
             "params": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/contentDescriptorObject"
+                "oneOf": [
+                  { "$ref": "#/definitions/contentDescriptorObject" },
+                  { "$ref": "#/definitions/referenceObject" },
+                  { "$ref": "#/definitions/oneOfObject" }
+                ]
               }
             },
             "result": {
-              "$ref": "#/definitions/contentDescriptorObject"
+              "oneOf": [
+                { "$ref": "#/definitions/contentDescriptorObject" },
+                { "$ref": "#/definitions/referenceObject" },
+                { "$ref": "#/definitions/oneOfObject" }
+              ]
             },
             "links": {
               "$ref": "#/definitions/links"
@@ -467,38 +482,28 @@
       }
     },
     "contentDescriptorObject": {
-      "oneOf": [
+      "allOf": [
         {
-          "$ref": "#/definitions/oneOfObject"
-        },
-        {
-          "$ref": "#/definitions/referenceObject"
-        },
-        {
-          "allOf": [
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [ "name" ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "schema": {
-                  "$ref": "#/definitions/schema"
-                },
-                "required": {
-                  "type": "boolean"
-                }
-              }
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "name" ],
+          "properties": {
+            "name": {
+              "type": "string"
             },
-            {
-              "$ref": "#/definitions/vendorExtensions"
+            "description": {
+              "type": "string"
+            },
+            "schema": {
+              "$ref": "#/definitions/schema"
+            },
+            "required": {
+              "type": "boolean"
             }
-          ]
+          }
+        },
+        {
+          "$ref": "#/definitions/vendorExtensions"
         }
       ]
     }
