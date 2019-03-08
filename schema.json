@@ -119,15 +119,6 @@
         }
       }
     },
-    "vendorExtensions": {
-      "type": "object",
-      "description": "Any property starting with x- is valid.",
-      "patternProperties": {
-        "^x-": {
-          "$ref": "#/definitions/vendorExtensions"
-        }
-      }
-    },
     "servers": {
       "type": "array",
       "items": {
