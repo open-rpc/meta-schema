@@ -1,5 +1,6 @@
 const metaSchema = require('./schema.json');
 const openRpcExamples = require('@open-rpc/examples');
+const fetch = require('node-fetch');
 const Ajv = require('ajv');
 const ajv = new Ajv();
 
@@ -8,8 +9,9 @@ const getJsonSchemaDraft7 = async () => ajv.addMetaSchema(
   "https://json-schema.org/draft-07/schema#"
 );
 
-describe('validates all examples without error', async () => {
-  await getJsonSchemaDraft7();
+describe('validates all examples without error', () => {
+  beforeAll(async () => await getJsonSchemaDraft7());
+
   const exampleNames = Object.keys(openRpcExamples);
   exampleNames.forEach((exampleName) => {
     it(`validates the example: ${exampleName}`, () => {

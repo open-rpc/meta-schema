@@ -25,7 +25,8 @@
   ],
   "dependencies": {
     "@open-rpc/examples": "^1.0.7",
-    "ajv": "^6.10.0"
+    "ajv": "^6.10.0",
+    "node-fetch": "^2.3.0"
   },
   "devDependencies": {
     "jest": "^24.1.0"
