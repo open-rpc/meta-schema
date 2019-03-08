@@ -146,6 +146,15 @@
     "errors": {
       "type": "array"
     },
+    "vendorExtensions": {	
+      "type": "object",	
+      "description": "Any property starting with x- is valid.",	
+      "patternProperties": {	
+        "^x-": {	
+          "type": "object"
+        }	
+      }	
+    },
     "links": {
       "type": "array",
       "items": {
