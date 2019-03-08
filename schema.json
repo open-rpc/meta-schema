@@ -59,14 +59,6 @@
             }
           }
         },
-        "errors": {
-          "type": "object",
-          "patternProperties": {
-            "[0-z]+": {
-              "$ref": "#/definitions/errorObject"
-            }
-          }
-        },
         "contentDescriptors": {
           "type": "object",
           "patternProperties": {
@@ -163,13 +155,6 @@
       "additionalItems": false,
       "items": {
         "$ref": "#/definitions/examplePairingObject"
-      }
-    },
-    "errors": {
-      "type": "array",
-      "additionalItems": false,
-      "items": {
-        "$ref": "#/defintions/errorObject"
       }
     },
     "links": {
