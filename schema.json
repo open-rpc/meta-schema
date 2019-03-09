@@ -411,6 +411,16 @@
                 { "$ref": "#/definitions/oneOfObject" }
               ]
             },
+            "errors": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  { "$ref": "#/definitions/ErrorObject" },
+                  { "$ref": "#/definitions/referenceObject" },
+                  { "$ref": "#/definitions/oneOfObject" }
+                ]
+              }
+            },
             "links": {
               "$ref": "#/definitions/links"
             },
