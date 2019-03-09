@@ -169,8 +169,7 @@
       "additionalProperties": false,
       "required": [
         "code",
-        "message",
-        "data"
+        "message"
       ],
       "properties": {
         "code": {
