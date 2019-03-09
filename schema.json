@@ -415,7 +415,7 @@
               "type": "array",
               "items": {
                 "oneOf": [
-                  { "$ref": "#/definitions/ErrorObject" },
+                  { "$ref": "#/definitions/errorObject" },
                   { "$ref": "#/definitions/referenceObject" },
                   { "$ref": "#/definitions/oneOfObject" }
                 ]
