@@ -1,6 +1,6 @@
 {
   "name": "@open-rpc/meta-schema",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "OpenRPC Specification JSON schemas",
   "author": {
     "name": "open-rpc",
@@ -29,7 +29,7 @@
     "node-fetch": "^2.3.0"
   },
   "devDependencies": {
-    "jest": "^24.1.0"
+    "jest": "^24.3.1"
   },
   "keywords": [
     "open-rpc",

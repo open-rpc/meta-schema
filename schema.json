@@ -1,19 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft-07/schema#",
+
   "type": "object",
-  "required": [
-    "info",
-    "methods",
-    "openrpc"
-  ],
+  "required": ["info", "methods", "openrpc"],
   "additionalProperties": false,
   "properties": {
     "openrpc": {
       "type": "string",
-      "enum": [
-        "1.0.0-rc0",
-        "1.0.0-rc1"
-      ]
+      "enum": ["1.0.0-rc0", "1.0.0-rc1"]
     },
     "info": {
       "$ref": "#/definitions/infoObject"
@@ -90,9 +84,7 @@
     "oneOfObject": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "oneOf"
-      ],
+      "required": ["oneOf"],
       "properties": {
         "oneOf": {
           "type": "array",
@@ -110,9 +102,7 @@
     "referenceObject": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "$ref"
-      ],
+      "required": ["$ref"],
       "properties": {
         "$ref": {
           "type": "string",
@@ -166,20 +156,21 @@
     },
     "errorObject": {
       "type": "object",
+      "description": "Defines an application level error.",
       "additionalProperties": false,
-      "required": [
-        "code",
-        "message",
-        "data"
-      ],
+      "required": ["code", "message"],
       "properties": {
         "code": {
+          "description": "A Number that indicates the error type that occurred. This MUST be an integer. The error codes from and including -32768 to -32000 are reserved for pre-defined errors. These pre-defined errors SHOULD be assumed to be returned from any JSON-RPC api.",
           "type": "integer"
         },
         "message": {
+          "description": "A String providing a short description of the error. The message SHOULD be limited to a concise single sentence.",
           "type": "string"
         },
-        "data": {}
+        "data": {
+          "description": "A Primitive or Structured value that contains additional information about the error. This may be omitted. The value of this member is defined by the Server (e.g. detailed error information, nested errors etc.)."
+        }
       }
     },
     "licenseObject": {
@@ -228,10 +219,7 @@
         {
           "type": "object",
           "additionalProperties": false,
-          "required": [
-            "title",
-            "version"
-          ],
+          "required": ["title", "version"],
           "properties": {
             "title": {
               "type": "string"
@@ -262,9 +250,7 @@
       "allOf": [
         {
           "type": "object",
-          "required": [
-            "url"
-          ],
+          "required": ["url"],
           "additionalProperties": false,
           "properties": {
             "url": {
@@ -321,9 +307,7 @@
           "type": "object",
           "additionalProperties": false,
           "description": "information about external documentation",
-          "required": [
-            "url"
-          ],
+          "required": ["url"],
           "properties": {
             "description": {
               "type": "string"
@@ -344,9 +328,7 @@
         {
           "type": "object",
           "additionalProperties": false,
-          "required": [
-            "name"
-          ],
+          "required": ["name"],
           "properties": {
             "name": {
               "type": "string"
@@ -368,19 +350,19 @@
       "allOf": [
         {
           "type": "object",
-          "required": [
-            "name",
-            "result"
-          ],
+          "required": ["name", "result"],
           "additionalProperties": false,
           "properties": {
             "name": {
+              "description": "The cannonical name for the method. The name MUST be unique within the methods array.",
               "type": "string"
             },
             "description": {
+              "description": "A verbose explanation of the method behavior. GitHub Flavored Markdown syntax MAY be used for rich text representation.",
               "type": "string"
             },
             "summary": {
+              "description": "A short summary of what the method does.",
               "type": "string"
             },
             "tags": {
@@ -388,10 +370,8 @@
             },
             "paramStructure": {
               "type": "string",
-              "enum": [
-                "by-position",
-                "by-name"
-              ],
+              "description": "Format the server expects the params. Defaults to 'by-positon'.",
+              "enum": ["by-position", "by-name"],
               "default": "by-position"
             },
             "params": {
@@ -411,6 +391,17 @@
                 { "$ref": "#/definitions/oneOfObject" }
               ]
             },
+            "errors": {
+              "description": "Defines an application level error.",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  { "$ref": "#/definitions/errorObject" },
+                  { "$ref": "#/definitions/referenceObject" },
+                  { "$ref": "#/definitions/oneOfObject" }
+                ]
+              }
+            },
             "links": {
               "$ref": "#/definitions/links"
             },
@@ -428,10 +419,7 @@
       "allOf": [
         {
           "type": "object",
-          "required": [
-            "name",
-            "value"
-          ],
+          "required": ["name", "value"],
           "properties": {
             "summary": {
               "type": "string"
@@ -481,12 +469,15 @@
         {
           "type": "object",
           "additionalProperties": false,
-          "required": [ "name" ],
+          "required": ["name"],
           "properties": {
             "name": {
               "type": "string"
             },
             "description": {
+              "type": "string"
+            },
+            "summary": {
               "type": "string"
             },
             "schema": {
