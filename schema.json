@@ -166,6 +166,7 @@
     },
     "errorObject": {
       "type": "object",
+      "description": "Defines an application level error.",
       "additionalProperties": false,
       "required": [
         "code",
@@ -173,12 +174,16 @@
       ],
       "properties": {
         "code": {
+          "description": "A Number that indicates the error type that occurred. This MUST be an integer. The error codes from and including -32768 to -32000 are reserved for pre-defined errors. These pre-defined errors SHOULD be assumed to be returned from any JSON-RPC api."
           "type": "integer"
         },
         "message": {
+          "description": "A String providing a short description of the error. The message SHOULD be limited to a concise single sentence.",
           "type": "string"
         },
-        "data": {}
+        "data": {
+          "description": "A Primitive or Structured value that contains additional information about the error. This may be omitted. The value of this member is defined by the Server (e.g. detailed error information, nested errors etc.)."
+        }
       }
     },
     "licenseObject": {
@@ -271,12 +276,14 @@
               "format": "uri"
             },
             "name": {
+
               "type": "string"
             },
             "description": {
               "type": "string"
             },
             "summary": {
+
               "type": "string"
             }
           }
@@ -374,12 +381,15 @@
           "additionalProperties": false,
           "properties": {
             "name": {
+              "description": "The cannonical name for the method. The name MUST be unique within the methods array.",              
               "type": "string"
             },
             "description": {
+              "description": "A verbose explanation of the method behavior. GitHub Flavored Markdown syntax MAY be used for rich text representation.",
               "type": "string"
             },
             "summary": {
+              "description": "A short summary of what the method does.",              
               "type": "string"
             },
             "tags": {
@@ -387,6 +397,7 @@
             },
             "paramStructure": {
               "type": "string",
+              "description": "Format the server expects the params. Defaults to 'by-positon'."
               "enum": [
                 "by-position",
                 "by-name"
@@ -411,6 +422,7 @@
               ]
             },
             "errors": {
+              "description": "Defines an application level error.",
               "type": "array",
               "items": {
                 "oneOf": [
@@ -496,6 +508,10 @@
               "type": "string"
             },
             "description": {
+              "type": "string",
+              "description"
+            },
+            "summary": {
               "type": "string"
             },
             "schema": {
