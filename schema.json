@@ -7,6 +7,7 @@
   "properties": {
     "openrpc": {
       "type": "string",
+      "description": "REQUIRED. This string MUST be the semantic version number of the OpenRPC Specification version that the OpenRPC document uses. The openrpc field SHOULD be used by tooling specifications and clients to interpret the OpenRPC document. This is not related to the API info.version string.",
       "enum": ["1.0.0-rc0", "1.0.0-rc1"]
     },
     "info": {
@@ -20,6 +21,7 @@
     },
     "components": {
       "type": "object",
+      "description": "An element to hold various schemas for the specification.",
       "properties": {
         "schemas": {
           "type": "object",
@@ -101,11 +103,13 @@
     },
     "referenceObject": {
       "type": "object",
+      "description": "A simple object to allow referencing other components in the specification, internally and externally. The Reference Object is defined by JSON Schema and follows the same structure, behavior and rules.",
       "additionalProperties": false,
       "required": ["$ref"],
       "properties": {
         "$ref": {
           "type": "string",
+          "description": "REQUIRED. The reference string.",
           "format": "uri-reference"
         }
       }
@@ -121,6 +125,7 @@
     },
     "servers": {
       "type": "array",
+      "description": "An array of Server Objects, which provide connectivity information to a target server. If the servers property is not provided, or is an empty array, the default value would be a Server Object with a url value of /.",
       "additionalItems": false,
       "items": {
         "$ref": "#/definitions/serverObject"
@@ -128,6 +133,7 @@
     },
     "tags": {
       "type": "array",
+      "description": "A list of tags used by the specification with additional metadata. The order of the tags can be used to reflect on their order by the parsing tools. Not all tags that are used by the Method Object must be declared. The tags that are not declared MAY be organized randomly or based on the tools' logic. Each tag name in the list MUST be unique.",
       "additionalItems": false,
       "items": {
         "$ref": "#/definitions/tagObject"
@@ -135,6 +141,7 @@
     },
     "methods": {
       "type": "array",
+      "description": "REQUIRED. The available methods for the API. While it is required, the array may be empty (to handle security filtering, for example).",
       "additionalItems": false,
       "items": {
         "$ref": "#/definitions/methodObject"
@@ -177,12 +184,15 @@
       "anyOf": [
         {
           "type": "object",
+          "description": "The license information for the exposed API.",
           "additionalProperties": false,
           "properties": {
             "name": {
+              "description": "REQUIRED. The license name used for the API.",
               "type": "string"
             },
             "url": {
+              "description": "A URL to the license used for the API. MUST be in the format of a URL.",
               "type": "string"
             }
           }
@@ -196,15 +206,19 @@
       "anyOf": [
         {
           "type": "object",
+          "description": "The contact information for the exposed API.",
           "additionalProperties": false,
           "properties": {
             "name": {
+              "description": "The identifying name of the contact person/organization.",
               "type": "string"
             },
             "email": {
+              "description": "The email address of the contact person/organization. MUST be in the format of an email address.",
               "type": "string"
             },
             "url": {
+              "description": "The URL pointing to the contact information. MUST be in the format of a URL.",
               "type": "string"
             }
           }
@@ -218,19 +232,24 @@
       "anyOf": [
         {
           "type": "object",
+          "description": "REQUIRED. Provides metadata about the API. The metadata MAY be used by tooling as required.",
           "additionalProperties": false,
           "required": ["title", "version"],
           "properties": {
             "title": {
+              "description": "REQUIRED. The title of the application.",
               "type": "string"
             },
             "description": {
+              "description": "A verbose description of the application. GitHub Flavored Markdown syntax MAY be used for rich text representation.",
               "type": "string"
             },
             "termsOfService": {
+              "description": "A URL to the Terms of Service for the API. MUST be in the format of a URL.",
               "type": "string"
             },
             "version": {
+              "description": "REQUIRED. The version of the OpenRPC document (which is distinct from the OpenRPC Specification version or the API implementation version).",
               "type": "string"
             },
             "contact": {
@@ -250,20 +269,25 @@
       "allOf": [
         {
           "type": "object",
+          "description": "An object representing a Server.",
           "required": ["url"],
           "additionalProperties": false,
           "properties": {
             "url": {
               "type": "string",
+              "description": "REQUIRED. A URL to the target host. This URL supports Server Variables and MAY be relative, to indicate that the host location is relative to the location where the OpenRPC document is being served. Variable substitutions will be made when a variable is named in {brackets}.",
               "format": "uri"
             },
             "name": {
+              "description": "A map between a variable name and its value. The value is used for substitution in the server's URL template.",
               "type": "string"
             },
             "description": {
+              "description": "An optional string describing the host designated by the URL. GitHub Flavored Markdown syntax MAY be used for rich text representation.",
               "type": "string"
             },
             "summary": {
+              "description": "A short summary describing the URL.",
               "type": "string"
             }
           }
@@ -279,15 +303,20 @@
           "allOf": [
             {
               "type": "object",
+              "description": "The Link object represents a possible design-time link for a result. The presence of a link does not guarantee the caller's ability to successfully invoke it, rather it provides a known relationship and traversal mechanism between results and other methods. Unlike dynamic links (i.e. links provided in the result payload), the OpenRPC linking mechanism does not require link information in the runtime result. For computing links, and providing instructions to execute them, a runtime expression is used for accessing values in an method and using them as parameters while invoking the linked method.",
               "additionalProperties": false,
               "properties": {
                 "method": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "The name of an existing, resolvable OpenRPC method, as defined with a unique method. This field MUST resolve to a unique Method Object. As opposed to Open Api, Relative method values ARE NOT permitted."
                 },
                 "description": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "A description of the link. GitHub Flavored Markdown syntax MAY be used for rich text representation."
                 },
-                "params": {},
+                "params": {
+                  "description": "A map representing parameters to pass to a method as specified with method. The key is the parameter name to be used, whereas the value can be a constant or an expression to be evaluated and passed to the linked method."
+                },
                 "server": {
                   "$ref": "#/definitions/serverObject"
                 }
@@ -306,14 +335,16 @@
         {
           "type": "object",
           "additionalProperties": false,
-          "description": "information about external documentation",
+          "description": "Additional external documentation.",
           "required": ["url"],
           "properties": {
             "description": {
-              "type": "string"
+              "type": "string",
+              "description": "A verbose explanation of the target documentation. GitHub Flavored Markdown syntax MAY be used for rich text representation."
             },
             "url": {
               "type": "string",
+              "description": "REQUIRED. The URL for the target documentation. Value MUST be in the format of a URL.",
               "format": "uri"
             }
           }
@@ -327,13 +358,16 @@
       "allOf": [
         {
           "type": "object",
+          "description": "Adds metadata to a single tag that is used by the Method Object. It is not mandatory to have a Tag Object per tag defined in the Method Object instances.",
           "additionalProperties": false,
           "required": ["name"],
           "properties": {
             "name": {
+              "description": "REQUIRED. The name of the tag.",
               "type": "string"
             },
             "description": {
+              "description": "A verbose explanation for the tag. GitHub Flavored Markdown syntax MAY be used for rich text representation.",
               "type": "string"
             },
             "externalDocs": {
@@ -350,6 +384,7 @@
       "allOf": [
         {
           "type": "object",
+          "description": "Describes the interface for the given method name. The method name is used as the method field of the JSON-RPC body. It therefor MUST be unique.",
           "required": ["name", "result"],
           "additionalProperties": false,
           "properties": {
@@ -376,6 +411,7 @@
             },
             "params": {
               "type": "array",
+              "description": "A list of parameters that are applicable for this method. The list MUST NOT include duplicated parameters and therefore require name to be unique. The list can use the Reference Object to link to parameters that are defined by the Content Descriptor Object. It may also nest the content descriptor or reference object inside of a OneOf Object.",
               "items": {
                 "oneOf": [
                   { "$ref": "#/definitions/contentDescriptorObject" },
@@ -385,6 +421,7 @@
               }
             },
             "result": {
+              "description": "REQUIRED. The description of the result returned by the method. It MUST be a Content Descriptor.",
               "oneOf": [
                 { "$ref": "#/definitions/contentDescriptorObject" },
                 { "$ref": "#/definitions/referenceObject" },
@@ -440,6 +477,7 @@
     },
     "examplePairingObject": {
       "type": "object",
+      "description": "The example Pairing object consists of a set of example params and result. The result is what you can expect from the JSON-RPC service given the exact params.",
       "properties": {
         "name": {
           "type": "string"
@@ -468,23 +506,28 @@
       "allOf": [
         {
           "type": "object",
+          "description": "Content Descriptors are objects that do just as they suggest - describe content. They are reusable ways of describing either parameters or result. They MUST have a schema.",
           "additionalProperties": false,
           "required": ["name"],
           "properties": {
             "name": {
-              "type": "string"
+              "type": "string",
+              "description": "name of the content that is being described."
             },
             "description": {
-              "type": "string"
+              "type": "string",
+              "description": "A verbose explanation of the method behavior. GitHub Flavored Markdown syntax MAY be used for rich text representation."
             },
             "summary": {
+              "description": "A short summary of what the content descripto does.",
               "type": "string"
             },
             "schema": {
               "$ref": "#/definitions/schema"
             },
             "required": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "Determines if the content is a required field. Default value is false."
             }
           }
         },
