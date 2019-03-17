@@ -1,4 +1,4 @@
-import schema from "./schema.json";
+import schema from "../schema.json";
 import * as types from "./types";
 
 export { types };

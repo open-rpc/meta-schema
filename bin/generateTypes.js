@@ -1,4 +1,4 @@
-const schema = require('../src/schema.json');
+const schema = require('../schema.json');
 const { compile } = require('json-schema-to-typescript');
 const fs = require('fs');
 const path = require('path');
