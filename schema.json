@@ -109,15 +109,6 @@
         }
       }
     },
-    "vendorExtensions": {
-      "type": "object",
-      "description": "Any property starting with x- is valid.",
-      "patternProperties": {
-        "^x-": {
-          "default": {}
-        }
-      }
-    },
     "servers": {
       "type": "array",
       "additionalItems": false,
@@ -173,269 +164,240 @@
       }
     },
     "licenseObject": {
-      "anyOf": [
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string"
-            }
-          }
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
         },
-        {
-          "$ref": "#/definitions/vendorExtensions"
+        "url": {
+          "type": "string"
         }
-      ]
+      },
+      "patternProperties": {
+        "^x-": {}
+      }
     },
     "contactObject": {
-      "anyOf": [
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "email": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string"
-            }
-          }
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
         },
-        {
-          "$ref": "#/definitions/vendorExtensions"
+        "email": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
         }
-      ]
+      },
+      "patternProperties": {
+        "^x-": {}
+      }
     },
     "infoObject": {
-      "anyOf": [
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["title", "version"],
-          "properties": {
-            "title": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "termsOfService": {
-              "type": "string"
-            },
-            "version": {
-              "type": "string"
-            },
-            "contact": {
-              "$ref": "#/definitions/contactObject"
-            },
-            "license": {
-              "$ref": "#/definitions/licenseObject"
-            }
-          }
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "version"],
+      "properties": {
+        "title": {
+          "type": "string"
         },
-        {
-          "$ref": "#/definitions/vendorExtensions"
+        "description": {
+          "type": "string"
+        },
+        "termsOfService": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "contact": {
+          "$ref": "#/definitions/contactObject"
+        },
+        "license": {
+          "$ref": "#/definitions/licenseObject"
         }
-      ]
+      },
+      "patternProperties": {
+        "^x-": {}
+      }
     },
     "serverObject": {
-      "allOf": [
-        {
-          "type": "object",
-          "required": ["url"],
-          "additionalProperties": false,
-          "properties": {
-            "url": {
-              "type": "string",
-              "format": "uri"
-            },
-            "name": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "summary": {
-              "type": "string"
-            }
-          }
+      "type": "object",
+      "required": ["url"],
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
         },
-        {
-          "$ref": "#/definitions/vendorExtensions"
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
         }
-      ]
+      },
+      "patternProperties": {
+        "^x-": {}
+      }
     },
     "linkObject": {
-      "oneOf": [
-        {
-          "allOf": [
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "method": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "params": {},
-                "server": {
-                  "$ref": "#/definitions/serverObject"
-                }
-              }
-            },
-            {
-              "$ref": "#/definitions/vendorExtensions"
-            }
-          ]
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "type": "string"
         },
-        { "$ref": "#/definitions/referenceObject" }
-      ]
+        "description": {
+          "type": "string"
+        },
+        "params": {},
+        "server": {
+          "$ref": "#/definitions/serverObject"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      }
     },
     "externalDocumentationObject": {
-      "allOf": [
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "description": "information about external documentation",
-          "required": ["url"],
-          "properties": {
-            "description": {
-              "type": "string"
-            },
-            "url": {
-              "type": "string",
-              "format": "uri"
-            }
-          }
+      "type": "object",
+      "additionalProperties": false,
+      "description": "information about external documentation",
+      "required": ["url"],
+      "properties": {
+        "description": {
+          "type": "string"
         },
-        {
-          "$ref": "#/definitions/vendorExtensions"
+        "url": {
+          "type": "string",
+          "format": "uri"
         }
-      ]
+      },
+      "patternProperties": {
+        "^x-": {}
+      }
     },
     "tagObject": {
-      "allOf": [
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["name"],
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "externalDocs": {
-              "$ref": "#/definitions/externalDocumentationObject"
-            }
-          }
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
         },
-        {
-          "$ref": "#/definitions/vendorExtensions"
+        "description": {
+          "type": "string"
+        },
+        "externalDocs": {
+          "$ref": "#/definitions/externalDocumentationObject"
         }
-      ]
+      },
+      "patternProperties": {
+        "^x-": {}
+      }
     },
     "methodObject": {
-      "allOf": [
-        {
-          "type": "object",
-          "required": ["name", "result"],
-          "additionalProperties": false,
-          "properties": {
-            "name": {
-              "description": "The cannonical name for the method. The name MUST be unique within the methods array.",
-              "type": "string"
-            },
-            "description": {
-              "description": "A verbose explanation of the method behavior. GitHub Flavored Markdown syntax MAY be used for rich text representation.",
-              "type": "string"
-            },
-            "summary": {
-              "description": "A short summary of what the method does.",
-              "type": "string"
-            },
-            "tags": {
-              "$ref": "#/definitions/tags"
-            },
-            "paramStructure": {
-              "type": "string",
-              "description": "Format the server expects the params. Defaults to 'by-positon'.",
-              "enum": ["by-position", "by-name"],
-              "default": "by-position"
-            },
-            "params": {
-              "type": "array",
-              "items": {
-                "oneOf": [
-                  { "$ref": "#/definitions/contentDescriptorObject" },
-                  { "$ref": "#/definitions/referenceObject" },
-                  { "$ref": "#/definitions/oneOfObject" }
-                ]
-              }
-            },
-            "result": {
-              "oneOf": [
-                { "$ref": "#/definitions/contentDescriptorObject" },
-                { "$ref": "#/definitions/referenceObject" },
-                { "$ref": "#/definitions/oneOfObject" }
-              ]
-            },
-            "errors": {
-              "description": "Defines an application level error.",
-              "type": "array",
-              "items": {
-                "oneOf": [
-                  { "$ref": "#/definitions/errorObject" },
-                  { "$ref": "#/definitions/referenceObject" },
-                  { "$ref": "#/definitions/oneOfObject" }
-                ]
-              }
-            },
-            "links": {
-              "$ref": "#/definitions/links"
-            },
-            "examples": {
-              "$ref": "#/definitions/examples"
-            }
+      "type": "object",
+      "required": ["name", "result"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "description": "The cannonical name for the method. The name MUST be unique within the methods array.",
+          "type": "string"
+        },
+        "description": {
+          "description": "A verbose explanation of the method behavior. GitHub Flavored Markdown syntax MAY be used for rich text representation.",
+          "type": "string"
+        },
+        "summary": {
+          "description": "A short summary of what the method does.",
+          "type": "string"
+        },
+        "tags": {
+          "$ref": "#/definitions/tags"
+        },
+        "paramStructure": {
+          "type": "string",
+          "description": "Format the server expects the params. Defaults to 'by-positon'.",
+          "enum": ["by-position", "by-name"],
+          "default": "by-position"
+        },
+        "params": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "$ref": "#/definitions/contentDescriptorObject" },
+              { "$ref": "#/definitions/referenceObject" },
+              { "$ref": "#/definitions/oneOfObject" }
+            ]
           }
         },
-        {
-          "$ref": "#/definitions/vendorExtensions"
+        "result": {
+          "oneOf": [
+            { "$ref": "#/definitions/contentDescriptorObject" },
+            { "$ref": "#/definitions/referenceObject" },
+            { "$ref": "#/definitions/oneOfObject" }
+          ]
+        },
+        "errors": {
+          "description": "Defines an application level error.",
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "$ref": "#/definitions/errorObject" },
+              { "$ref": "#/definitions/referenceObject" },
+              { "$ref": "#/definitions/oneOfObject" }
+            ]
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "$ref": "#/definitions/linkObject" },
+              { "$ref": "#/definitions/referenceObject" }
+            ]
+          }
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "$ref": "#/definitions/examplePairingObject" },
+              { "$ref": "#/definitions/referenceObject" }
+            ]
+          }
         }
-      ]
+      },
+      "patternProperties": {
+        "^x-": {}
+      }
     },
     "exampleObject": {
-      "allOf": [
-        {
-          "type": "object",
-          "required": ["name", "value"],
-          "properties": {
-            "summary": {
-              "type": "string"
-            },
-            "value": {},
-            "description": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            }
-          }
+      "type": "object",
+      "required": ["name", "value"],
+      "properties": {
+        "summary": {
+          "type": "string"
         },
-        {
-          "$ref": "#/definitions/vendorExtensions"
+        "value": {},
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
         }
-      ]
+      },
+      "patternProperties": {
+        "^x-": {}
+      }
     },
     "examplePairingObject": {
       "type": "object",
@@ -464,33 +426,29 @@
       }
     },
     "contentDescriptorObject": {
-      "allOf": [
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["name"],
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "summary": {
-              "type": "string"
-            },
-            "schema": {
-              "$ref": "#/definitions/schema"
-            },
-            "required": {
-              "type": "boolean"
-            }
-          }
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
         },
-        {
-          "$ref": "#/definitions/vendorExtensions"
+        "description": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "schema": {
+          "$ref": "#/definitions/schema"
+        },
+        "required": {
+          "type": "boolean"
         }
-      ]
+      },
+      "patternProperties": {
+        "^x-": {}
+      }
     }
   }
 }

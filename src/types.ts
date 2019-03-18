@@ -5,109 +5,8 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type InfoObject =
-  | {
-      title: string;
-      description?: string;
-      termsOfService?: string;
-      version: string;
-      contact?: ContactObject;
-      license?: LicenseObject;
-    }
-  | VendorExtensions;
-export type ContactObject =
-  | {
-      name?: string;
-      email?: string;
-      url?: string;
-    }
-  | VendorExtensions;
-export type LicenseObject =
-  | {
-      name?: string;
-      url?: string;
-    }
-  | VendorExtensions;
-export type ServerObject = {
-  url: string;
-  name?: string;
-  description?: string;
-  summary?: string;
-} & VendorExtensions;
 export type Servers = ServerObject[];
-export type MethodObject = {
-  /**
-   * The cannonical name for the method. The name MUST be unique within the methods array.
-   */
-  name: string;
-  /**
-   * A verbose explanation of the method behavior. GitHub Flavored Markdown syntax MAY be used for rich text representation.
-   */
-  description?: string;
-  /**
-   * A short summary of what the method does.
-   */
-  summary?: string;
-  tags?: Tags;
-  /**
-   * Format the server expects the params. Defaults to 'by-positon'.
-   */
-  paramStructure?: "by-position" | "by-name";
-  params?: (ContentDescriptorObject | ReferenceObject | OneOfObject)[];
-  result: ContentDescriptorObject | ReferenceObject | OneOfObject;
-  /**
-   * Defines an application level error.
-   */
-  errors?: (ErrorObject | ReferenceObject | OneOfObject)[];
-  links?: Links;
-  examples?: Examples;
-} & VendorExtensions;
-/**
- * This interface was referenced by `undefined`'s JSON-Schema definition
- * via the `patternProperty` "[0-z]+".
- */
-export type TagObject = {
-  name: string;
-  description?: string;
-  externalDocs?: ExternalDocumentationObject;
-} & VendorExtensions;
-export type ExternalDocumentationObject = {
-  description?: string;
-  url: string;
-} & VendorExtensions;
 export type Tags = TagObject[];
-export type ContentDescriptorObject = {
-  name: string;
-  description?: string;
-  summary?: string;
-  schema?: Schema;
-  required?: boolean;
-} & VendorExtensions;
-/**
- * This interface was referenced by `undefined`'s JSON-Schema definition
- * via the `patternProperty` "[0-z]+".
- */
-export type LinkObject =
-  | ({
-      method?: string;
-      description?: string;
-      params?: any;
-      server?: ServerObject;
-    } & VendorExtensions)
-  | ReferenceObject;
-export type Links = LinkObject[];
-/**
- * This interface was referenced by `undefined`'s JSON-Schema definition
- * via the `patternProperty` "[0-z]+".
- */
-export type ExampleObject = {
-  summary?: string;
-  value: any;
-  description?: string;
-  name: string;
-  [k: string]: any;
-} & VendorExtensions;
-export type Examples = ExamplePairingObject[];
 export type Methods = MethodObject[];
 
 export interface OpenRPC {
@@ -141,17 +40,118 @@ export interface OpenRPC {
     [k: string]: any;
   };
 }
-/**
- * Any property starting with x- is valid.
- */
-export interface VendorExtensions {
+export interface InfoObject {
+  title: string;
+  description?: string;
+  termsOfService?: string;
+  version: string;
+  contact?: ContactObject;
+  license?: LicenseObject;
   /**
-   * This interface was referenced by `VendorExtensions`'s JSON-Schema definition
+   * This interface was referenced by `InfoObject`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
    */
-  [k: string]: {
-    [k: string]: any;
-  };
+  [k: string]: any;
+}
+export interface ContactObject {
+  name?: string;
+  email?: string;
+  url?: string;
+  /**
+   * This interface was referenced by `ContactObject`'s JSON-Schema definition
+   * via the `patternProperty` "^x-".
+   */
+  [k: string]: any;
+}
+export interface LicenseObject {
+  name?: string;
+  url?: string;
+  /**
+   * This interface was referenced by `LicenseObject`'s JSON-Schema definition
+   * via the `patternProperty` "^x-".
+   */
+  [k: string]: any;
+}
+export interface ServerObject {
+  url: string;
+  name?: string;
+  description?: string;
+  summary?: string;
+  /**
+   * This interface was referenced by `ServerObject`'s JSON-Schema definition
+   * via the `patternProperty` "^x-".
+   */
+  [k: string]: any;
+}
+export interface MethodObject {
+  /**
+   * The cannonical name for the method. The name MUST be unique within the methods array.
+   */
+  name: string;
+  /**
+   * A verbose explanation of the method behavior. GitHub Flavored Markdown syntax MAY be used for rich text representation.
+   */
+  description?: string;
+  /**
+   * A short summary of what the method does.
+   */
+  summary?: string;
+  tags?: Tags;
+  /**
+   * Format the server expects the params. Defaults to 'by-positon'.
+   */
+  paramStructure?: "by-position" | "by-name";
+  params?: (ContentDescriptorObject | ReferenceObject | OneOfObject)[];
+  result: ContentDescriptorObject | ReferenceObject | OneOfObject;
+  /**
+   * Defines an application level error.
+   */
+  errors?: (ErrorObject | ReferenceObject | OneOfObject)[];
+  links?: (LinkObject | ReferenceObject)[];
+  examples?: (ExamplePairingObject | ReferenceObject)[];
+  /**
+   * This interface was referenced by `MethodObject`'s JSON-Schema definition
+   * via the `patternProperty` "^x-".
+   */
+  [k: string]: any;
+}
+/**
+ * This interface was referenced by `undefined`'s JSON-Schema definition
+ * via the `patternProperty` "[0-z]+".
+ */
+export interface TagObject {
+  name: string;
+  description?: string;
+  externalDocs?: ExternalDocumentationObject;
+  /**
+   * This interface was referenced by `TagObject`'s JSON-Schema definition
+   * via the `patternProperty` "^x-".
+   */
+  [k: string]: any;
+}
+/**
+ * information about external documentation
+ */
+export interface ExternalDocumentationObject {
+  description?: string;
+  url: string;
+  /**
+   * This interface was referenced by `ExternalDocumentationObject`'s JSON-Schema definition
+   * via the `patternProperty` "^x-".
+   */
+  [k: string]: any;
+}
+export interface ContentDescriptorObject {
+  name: string;
+  description?: string;
+  summary?: string;
+  schema?: Schema;
+  required?: boolean;
+  /**
+   * This interface was referenced by `ContentDescriptorObject`'s JSON-Schema definition
+   * via the `patternProperty` "^x-".
+   */
+  [k: string]: any;
 }
 /**
  * This interface was referenced by `undefined`'s JSON-Schema definition
@@ -189,10 +189,40 @@ export interface ErrorObject {
  * This interface was referenced by `undefined`'s JSON-Schema definition
  * via the `patternProperty` "[0-z]+".
  */
+export interface LinkObject {
+  method?: string;
+  description?: string;
+  params?: any;
+  server?: ServerObject;
+  /**
+   * This interface was referenced by `LinkObject`'s JSON-Schema definition
+   * via the `patternProperty` "^x-".
+   */
+  [k: string]: any;
+}
+/**
+ * This interface was referenced by `undefined`'s JSON-Schema definition
+ * via the `patternProperty` "[0-z]+".
+ */
 export interface ExamplePairingObject {
   name?: string;
   description?: string;
   params?: (ExampleObject | ReferenceObject)[];
   result?: ExampleObject | ReferenceObject;
+  [k: string]: any;
+}
+/**
+ * This interface was referenced by `undefined`'s JSON-Schema definition
+ * via the `patternProperty` "[0-z]+".
+ */
+export interface ExampleObject {
+  summary?: string;
+  value: any;
+  description?: string;
+  name: string;
+  /**
+   * This interface was referenced by `ExampleObject`'s JSON-Schema definition
+   * via the `patternProperty` "^x-".
+   */
   [k: string]: any;
 }
