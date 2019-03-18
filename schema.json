@@ -242,22 +242,6 @@
     "externalDocumentationObject": {
       "type": "object",
       "additionalProperties": false,
-      "properties": {
-        "description": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string",
-          "format": "uri"
-        }
-      },
-      "patternProperties": {
-        "^x-": {}
-      }
-    },
-    "externalDocumentationObject": {
-      "type": "object",
-      "additionalProperties": false,
       "description": "information about external documentation",
       "required": ["url"],
       "properties": {
