@@ -7,25 +7,6 @@
 
 export type Servers = ServerObject[];
 export type Tags = TagObject[];
-/**
- * This interface was referenced by `undefined`'s JSON-Schema definition
- * via the `patternProperty` "[0-z]+".
- */
-export type LinkObject =
-  | {
-      method?: string;
-      description?: string;
-      params?: any;
-      server?: ServerObject;
-      /**
-       * This interface was referenced by `undefined`'s JSON-Schema definition
-       * via the `patternProperty` "^x-".
-       */
-      [k: string]: any;
-    }
-  | ReferenceObject;
-export type Links = LinkObject[];
-export type Examples = ExamplePairingObject[];
 export type Methods = MethodObject[];
 
 export interface OpenRPC {
@@ -126,8 +107,8 @@ export interface MethodObject {
    * Defines an application level error.
    */
   errors?: (ErrorObject | ReferenceObject | OneOfObject)[];
-  links?: Links;
-  examples?: Examples;
+  links?: (LinkObject | ReferenceObject)[];
+  examples?: (ExamplePairingObject | ReferenceObject)[];
   /**
    * This interface was referenced by `MethodObject`'s JSON-Schema definition
    * via the `patternProperty` "^x-".
@@ -203,6 +184,21 @@ export interface ErrorObject {
   data?: {
     [k: string]: any;
   };
+}
+/**
+ * This interface was referenced by `undefined`'s JSON-Schema definition
+ * via the `patternProperty` "[0-z]+".
+ */
+export interface LinkObject {
+  method?: string;
+  description?: string;
+  params?: any;
+  server?: ServerObject;
+  /**
+   * This interface was referenced by `LinkObject`'s JSON-Schema definition
+   * via the `patternProperty` "^x-".
+   */
+  [k: string]: any;
 }
 /**
  * This interface was referenced by `undefined`'s JSON-Schema definition
