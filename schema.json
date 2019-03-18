@@ -12,10 +12,18 @@
       "$ref": "#/definitions/infoObject"
     },
     "servers": {
-      "$ref": "#/definitions/servers"
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/serverObject"
+      }
     },
     "methods": {
-      "$ref": "#/definitions/methods"
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "$ref": "#/definitions/methodObject"
+      }
     },
     "components": {
       "type": "object",
@@ -107,41 +115,6 @@
           "type": "string",
           "format": "uri-reference"
         }
-      }
-    },
-    "servers": {
-      "type": "array",
-      "additionalItems": false,
-      "items": {
-        "$ref": "#/definitions/serverObject"
-      }
-    },
-    "tags": {
-      "type": "array",
-      "additionalItems": false,
-      "items": {
-        "$ref": "#/definitions/tagObject"
-      }
-    },
-    "methods": {
-      "type": "array",
-      "additionalItems": false,
-      "items": {
-        "$ref": "#/definitions/methodObject"
-      }
-    },
-    "examples": {
-      "type": "array",
-      "additionalItems": false,
-      "items": {
-        "$ref": "#/definitions/examplePairingObject"
-      }
-    },
-    "links": {
-      "type": "array",
-      "additionalItems": false,
-      "items": {
-        "$ref": "#/definitions/linkObject"
       }
     },
     "errorObject": {
@@ -269,6 +242,25 @@
     "externalDocumentationObject": {
       "type": "object",
       "additionalProperties": false,
+      "properties": {
+        "method": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "params": {},
+        "server": {
+          "$ref": "#/definitions/serverObject"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      }
+    },
+    "externalDocumentationObject": {
+      "type": "object",
+      "additionalProperties": false,
       "description": "information about external documentation",
       "required": ["url"],
       "properties": {
@@ -278,25 +270,6 @@
         "url": {
           "type": "string",
           "format": "uri"
-        }
-      },
-      "patternProperties": {
-        "^x-": {}
-      }
-    },
-    "tagObject": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["name"],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "externalDocs": {
-          "$ref": "#/definitions/externalDocumentationObject"
         }
       },
       "patternProperties": {
@@ -321,7 +294,13 @@
           "type": "string"
         },
         "tags": {
-          "$ref": "#/definitions/tags"
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "$ref": "#/definitions/tagObject" },
+              { "$ref": "#/definitions/referenceObject" }
+            ]
+          }
         },
         "paramStructure": {
           "type": "string",
@@ -380,6 +359,25 @@
         "^x-": {}
       }
     },
+    "tagObject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "externalDocs": {
+          "$ref": "#/definitions/externalDocumentationObject"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      }
+    },
     "exampleObject": {
       "type": "object",
       "required": ["name", "value"],
@@ -401,6 +399,7 @@
     },
     "examplePairingObject": {
       "type": "object",
+      "required": ["name", "params", "result"],
       "properties": {
         "name": {
           "type": "string"
