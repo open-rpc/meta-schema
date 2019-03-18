@@ -1,6 +1,6 @@
 {
   "name": "@open-rpc/meta-schema",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "OpenRPC Specification JSON schemas",
   "author": {
     "name": "open-rpc",
