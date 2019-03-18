@@ -243,15 +243,12 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "method": {
-          "type": "string"
-        },
         "description": {
           "type": "string"
         },
-        "params": {},
-        "server": {
-          "$ref": "#/definitions/serverObject"
+        "url": {
+          "type": "string",
+          "format": "uri"
         }
       },
       "patternProperties": {
