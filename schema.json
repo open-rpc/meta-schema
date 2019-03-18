@@ -248,28 +248,23 @@
       }
     },
     "linkObject": {
-      "oneOf": [
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "method": {
-              "type": "string"
-            },
-            "description": {
-              "type": "string"
-            },
-            "params": {},
-            "server": {
-              "$ref": "#/definitions/serverObject"
-            }
-          },
-          "patternProperties": {
-            "^x-": {}
-          }
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "type": "string"
         },
-        { "$ref": "#/definitions/referenceObject" }
-      ]
+        "description": {
+          "type": "string"
+        },
+        "params": {},
+        "server": {
+          "$ref": "#/definitions/serverObject"
+        }
+      },
+      "patternProperties": {
+        "^x-": {}
+      }
     },
     "externalDocumentationObject": {
       "type": "object",
@@ -363,10 +358,22 @@
           }
         },
         "links": {
-          "$ref": "#/definitions/links"
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "$ref": "#/definitions/linkObject" },
+              { "$ref": "#/definitions/referenceObject" }
+            ]
+          }
         },
         "examples": {
-          "$ref": "#/definitions/examples"
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "$ref": "#/definitions/examplePairingObject" },
+              { "$ref": "#/definitions/referenceObject" }
+            ]
+          }
         }
       },
       "patternProperties": {
