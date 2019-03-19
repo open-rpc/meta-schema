@@ -15,7 +15,7 @@
   "scripts": {
     "build": "npm run build:generateTypes && tsc",
     "build:generateTypes": "node bin/generateTypes.js",
-    "publish": "npm run test && npm run build && npm publish --access=public",
+    "publish": "npm run build",
     "test": "npm run lint && jest src/test.js",
     "lint": "tslint -c tslint.json 'src/index.ts' --fix",
     "test:watch": "npm run test -- --watch"
