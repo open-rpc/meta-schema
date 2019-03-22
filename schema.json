@@ -259,7 +259,7 @@
     },
     "methodObject": {
       "type": "object",
-      "required": ["name", "result"],
+      "required": ["name", "result", "params"],
       "additionalProperties": false,
       "properties": {
         "name": {
