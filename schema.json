@@ -214,6 +214,29 @@
         },
         "summary": {
           "type": "string"
+        },
+        "variables": {
+          "type": "object",
+          "patternProperties": {
+            "[0-z]+": {
+              "type": "object",
+              "required": ["default"],
+              "properties": {
+                "default": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "enum": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
         }
       },
       "patternProperties": {
