@@ -214,6 +214,29 @@
         },
         "summary": {
           "type": "string"
+        },
+        "variables": {
+          "type": "object",
+          "patternProperties": {
+            "[0-z]+": {
+              "type": "object",
+              "required": ["default"],
+              "properties": {
+                "default": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "enum": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
         }
       },
       "patternProperties": {
@@ -224,6 +247,12 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "name": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
         "method": {
           "type": "string"
         },
@@ -259,7 +288,7 @@
     },
     "methodObject": {
       "type": "object",
-      "required": ["name", "result"],
+      "required": ["name", "result", "params"],
       "additionalProperties": false,
       "properties": {
         "name": {
