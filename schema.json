@@ -437,7 +437,7 @@
     "contentDescriptorObject": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name"],
+      "required": ["name", "schema"],
       "properties": {
         "name": {
           "type": "string"
