@@ -6,7 +6,7 @@
   "properties": {
     "openrpc": {
       "type": "string",
-      "enum": ["1.0.0-rc0", "1.0.0-rc1"]
+      "enum": ["1.0.0-rc0", "1.0.0-rc1", "1.0.0"]
     },
     "info": {
       "$ref": "#/definitions/infoObject"
