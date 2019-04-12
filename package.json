@@ -13,7 +13,7 @@
     "url": "https://github.com/open-rpc/schema.git"
   },
   "scripts": {
-    "build": "npm run build:generateTypes && tsc",
+    "build": "tsc && npm run build:generateTypes",
     "build:generateTypes": "node bin/generateTypes.js",
     "publish": "npm run build",
     "test": "npm run lint && jest src/test.js",
