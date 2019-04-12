@@ -5,7 +5,7 @@ const Ajv = require('ajv');
 const ajv = new Ajv();
 
 const getJsonSchemaDraft7 = async () => ajv.addMetaSchema(
-  await fetch("http://json-schema.org/draft-07/schema").then((res) => res.json()),
+  await fetch("https://json-schema.org/draft-07/schema").then((res) => res.json()),
   "https://json-schema.org/draft-07/schema#"
 );
 
