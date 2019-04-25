@@ -5,17 +5,17 @@ const Ajv = require('ajv');
 const ajv = new Ajv();
 
 const getJsonSchemaDraft7 = async () => ajv.addMetaSchema(
-  await fetch("https://json-schema.org/draft-07/schema").then((res) => res.json()),
+  await fetch("https://json-schema.org/draft-07/schema").then((res:any) => res.json()),
   "https://json-schema.org/draft-07/schema#"
 );
 
 describe('validates all examples without error', () => {
   beforeAll(async () => await getJsonSchemaDraft7());
 
-  const exampleNames = Object.keys(openRpcExamples);
-  exampleNames.forEach((exampleName) => {
+  const exampleNames:string[] = Object.keys(openRpcExamples);
+  exampleNames.forEach((exampleName:string) => {
     it(`validates the example: ${exampleName}`, () => {
-      const result = ajv.validate(metaSchema, openRpcExamples[exampleName]);
+      const result:boolean = ajv.validate(metaSchema, openRpcExamples[exampleName]);
       if (ajv.errors && ajv.errors.length > 0) {
         console.error(ajv.errors);
       }
