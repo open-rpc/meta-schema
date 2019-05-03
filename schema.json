@@ -1,7 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft-07/schema#",
   "type": "object",
-  "required": ["info", "methods", "openrpc"],
+  "required": [
+    "info",
+    "methods",
+    "openrpc"
+  ],
   "additionalProperties": false,
   "properties": {
     "openrpc": {
@@ -78,9 +82,15 @@
           "patternProperties": {
             "[0-z]+": {
               "oneOf": [
-                { "$ref": "#/definitions/contentDescriptorObject" },
-                { "$ref": "#/definitions/referenceObject" },
-                { "$ref": "#/definitions/oneOfObject" }
+                {
+                  "$ref": "#/definitions/contentDescriptorObject"
+                },
+                {
+                  "$ref": "#/definitions/referenceObject"
+                },
+                {
+                  "$ref": "#/definitions/oneOfObject"
+                }
               ]
             }
           }
@@ -104,16 +114,24 @@
     "oneOfObject": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["oneOf"],
+      "required": [
+        "oneOf"
+      ],
       "properties": {
         "oneOf": {
           "type": "array",
           "additionalItems": false,
           "items": {
             "oneOf": [
-              { "$ref": "#/definitions/contentDescriptorObject" },
-              { "$ref": "#/definitions/referenceObject" },
-              { "$ref": "#/definitions/oneOfObject" }
+              {
+                "$ref": "#/definitions/contentDescriptorObject"
+              },
+              {
+                "$ref": "#/definitions/referenceObject"
+              },
+              {
+                "$ref": "#/definitions/oneOfObject"
+              }
             ]
           }
         }
@@ -122,7 +140,9 @@
     "referenceObject": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["$ref"],
+      "required": [
+        "$ref"
+      ],
       "properties": {
         "$ref": {
           "type": "string",
@@ -134,7 +154,10 @@
       "type": "object",
       "description": "Defines an application level error.",
       "additionalProperties": false,
-      "required": ["code", "message"],
+      "required": [
+        "code",
+        "message"
+      ],
       "properties": {
         "code": {
           "description": "A Number that indicates the error type that occurred. This MUST be an integer. The error codes from and including -32768 to -32000 are reserved for pre-defined errors. These pre-defined errors SHOULD be assumed to be returned from any JSON-RPC api.",
@@ -185,7 +208,10 @@
     "infoObject": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["title", "version"],
+      "required": [
+        "title",
+        "version"
+      ],
       "properties": {
         "title": {
           "type": "string"
@@ -213,7 +239,9 @@
     },
     "serverObject": {
       "type": "object",
-      "required": ["url"],
+      "required": [
+        "url"
+      ],
       "additionalProperties": false,
       "properties": {
         "url": {
@@ -234,7 +262,9 @@
           "patternProperties": {
             "[0-z]+": {
               "type": "object",
-              "required": ["default"],
+              "required": [
+                "default"
+              ],
               "properties": {
                 "default": {
                   "type": "string"
@@ -262,7 +292,8 @@
       "additionalProperties": false,
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "summary": {
           "type": "string"
@@ -286,7 +317,9 @@
       "type": "object",
       "additionalProperties": false,
       "description": "information about external documentation",
-      "required": ["url"],
+      "required": [
+        "url"
+      ],
       "properties": {
         "description": {
           "type": "string"
@@ -302,12 +335,17 @@
     },
     "methodObject": {
       "type": "object",
-      "required": ["name", "result", "params"],
+      "required": [
+        "name",
+        "result",
+        "params"
+      ],
       "additionalProperties": false,
       "properties": {
         "name": {
           "description": "The cannonical name for the method. The name MUST be unique within the methods array.",
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "description": {
           "description": "A verbose explanation of the method behavior. GitHub Flavored Markdown syntax MAY be used for rich text representation.",
@@ -321,32 +359,51 @@
           "type": "array",
           "items": {
             "oneOf": [
-              { "$ref": "#/definitions/tagObject" },
-              { "$ref": "#/definitions/referenceObject" }
+              {
+                "$ref": "#/definitions/tagObject"
+              },
+              {
+                "$ref": "#/definitions/referenceObject"
+              }
             ]
           }
         },
         "paramStructure": {
           "type": "string",
           "description": "Format the server expects the params. Defaults to 'by-positon'.",
-          "enum": ["by-position", "by-name"],
+          "enum": [
+            "by-position",
+            "by-name"
+          ],
           "default": "by-position"
         },
         "params": {
           "type": "array",
           "items": {
             "oneOf": [
-              { "$ref": "#/definitions/contentDescriptorObject" },
-              { "$ref": "#/definitions/referenceObject" },
-              { "$ref": "#/definitions/oneOfObject" }
+              {
+                "$ref": "#/definitions/contentDescriptorObject"
+              },
+              {
+                "$ref": "#/definitions/referenceObject"
+              },
+              {
+                "$ref": "#/definitions/oneOfObject"
+              }
             ]
           }
         },
         "result": {
           "oneOf": [
-            { "$ref": "#/definitions/contentDescriptorObject" },
-            { "$ref": "#/definitions/referenceObject" },
-            { "$ref": "#/definitions/oneOfObject" }
+            {
+              "$ref": "#/definitions/contentDescriptorObject"
+            },
+            {
+              "$ref": "#/definitions/referenceObject"
+            },
+            {
+              "$ref": "#/definitions/oneOfObject"
+            }
           ]
         },
         "errors": {
@@ -354,9 +411,15 @@
           "type": "array",
           "items": {
             "oneOf": [
-              { "$ref": "#/definitions/errorObject" },
-              { "$ref": "#/definitions/referenceObject" },
-              { "$ref": "#/definitions/oneOfObject" }
+              {
+                "$ref": "#/definitions/errorObject"
+              },
+              {
+                "$ref": "#/definitions/referenceObject"
+              },
+              {
+                "$ref": "#/definitions/oneOfObject"
+              }
             ]
           }
         },
@@ -364,8 +427,12 @@
           "type": "array",
           "items": {
             "oneOf": [
-              { "$ref": "#/definitions/linkObject" },
-              { "$ref": "#/definitions/referenceObject" }
+              {
+                "$ref": "#/definitions/linkObject"
+              },
+              {
+                "$ref": "#/definitions/referenceObject"
+              }
             ]
           }
         },
@@ -373,8 +440,12 @@
           "type": "array",
           "items": {
             "oneOf": [
-              { "$ref": "#/definitions/examplePairingObject" },
-              { "$ref": "#/definitions/referenceObject" }
+              {
+                "$ref": "#/definitions/examplePairingObject"
+              },
+              {
+                "$ref": "#/definitions/referenceObject"
+              }
             ]
           }
         }
@@ -386,10 +457,13 @@
     "tagObject": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name"],
+      "required": [
+        "name"
+      ],
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "description": {
           "type": "string"
@@ -404,7 +478,10 @@
     },
     "exampleObject": {
       "type": "object",
-      "required": ["name", "value"],
+      "required": [
+        "name",
+        "value"
+      ],
       "properties": {
         "summary": {
           "type": "string"
@@ -414,7 +491,8 @@
           "type": "string"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         }
       },
       "patternProperties": {
@@ -423,10 +501,15 @@
     },
     "examplePairingObject": {
       "type": "object",
-      "required": ["name", "params", "result"],
+      "required": [
+        "name",
+        "params",
+        "result"
+      ],
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "description": {
           "type": "string"
@@ -435,15 +518,23 @@
           "type": "array",
           "items": {
             "oneOf": [
-              { "$ref": "#/definitions/exampleObject" },
-              { "$ref": "#/definitions/referenceObject" }
+              {
+                "$ref": "#/definitions/exampleObject"
+              },
+              {
+                "$ref": "#/definitions/referenceObject"
+              }
             ]
           }
         },
         "result": {
           "oneOf": [
-            { "$ref": "#/definitions/exampleObject" },
-            { "$ref": "#/definitions/referenceObject" }
+            {
+              "$ref": "#/definitions/exampleObject"
+            },
+            {
+              "$ref": "#/definitions/referenceObject"
+            }
           ]
         }
       }
@@ -451,10 +542,14 @@
     "contentDescriptorObject": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name", "schema"],
+      "required": [
+        "name",
+        "schema"
+      ],
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "description": {
           "type": "string"
