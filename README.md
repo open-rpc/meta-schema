@@ -1,8 +1,18 @@
-# OpenRPC Specification 1.0.0 JSON Schema
+# OpenRPC Meta JSON Schema
 
-This is the JSON Schema file for the OpenRPC Specification version 1.0.0.
+<center>
+  <span>
+    <img alt="CircleCI branch" src="https://img.shields.io/circleci/project/github/open-rpc/meta-schema/master.svg">
+    <img src="https://codecov.io/gh/open-rpc/meta-schema/branch/master/graph/badge.svg" />
+    <img alt="Dependabot status" src="https://api.dependabot.com/badges/status?host=github&repo=open-rpc/meta-schema" />
+    <img alt="Chat on Discord" src="https://img.shields.io/badge/chat-on%20discord-7289da.svg" />
+    <img alt="npm" src="https://img.shields.io/npm/dt/@open-rpc/meta-schema.svg" />
+    <img alt="GitHub release" src="https://img.shields.io/github/release/open-rpc/meta-schema.svg" />
+    <img alt="GitHub commits since latest release" src="https://img.shields.io/github/commits-since/open-rpc/meta-schema/latest.svg" />
+  </span>
+</center>
 
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=open-rpc/meta-schema)](https://dependabot.com)
+This is the JSON Schema file for the OpenRPC Specification.
 
 
 ## License
