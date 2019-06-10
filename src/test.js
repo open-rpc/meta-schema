@@ -1,5 +1,4 @@
 const metaSchema = require('../schema.json');
-const openRpcExamples = require('@open-rpc/examples').default;
 const fetch = require('node-fetch');
 const Ajv = require('ajv');
 const ajv = new Ajv();
@@ -62,15 +61,4 @@ describe('validates all examples without error', () => {
     expect(result).toBe(false);
   });
 
-  const exampleNames = Object.keys(openRpcExamples);
-  exampleNames.forEach((exampleName) => {
-    it(`validates the example: ${exampleName}`, () => {
-      const result = ajv.validate(metaSchema, openRpcExamples[exampleName]);
-      if (ajv.errors && ajv.errors.length > 0) {
-        console.error(ajv.errors);
-      }
-      expect(ajv.errors).toEqual(null);
-      expect(result).toBe(true);
-    });
-  });
 });
