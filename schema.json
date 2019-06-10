@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/open-rpc/meta-schema/master/schema.json",
   "type": "object",
   "required": [
     "info",
@@ -11,7 +12,7 @@
     "openrpc": {
       "type": "string",
       "enum": [
-        "1.0.0-rc0", 
+        "1.0.0-rc0",
         "1.0.0-rc1",
         "1.0.0",
         "1.1.0",
@@ -87,9 +88,6 @@
                 },
                 {
                   "$ref": "#/definitions/referenceObject"
-                },
-                {
-                  "$ref": "#/definitions/oneOfObject"
                 }
               ]
             }
@@ -110,32 +108,6 @@
     "schema": {
       "$ref": "https://json-schema.org/draft-07/schema#",
       "default": {}
-    },
-    "oneOfObject": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "oneOf"
-      ],
-      "properties": {
-        "oneOf": {
-          "type": "array",
-          "additionalItems": false,
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "#/definitions/contentDescriptorObject"
-              },
-              {
-                "$ref": "#/definitions/referenceObject"
-              },
-              {
-                "$ref": "#/definitions/oneOfObject"
-              }
-            ]
-          }
-        }
-      }
     },
     "referenceObject": {
       "type": "object",
@@ -386,9 +358,6 @@
               },
               {
                 "$ref": "#/definitions/referenceObject"
-              },
-              {
-                "$ref": "#/definitions/oneOfObject"
               }
             ]
           }
@@ -400,9 +369,6 @@
             },
             {
               "$ref": "#/definitions/referenceObject"
-            },
-            {
-              "$ref": "#/definitions/oneOfObject"
             }
           ]
         },
@@ -416,9 +382,6 @@
               },
               {
                 "$ref": "#/definitions/referenceObject"
-              },
-              {
-                "$ref": "#/definitions/oneOfObject"
               }
             ]
           }
