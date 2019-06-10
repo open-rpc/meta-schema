@@ -31,4 +31,7 @@ const build = async () => {
   await generateTypes(withVersionEnum);
 };
 
-build();
+module.exports = {setOpenRPCVersionEnum};
+if (require.main === module) {
+  build();
+}
