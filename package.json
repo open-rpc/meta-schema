@@ -27,7 +27,6 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@open-rpc/examples": "^1.2.5",
     "ajv": "^6.10.0",
     "fs-extra": "^8.0.0",
     "jest": "^24.3.1",
