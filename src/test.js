@@ -1,8 +1,8 @@
-const metaSchema = require('../schema.json');
 const fetch = require('node-fetch');
 const Ajv = require('ajv');
 const ajv = new Ajv();
 const {cloneDeep} = require("lodash");
+const {setOpenRPCVersionEnum} = require("../bin/build");
 
 const testOpenRPCDocument = {
   info: {
@@ -39,8 +39,12 @@ const getJsonSchemaDraft7 = async () => ajv.addMetaSchema(
   "https://json-schema.org/draft-07/schema#"
 );
 
+let metaSchema;
 describe('validates all examples without error', () => {
-  beforeAll(async () => await getJsonSchemaDraft7());
+  beforeAll(async () =>{
+    metaSchema = await setOpenRPCVersionEnum(require('../schema.json'));
+    await getJsonSchemaDraft7();
+  });
 
   it("can validate a simple document", () => {
     const result = ajv.validate(metaSchema, testOpenRPCDocument);
