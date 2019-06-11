@@ -163,7 +163,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": { "title": "vendorExtensionObject" }
       }
     },
     "contactObject": {
@@ -185,7 +185,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": { "title": "vendorExtensionObject" }
       }
     },
     "infoObject": {
@@ -222,7 +222,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": { "title": "vendorExtensionObject" }
       }
     },
     "serverObject": {
@@ -316,7 +316,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": { "title": "vendorExtensionObject" }
       }
     },
     "externalDocumentationObject": {
@@ -339,7 +339,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": { "title": "vendorExtensionObject" }
       }
     },
     "methodObject": {
@@ -462,7 +462,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": { "title": "vendorExtensionObject" }
       }
     },
     "tagObject": {
@@ -487,7 +487,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": { "title": "vendorExtensionObject" }
       }
     },
     "exampleObject": {
@@ -516,7 +516,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": { "title": "vendorExtensionObject" }
       }
     },
     "examplePairingObject": {
@@ -595,11 +595,8 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": { "title": "vendorExtensionObject" }
       }
-    },
-    "vendorExtensionObject": {
-      "title": "vendorExtensionObject"
     }
   }
 }
