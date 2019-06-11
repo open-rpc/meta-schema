@@ -163,7 +163,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "contactObject": {
@@ -185,7 +185,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "infoObject": {
@@ -222,7 +222,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "serverObject": {
@@ -316,7 +316,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "externalDocumentationObject": {
@@ -339,7 +339,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "methodObject": {
@@ -462,7 +462,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "tagObject": {
@@ -487,7 +487,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "exampleObject": {
@@ -516,7 +516,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "examplePairingObject": {
@@ -595,11 +595,8 @@
         }
       },
       "patternProperties": {
-        "^x-": { "$ref": "#/definitions/vendorExtensionObject" }
+        "^x-": {}
       }
-    },
-    "vendorExtensionObject": {
-      "title": "vendorExtensionObject"
     }
   }
 }
