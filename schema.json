@@ -163,7 +163,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "title": "vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "contactObject": {
@@ -185,7 +185,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "title": "vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "infoObject": {
@@ -222,7 +222,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "title": "vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "serverObject": {
@@ -316,7 +316,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "title": "vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "externalDocumentationObject": {
@@ -339,7 +339,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "title": "vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "methodObject": {
@@ -462,7 +462,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "title": "vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "tagObject": {
@@ -487,7 +487,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "title": "vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "exampleObject": {
@@ -516,7 +516,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "title": "vendorExtensionObject" }
+        "^x-": {}
       }
     },
     "examplePairingObject": {
@@ -595,7 +595,7 @@
         }
       },
       "patternProperties": {
-        "^x-": { "title": "vendorExtensionObject" }
+        "^x-": {}
       }
     }
   }
