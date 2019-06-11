@@ -12,13 +12,13 @@ const {listReleases} = require("@etclabscore/dl-github-releases");
 // errors if you try to run with $ref to draft 7 json schema
 schema.definitions.schema.$ref = undefined;
 
-const generateTypes = async () => {
-  const ts = await compile(schema, 'OpenRPC');
-  const dir = path.resolve(__dirname, '../build/src/');
+const generateTypes = async (s) => {
+  const ts = await compile(s, "OpenRPC");
+  const dir = path.resolve(__dirname, "../build/src/");
   await ensureDir(dir);
-  await writeFile(`${dir}/index.d.ts`, ts, 'utf8');
+  await writeFile(`${dir}/index.d.ts`, ts, "utf8");
 
-  console.log('Generating types complete!');
+  console.log("Generating types complete!");
 };
 
 const setOpenRPCVersionEnum = async (s) => {
@@ -28,7 +28,15 @@ const setOpenRPCVersionEnum = async (s) => {
 
 const build = async () => {
   const withVersionEnum = await setOpenRPCVersionEnum(schema);
+
   await generateTypes(withVersionEnum);
+
+  const dir = path.resolve(__dirname, "../build/");
+  await ensureDir(dir);
+
+  await writeFile(`${dir}/schema.json`, JSON.stringify(withVersionEnum, undefined, "  "));
+
+  console.log("Finished building");
 };
 
 module.exports = {setOpenRPCVersionEnum};
