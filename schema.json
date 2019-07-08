@@ -393,7 +393,7 @@
           "default": "by-position"
         },
         "params": {
-          "title": "methodParams",
+          "title": "contentDescriptor",
           "type": "array",
           "items": {
             "oneOf": [
@@ -407,7 +407,7 @@
           }
         },
         "result": {
-          "title": "methodResult",
+          "title": "contentDescriptor",
           "oneOf": [
             {
               "$ref": "#/definitions/contentDescriptorObject"
