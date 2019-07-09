@@ -25,7 +25,7 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "quicktype": "13.0.10",
+    "quicktype": "15.0.197",
     "@etclabscore/dl-github-releases": "^1.1.0",
     "ajv": "^6.10.0",
     "fs-extra": "^8.0.0",
