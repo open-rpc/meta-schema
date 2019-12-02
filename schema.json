@@ -399,6 +399,9 @@
               }
             ]
           }
+        },
+        "deprecated": {
+          "type": "boolean"
         }
       },
       "patternProperties": {
