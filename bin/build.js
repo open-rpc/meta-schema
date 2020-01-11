@@ -8,12 +8,15 @@ const { promisify } = require('util');
 const writeFile = promisify(fs.writeFile);
 const { ensureDir } = require('fs-extra');
 const {listReleases} = require("@etclabscore/dl-github-releases");
-
-// errors if you try to run with $ref to draft 7 json schema
-schema.definitions.schema.$ref = undefined;
+const {JsonSchemaToTypes} = require("@etclabscore/json-schema-to-types");
+const refParser = require("json-schema-ref-parser");
 
 const generateTypes = async (s) => {
-  const ts = await compile(s, "OpenRPC");
+  const parsed = await refParser.dereference(s);
+  console.log(parsed);
+  const transpiler = new JsonSchemaToTypes(parsed);
+  const ts = transpiler.toTs();
+  // const ts = await compile(s, "OpenRPC");
   const dir = path.resolve(__dirname, "../build/src/");
   await ensureDir(dir);
   await writeFile(`${dir}/index.d.ts`, ts, "utf8");
