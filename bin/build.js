@@ -35,7 +35,8 @@ const build = async () => {
   try {
     await generateTypes(withVersionEnum);
   } catch (e) {
-    throw e;
+    console.error(e);
+    process.exit(1);
   }
 
   const dir = path.resolve(__dirname, "../build/");
