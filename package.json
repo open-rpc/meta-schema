@@ -13,7 +13,7 @@
     "url": "https://github.com/open-rpc/schema.git"
   },
   "scripts": {
-    "build": "tsc && node bin/build.js",
+    "build": "tsc && bin/build.js",
     "test": "npm run lint && jest src/test.js",
     "lint": "tslint -c tslint.json 'src/index.ts' --fix",
     "test:watch": "npm run test -- --watch"
