@@ -32,7 +32,11 @@ const setOpenRPCVersionEnum = async (s) => {
 const build = async () => {
   const withVersionEnum = await setOpenRPCVersionEnum(schema);
 
-  await generateTypes(withVersionEnum);
+  try {
+    await generateTypes(withVersionEnum);
+  } catch (e) {
+    throw e;
+  }
 
   const dir = path.resolve(__dirname, "../build/");
   await ensureDir(dir);
