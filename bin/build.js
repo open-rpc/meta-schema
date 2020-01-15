@@ -32,6 +32,11 @@ const setOpenRPCVersionEnum = async (s) => {
 const build = async () => {
   const withVersionEnum = await setOpenRPCVersionEnum(schema);
 
+  const dir = path.resolve(__dirname, "../build/");
+  await ensureDir(dir);
+  await writeFile(`${dir}/schema.json`, JSON.stringify(withVersionEnum, undefined, "  "));
+  console.log("wrote schema.json");
+
   try {
     await generateTypes(withVersionEnum);
   } catch (e) {
@@ -39,10 +44,6 @@ const build = async () => {
     process.exit(1);
   }
 
-  const dir = path.resolve(__dirname, "../build/");
-  await ensureDir(dir);
-
-  await writeFile(`${dir}/schema.json`, JSON.stringify(withVersionEnum, undefined, "  "));
 
   console.log("Finished building");
 };
