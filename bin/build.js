@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const schema = require('../schema.json');
-const { compile } = require('json-schema-to-typescript');
 const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
@@ -13,10 +12,14 @@ const refParser = require("json-schema-ref-parser");
 
 const generateTypes = async (s) => {
   const parsed = await refParser.dereference(s);
-  console.log(parsed);
+  // the title set is particularly ugly, so we set a new one
+  parsed.definitions.schema.title = "JSONSchema";
+
+  // we must fix a bug with the deref util...
+  parsed.definitions.contentDescriptorObject.properties.schema = parsed.definitions.schema;
+
   const transpiler = new JsonSchemaToTypes(parsed);
   const ts = transpiler.toTs();
-  // const ts = await compile(s, "OpenRPC");
   const dir = path.resolve(__dirname, "../build/src/");
   await ensureDir(dir);
   await writeFile(`${dir}/index.d.ts`, ts, "utf8");
