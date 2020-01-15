@@ -13,7 +13,7 @@
     "url": "https://github.com/open-rpc/schema.git"
   },
   "scripts": {
-    "build": "tsc && node bin/build.js",
+    "build": "tsc && bin/build.js",
     "test": "npm run lint && jest src/test.js",
     "lint": "tslint -c tslint.json 'src/index.ts' --fix",
     "test:watch": "npm run test -- --watch"
@@ -26,10 +26,11 @@
   "dependencies": {},
   "devDependencies": {
     "@etclabscore/dl-github-releases": "^1.1.0",
+    "@etclabscore/json-schema-to-types": "^1.9.0",
     "ajv": "^6.10.0",
     "fs-extra": "^8.0.0",
     "jest": "^24.3.1",
-    "json-schema-to-typescript": "^7.0.0",
+    "json-schema-ref-parser": "^7.1.3",
     "lodash": "^4.17.11",
     "node-fetch": "^2.3.0",
     "tslint": "^5.14.0",
