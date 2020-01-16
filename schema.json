@@ -9,6 +9,9 @@
     "openrpc"
   ],
   "additionalProperties": false,
+  "patternProperties": {
+    "^x-": {}
+  },
   "properties": {
     "openrpc": {
       "title": "openrpc",
@@ -56,6 +59,14 @@
             }
           }
         },
+        "errors": {
+          "type": "object",
+          "patternProperties": {
+            "[0-z]+": {
+              "$ref": "#/definitions/errorObject"
+            }
+          }
+        },
         "examples": {
           "title": "exampleComponents",
           "type": "object",
@@ -65,6 +76,7 @@
             }
           }
         },
+
         "examplePairings": {
           "title": "examplePairingComponents",
           "type": "object",
@@ -378,10 +390,11 @@
         "paramStructure": {
           "title": "methodObjectParamStructure",
           "type": "string",
-          "description": "Format the server expects the params. Defaults to 'by-positon'.",
+          "description": "Format the server expects the params. Defaults to 'by-position'.",
           "enum": [
             "by-position",
-            "by-name"
+            "by-name",
+            "either"
           ],
           "default": "by-position"
         },
