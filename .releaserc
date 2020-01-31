@@ -1,3 +1,36 @@
 {
-  "tagFormat": "${version}"
+  "tagFormat": "${version}",
+  "branch": "master",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/github",
+    "@semantic-release/git",
+    "@semantic-release/npm"
+  ],
+  "verifyConditions": [
+    "@semantic-release/changelog",
+    "@semantic-release/npm",
+    "@semantic-release/git",
+    "@semantic-release/github"
+  ],
+  "publish": [
+    ["@semantic-release/github", {
+      "assets": [
+        {
+          "name": "open-rpc-meta-schema.json",
+          "path": "build/schema.json",
+          "label": "OpenRPC Meta Schema"
+        }
+      ]
+    }],
+    "@semantic-release/npm"
+  ],
+  "success": [
+    "@semantic-release/github"
+  ],
+  "fail": [
+    "@semantic-release/github"
+  ]
 }
