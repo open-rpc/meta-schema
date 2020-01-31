@@ -13,8 +13,7 @@
     "@semantic-release/changelog",
     "@semantic-release/npm",
     "@semantic-release/git",
-    "@semantic-release/github",
-    "@qiwi/semantic-release-gh-pages-plugin"
+    "@semantic-release/github"
   ],
   "publish": [
     ["@semantic-release/github", {
