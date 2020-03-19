@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft-07/schema",
+  "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/open-rpc/meta-schema/master/schema.json",
   "title": "openrpcDocument",
   "type": "object",
@@ -109,7 +109,7 @@
   },
   "definitions": {
     "schema": {
-      "$ref": "https://json-schema.org/draft-07/schema"
+      "$ref": "https://json-schema.org/draft-07/schema#"
     },
     "referenceObject": {
       "title": "referenceObject",
