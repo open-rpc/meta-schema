@@ -34,16 +34,13 @@ const testOpenRPCDocument = {
   openrpc: "1.0.0",
 };
 
-const getJsonSchemaDraft7 = async () => ajv.addMetaSchema(
-  await fetch("https://json-schema.org/draft-07/schema").then((res) => res.json()),
-  "https://json-schema.org/draft-07/schema#"
-);
 
 let metaSchema;
 describe('validates all examples without error', () => {
   beforeAll(async () =>{
     metaSchema = await setOpenRPCVersionEnum(require('../schema.json'));
-    await getJsonSchemaDraft7();
+    delete metaSchema.definitions.schema.$ref;
+    delete metaSchema.$schema;
   });
 
   it("can validate a simple document", () => {
