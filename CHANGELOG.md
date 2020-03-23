@@ -1,3 +1,11 @@
+## [1.7.1](https://github.com/open-rpc/schema/compare/1.7.0...1.7.1) (2020-03-23)
+
+
+### Bug Fixes
+
+* manhandle tests into working state ([5980836](https://github.com/open-rpc/schema/commit/59808360bb9b8eb93ffedae753f3737feabd7633))
+* revert schema changes ([ce9c080](https://github.com/open-rpc/schema/commit/ce9c080cb6a71045d81c4b7994d45254dcc6b927))
+
 # [1.7.0](https://github.com/open-rpc/schema/compare/1.6.0...1.7.0) (2020-01-31)
 
 
