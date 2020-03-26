@@ -470,6 +470,9 @@
           "title": "methodObjectDeprecated",
           "type": "boolean",
           "default": false
+        },
+        "externalDocs": {
+          "$ref": "#/definitions/externalDocumentationObject"
         }
       },
       "patternProperties": {
