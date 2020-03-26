@@ -21,6 +21,9 @@
     "info": {
       "$ref": "#/definitions/infoObject"
     },
+    "externalDocs": {
+      "$ref": "#/definitions/externalDocumentationObject"
+    },
     "servers": {
       "title": "servers",
       "type": "array",
