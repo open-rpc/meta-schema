@@ -373,6 +373,14 @@
           "description": "A short summary of what the method does.",
           "type": "string"
         },
+        "servers": {
+          "title": "servers",
+          "type": "array",
+          "additionalItems": false,
+          "items": {
+             "$ref": "#/definitions/serverObject"
+           }
+        },
         "tags": {
           "title": "methodObjectTags",
           "type": "array",
