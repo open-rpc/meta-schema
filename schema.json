@@ -605,7 +605,11 @@
           "title": "contentDescriptorObjectRequired",
           "type": "boolean",
           "default": false
-        }
+        },
+        "deprecated": {
+          "title": "contentDescriptorObjectDeprecated",
+          "type": "boolean",
+          "default": false
       },
       "patternProperties": {
         "^x-": {}
