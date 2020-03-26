@@ -610,7 +610,7 @@
           "title": "contentDescriptorObjectDeprecated",
           "type": "boolean",
           "default": false
-	}
+        }
       },
       "patternProperties": {
         "^x-": {}
