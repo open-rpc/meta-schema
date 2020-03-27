@@ -1,3 +1,10 @@
+## [1.7.3](https://github.com/open-rpc/schema/compare/1.7.2...1.7.3) (2020-03-27)
+
+
+### Bug Fixes
+
+* update packagelock ([d98e8cf](https://github.com/open-rpc/schema/commit/d98e8cfb32155676f8b5f8f8618974840b9850cb))
+
 ## [1.7.2](https://github.com/open-rpc/schema/compare/1.7.1...1.7.2) (2020-03-26)
 
 
