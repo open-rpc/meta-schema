@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/open-rpc/schema/compare/1.7.3...1.8.0) (2020-03-28)
+
+
+### Bug Fixes
+
+* update package lock ([da9a6fa](https://github.com/open-rpc/schema/commit/da9a6fa5c7a0fe8d6bbf92c152e1864462942f4d))
+
+
+### Features
+
+* gh action to run eslint ([56ab736](https://github.com/open-rpc/schema/commit/56ab7361e46f9777224e8ed15342989250e89df1))
+
 ## [1.7.3](https://github.com/open-rpc/schema/compare/1.7.2...1.7.3) (2020-03-27)
 
 
