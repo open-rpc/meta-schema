@@ -20,9 +20,13 @@ const generateTypes = async (s) => {
 
   const transpiler = new JsonSchemaToTypes(parsed);
   const ts = transpiler.toTs();
+  const go = transpiler.toGo();
   const dir = path.resolve(__dirname, "../build/src/");
+  const goDir = path.resolve(__dirname, "../build/go/");
   await ensureDir(dir);
+  await ensureDir(goDir);
   await writeFile(`${dir}/index.d.ts`, ts, "utf8");
+  await writeFile(`${goDir}/types.go`, go, "utf8");
 
   console.log("Generating types complete!");
 };
