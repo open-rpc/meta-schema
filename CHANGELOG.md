@@ -1,3 +1,17 @@
+# [1.9.0](https://github.com/open-rpc/schema/compare/1.8.0...1.9.0) (2020-04-08)
+
+
+### Bug Fixes
+
+* add go version ([e12ef1f](https://github.com/open-rpc/schema/commit/e12ef1ffc51e3045de1d9fddb12e6c39350e3b08))
+* add package shtuffs ([3ffe89b](https://github.com/open-rpc/schema/commit/3ffe89b8e685992544ae2ca1ec3a046514b169d3))
+* remove extra words ([2026373](https://github.com/open-rpc/schema/commit/202637338da34ab31f1d745e1b63200eb9436555))
+
+
+### Features
+
+* generate go typings ([3269de7](https://github.com/open-rpc/schema/commit/3269de7da81e8f28760f74c8dba3d3f00a26289e))
+
 # [1.8.0](https://github.com/open-rpc/schema/compare/1.7.3...1.8.0) (2020-03-28)
 
 
