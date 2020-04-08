@@ -21,7 +21,7 @@ const generateTypes = async (s) => {
   const transpiler = new JsonSchemaToTypes(parsed);
   const ts = transpiler.toTs();
   
-  const escapedS = JSON.stringify(s).replace(\"\, "\\"", "g");
+  const escapedS = JSON.stringify(s).replace(/"/, "\\"", "g");
   const go = [
     "package meta_schema",
     "",
