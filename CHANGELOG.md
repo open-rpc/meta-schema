@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/open-rpc/schema/compare/1.9.0...1.9.1) (2020-04-08)
+
+
+### Bug Fixes
+
+* ensure go code is pushed to gh on release ([fc3ce24](https://github.com/open-rpc/schema/commit/fc3ce24b8415b82b8acc728b4b877e6658cccaea))
+
 # [1.9.0](https://github.com/open-rpc/schema/compare/1.8.0...1.9.0) (2020-04-08)
 
 
