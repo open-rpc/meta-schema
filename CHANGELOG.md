@@ -1,3 +1,18 @@
+# [1.10.0](https://github.com/open-rpc/schema/compare/1.9.1...1.10.0) (2020-04-08)
+
+
+### Bug Fixes
+
+* created escapd json schema first ([f3eb4fa](https://github.com/open-rpc/schema/commit/f3eb4fa4936d53eb3c36ee4656d11c457a79f132))
+* holy regex batman ([3ec95e8](https://github.com/open-rpc/schema/commit/3ec95e8caba74ccb66c6c41d9bc2e315c58dcbd8))
+* learn to regex ([d9b7b79](https://github.com/open-rpc/schema/commit/d9b7b79456b299e2a8e1af6b7943292725226b94))
+* remove extra git checkout ([7054f20](https://github.com/open-rpc/schema/commit/7054f20b385efbf94ee70162b40c76a66ad9a7b9))
+
+
+### Features
+
+* add metaschema itself as go export ([74751ac](https://github.com/open-rpc/schema/commit/74751acabd1cda5388fbea6cef05c9fc9c90deda))
+
 ## [1.9.1](https://github.com/open-rpc/schema/compare/1.9.0...1.9.1) (2020-04-08)
 
 
