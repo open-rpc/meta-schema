@@ -20,9 +20,20 @@ const generateTypes = async (s) => {
 
   const transpiler = new JsonSchemaToTypes(parsed);
   const ts = transpiler.toTs();
+  
+  const go = [
+    "package meta_schema",
+    "",
+    "",
+    transpiler.toGo(),
+  ].join("\n");
+  
   const dir = path.resolve(__dirname, "../build/src/");
+  const goDir = path.resolve(__dirname, "../");
   await ensureDir(dir);
+  await ensureDir(goDir);
   await writeFile(`${dir}/index.d.ts`, ts, "utf8");
+  await writeFile(`${goDir}/meta_schema.go`, go, "utf8");
 
   console.log("Generating types complete!");
 };
