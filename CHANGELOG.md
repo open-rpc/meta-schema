@@ -1,3 +1,10 @@
+## [1.10.2](https://github.com/open-rpc/schema/compare/1.10.1...1.10.2) (2020-04-08)
+
+
+### Bug Fixes
+
+* underscore for go names ([4269d6b](https://github.com/open-rpc/schema/commit/4269d6be1bb756d6dbd628e5032a9e66ce714118))
+
 ## [1.10.1](https://github.com/open-rpc/schema/compare/1.10.0...1.10.1) (2020-04-08)
 
 
