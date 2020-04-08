@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/open-rpc/schema/compare/1.10.0...1.10.1) (2020-04-08)
+
+
+### Bug Fixes
+
+* log what is in the current dir ([b78c462](https://github.com/open-rpc/schema/commit/b78c462a0618472d8c3565fb2e7d33854e5b7dea))
+
 # [1.10.0](https://github.com/open-rpc/schema/compare/1.9.1...1.10.0) (2020-04-08)
 
 
