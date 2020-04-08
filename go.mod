@@ -1,1 +1,1 @@
-module github.com/open-rpc/meta-schema/typings
+module github.com/open-rpc/meta-schema
