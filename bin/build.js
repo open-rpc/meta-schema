@@ -11,6 +11,7 @@ const {JsonSchemaToTypes} = require("@etclabscore/json-schema-to-types");
 const refParser = require("json-schema-ref-parser");
 
 const generateTypes = async (s) => {
+  const escapedS = JSON.stringify(s).replace(/"/g, "\\\"");
   const parsed = await refParser.dereference(s);
   // the title set is particularly ugly, so we set a new one
   parsed.definitions.schema.title = "JSONSchema";
@@ -20,10 +21,12 @@ const generateTypes = async (s) => {
 
   const transpiler = new JsonSchemaToTypes(parsed);
   const ts = transpiler.toTs();
-  
+ 
   const go = [
     "package meta_schema",
     "",
+    "",
+    `const MetaSchemaJSON = "${escapedS}"`,
     "",
     transpiler.toGo(),
   ].join("\n");
