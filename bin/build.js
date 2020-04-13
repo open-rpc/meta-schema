@@ -21,16 +21,25 @@ const generateTypes = async (s) => {
 
   const transpiler = new JsonSchemaToTypes(parsed);
   const ts = transpiler.toTs();
- 
+
+  // Check if our generated macros use json.Un/Marshal.
+  // If so, add the standard json package as an import.
+  const transpiled = transpiler.toGo();
+  var imports = "";
+  if (/json\.(Un|)Marshal/g.test(transpiled)) {
+    imports += `import "encoding/json"`
+  }
+
   const go = [
     "package meta_schema",
     "",
+    `${imports}`,
     "",
     `const MetaSchemaJSON = "${escapedS}"`,
     "",
-    transpiler.toGo(),
+    transpiled,
   ].join("\n");
-  
+
   const dir = path.resolve(__dirname, "../build/src/");
   const goDir = path.resolve(__dirname, "../");
   await ensureDir(dir);
