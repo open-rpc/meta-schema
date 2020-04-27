@@ -407,7 +407,7 @@
             "by-name",
             "either"
           ],
-          "default": "by-position"
+          "default": "either"
         },
         "params": {
           "title": "methodObjectParams",
