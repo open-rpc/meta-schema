@@ -88,11 +88,42 @@ type TagObject struct {
 }
 type Ref string
 type ReferenceObject struct {
-	$Ref *Ref `json:"$ref"`
+	Ref *Ref `json:"$ref"`
 }
 type OneOfReferenceObjectTagObjectMTCfXRqB struct {
 	TagObject       *TagObject
 	ReferenceObject *ReferenceObject
+}
+// UnmarshalJSON implements the json Unmarshaler interface.
+// This implementation DOES NOT assert that ONE AND ONLY ONE
+// of the simple properties is satisfied; it lazily uses the first one that is satisfied.
+// Ergo, it will not return an error if more than one property is valid.
+func (o *OneOfReferenceObjectTagObjectMTCfXRqB) UnmarshalJSON(bytes []byte) error {
+
+	var myTagObject TagObject
+	if err := json.Unmarshal(bytes, &myTagObject); err == nil {
+		o.TagObject = &myTagObject
+		return nil
+	}
+
+	var myReferenceObject ReferenceObject
+	if err := json.Unmarshal(bytes, &myReferenceObject); err == nil {
+		o.ReferenceObject = &myReferenceObject
+		return nil
+	}
+
+	return errors.New("failed to unmarshal one of the object properties")
+}
+func (o OneOfReferenceObjectTagObjectMTCfXRqB) MarshalJSON() ([]byte, error) {
+
+	if o.TagObject != nil {
+		return json.Marshal(o.TagObject)
+	}
+	if o.ReferenceObject != nil {
+		return json.Marshal(o.ReferenceObject)
+	}
+
+	return nil, errors.New("failed to marshal any one of the object properties")
 }
 type MethodObjectTags []OneOfReferenceObjectTagObjectMTCfXRqB
 // Format the server expects the params. Defaults to 'by-position'.
@@ -130,6 +161,27 @@ type AnyOfJSONSchemaUnorderedSetOfJSONSchemawrpyYBUSSidr3R5Q struct {
 	JSONSchema                       *JSONSchema
 	UnorderedSetOfJSONSchemawrpyYBUS *UnorderedSetOfJSONSchemawrpyYBUS
 }
+func (a *AnyOfJSONSchemaUnorderedSetOfJSONSchemawrpyYBUSSidr3R5Q) UnmarshalJSON(bytes []byte) error {
+	var ok bool
+
+	var myJSONSchema JSONSchema
+	if err := json.Unmarshal(bytes, &myJSONSchema); err == nil {
+		ok = true
+		a.JSONSchema = &myJSONSchema
+	}
+
+	var myUnorderedSetOfJSONSchemawrpyYBUS UnorderedSetOfJSONSchemawrpyYBUS
+	if err := json.Unmarshal(bytes, &myUnorderedSetOfJSONSchemawrpyYBUS); err == nil {
+		ok = true
+		a.UnorderedSetOfJSONSchemawrpyYBUS = &myUnorderedSetOfJSONSchemawrpyYBUS
+	}
+
+	// Did unmarshal at least one of the simple objects.
+	if ok {
+		return nil
+	}
+	return errors.New("failed to unmarshal any of the object properties")
+}
 //
 // --- Default ---
 //
@@ -143,15 +195,36 @@ type AnyOfAny17L18NF5UnorderedSetOfAny17L18NF5VWcS9ROiRlIv9QVc struct {
 	Any17L18NF5                       *Any17L18NF5
 	UnorderedSetOfAny17L18NF5VWcS9ROi *UnorderedSetOfAny17L18NF5VWcS9ROi
 }
+func (a *AnyOfAny17L18NF5UnorderedSetOfAny17L18NF5VWcS9ROiRlIv9QVc) UnmarshalJSON(bytes []byte) error {
+	var ok bool
+
+	var myAny17L18NF5 Any17L18NF5
+	if err := json.Unmarshal(bytes, &myAny17L18NF5); err == nil {
+		ok = true
+		a.Any17L18NF5 = &myAny17L18NF5
+	}
+
+	var myUnorderedSetOfAny17L18NF5VWcS9ROi UnorderedSetOfAny17L18NF5VWcS9ROi
+	if err := json.Unmarshal(bytes, &myUnorderedSetOfAny17L18NF5VWcS9ROi); err == nil {
+		ok = true
+		a.UnorderedSetOfAny17L18NF5VWcS9ROi = &myUnorderedSetOfAny17L18NF5VWcS9ROi
+	}
+
+	// Did unmarshal at least one of the simple objects.
+	if ok {
+		return nil
+	}
+	return errors.New("failed to unmarshal any of the object properties")
+}
 //
 // --- Default ---
 //
 // true
 type JSONSchema struct {
-	$Id                  *StringVPPt56NS                                            `json:"$id,omitempty"`
-	$Schema              *StringNQRYvFt5                                            `json:"$schema,omitempty"`
-	$Ref                 *StringVPPt56NS                                            `json:"$ref,omitempty"`
-	$Comment             *StringDoaGddGA                                            `json:"$comment,omitempty"`
+	Id                   *StringVPPt56NS                                            `json:"$id,omitempty"`
+	Schema               *StringNQRYvFt5                                            `json:"$schema,omitempty"`
+	Ref                  *StringVPPt56NS                                            `json:"$ref,omitempty"`
+	Comment              *StringDoaGddGA                                            `json:"$comment,omitempty"`
 	Title                *StringDoaGddGA                                            `json:"title,omitempty"`
 	Description          *StringDoaGddGA                                            `json:"description,omitempty"`
 	Default              *AnyL9Fw4VUO                                               `json:"default,omitempty"`
@@ -209,10 +282,72 @@ type OneOfContentDescriptorObjectReferenceObjectI0Ye8PrQ struct {
 	ContentDescriptorObject *ContentDescriptorObject
 	ReferenceObject         *ReferenceObject
 }
+// UnmarshalJSON implements the json Unmarshaler interface.
+// This implementation DOES NOT assert that ONE AND ONLY ONE
+// of the simple properties is satisfied; it lazily uses the first one that is satisfied.
+// Ergo, it will not return an error if more than one property is valid.
+func (o *OneOfContentDescriptorObjectReferenceObjectI0Ye8PrQ) UnmarshalJSON(bytes []byte) error {
+
+	var myContentDescriptorObject ContentDescriptorObject
+	if err := json.Unmarshal(bytes, &myContentDescriptorObject); err == nil {
+		o.ContentDescriptorObject = &myContentDescriptorObject
+		return nil
+	}
+
+	var myReferenceObject ReferenceObject
+	if err := json.Unmarshal(bytes, &myReferenceObject); err == nil {
+		o.ReferenceObject = &myReferenceObject
+		return nil
+	}
+
+	return errors.New("failed to unmarshal one of the object properties")
+}
+func (o OneOfContentDescriptorObjectReferenceObjectI0Ye8PrQ) MarshalJSON() ([]byte, error) {
+
+	if o.ContentDescriptorObject != nil {
+		return json.Marshal(o.ContentDescriptorObject)
+	}
+	if o.ReferenceObject != nil {
+		return json.Marshal(o.ReferenceObject)
+	}
+
+	return nil, errors.New("failed to marshal any one of the object properties")
+}
 type MethodObjectParams []OneOfContentDescriptorObjectReferenceObjectI0Ye8PrQ
 type MethodObjectResult struct {
 	ContentDescriptorObject *ContentDescriptorObject
 	ReferenceObject         *ReferenceObject
+}
+// UnmarshalJSON implements the json Unmarshaler interface.
+// This implementation DOES NOT assert that ONE AND ONLY ONE
+// of the simple properties is satisfied; it lazily uses the first one that is satisfied.
+// Ergo, it will not return an error if more than one property is valid.
+func (o *MethodObjectResult) UnmarshalJSON(bytes []byte) error {
+
+	var myContentDescriptorObject ContentDescriptorObject
+	if err := json.Unmarshal(bytes, &myContentDescriptorObject); err == nil {
+		o.ContentDescriptorObject = &myContentDescriptorObject
+		return nil
+	}
+
+	var myReferenceObject ReferenceObject
+	if err := json.Unmarshal(bytes, &myReferenceObject); err == nil {
+		o.ReferenceObject = &myReferenceObject
+		return nil
+	}
+
+	return errors.New("failed to unmarshal one of the object properties")
+}
+func (o MethodObjectResult) MarshalJSON() ([]byte, error) {
+
+	if o.ContentDescriptorObject != nil {
+		return json.Marshal(o.ContentDescriptorObject)
+	}
+	if o.ReferenceObject != nil {
+		return json.Marshal(o.ReferenceObject)
+	}
+
+	return nil, errors.New("failed to marshal any one of the object properties")
 }
 // A Number that indicates the error type that occurred. This MUST be an integer. The error codes from and including -32768 to -32000 are reserved for pre-defined errors. These pre-defined errors SHOULD be assumed to be returned from any JSON-RPC api.
 type ErrorObjectCode int64
@@ -229,6 +364,37 @@ type ErrorObject struct {
 type OneOfErrorObjectReferenceObject1KnseVEO struct {
 	ErrorObject     *ErrorObject
 	ReferenceObject *ReferenceObject
+}
+// UnmarshalJSON implements the json Unmarshaler interface.
+// This implementation DOES NOT assert that ONE AND ONLY ONE
+// of the simple properties is satisfied; it lazily uses the first one that is satisfied.
+// Ergo, it will not return an error if more than one property is valid.
+func (o *OneOfErrorObjectReferenceObject1KnseVEO) UnmarshalJSON(bytes []byte) error {
+
+	var myErrorObject ErrorObject
+	if err := json.Unmarshal(bytes, &myErrorObject); err == nil {
+		o.ErrorObject = &myErrorObject
+		return nil
+	}
+
+	var myReferenceObject ReferenceObject
+	if err := json.Unmarshal(bytes, &myReferenceObject); err == nil {
+		o.ReferenceObject = &myReferenceObject
+		return nil
+	}
+
+	return errors.New("failed to unmarshal one of the object properties")
+}
+func (o OneOfErrorObjectReferenceObject1KnseVEO) MarshalJSON() ([]byte, error) {
+
+	if o.ErrorObject != nil {
+		return json.Marshal(o.ErrorObject)
+	}
+	if o.ReferenceObject != nil {
+		return json.Marshal(o.ReferenceObject)
+	}
+
+	return nil, errors.New("failed to marshal any one of the object properties")
 }
 // Defines an application level error.
 type MethodObjectErrors []OneOfErrorObjectReferenceObject1KnseVEO
@@ -256,6 +422,37 @@ type OneOfLinkObjectReferenceObjectXyKfUxb0 struct {
 	LinkObject      *LinkObject
 	ReferenceObject *ReferenceObject
 }
+// UnmarshalJSON implements the json Unmarshaler interface.
+// This implementation DOES NOT assert that ONE AND ONLY ONE
+// of the simple properties is satisfied; it lazily uses the first one that is satisfied.
+// Ergo, it will not return an error if more than one property is valid.
+func (o *OneOfLinkObjectReferenceObjectXyKfUxb0) UnmarshalJSON(bytes []byte) error {
+
+	var myLinkObject LinkObject
+	if err := json.Unmarshal(bytes, &myLinkObject); err == nil {
+		o.LinkObject = &myLinkObject
+		return nil
+	}
+
+	var myReferenceObject ReferenceObject
+	if err := json.Unmarshal(bytes, &myReferenceObject); err == nil {
+		o.ReferenceObject = &myReferenceObject
+		return nil
+	}
+
+	return errors.New("failed to unmarshal one of the object properties")
+}
+func (o OneOfLinkObjectReferenceObjectXyKfUxb0) MarshalJSON() ([]byte, error) {
+
+	if o.LinkObject != nil {
+		return json.Marshal(o.LinkObject)
+	}
+	if o.ReferenceObject != nil {
+		return json.Marshal(o.ReferenceObject)
+	}
+
+	return nil, errors.New("failed to marshal any one of the object properties")
+}
 type MethodObjectLinks []OneOfLinkObjectReferenceObjectXyKfUxb0
 type ExamplePairingObjectName string
 type ExamplePairingObjectDescription string
@@ -273,10 +470,72 @@ type OneOfExampleObjectReferenceObject5DJ6EmZt struct {
 	ExampleObject   *ExampleObject
 	ReferenceObject *ReferenceObject
 }
+// UnmarshalJSON implements the json Unmarshaler interface.
+// This implementation DOES NOT assert that ONE AND ONLY ONE
+// of the simple properties is satisfied; it lazily uses the first one that is satisfied.
+// Ergo, it will not return an error if more than one property is valid.
+func (o *OneOfExampleObjectReferenceObject5DJ6EmZt) UnmarshalJSON(bytes []byte) error {
+
+	var myExampleObject ExampleObject
+	if err := json.Unmarshal(bytes, &myExampleObject); err == nil {
+		o.ExampleObject = &myExampleObject
+		return nil
+	}
+
+	var myReferenceObject ReferenceObject
+	if err := json.Unmarshal(bytes, &myReferenceObject); err == nil {
+		o.ReferenceObject = &myReferenceObject
+		return nil
+	}
+
+	return errors.New("failed to unmarshal one of the object properties")
+}
+func (o OneOfExampleObjectReferenceObject5DJ6EmZt) MarshalJSON() ([]byte, error) {
+
+	if o.ExampleObject != nil {
+		return json.Marshal(o.ExampleObject)
+	}
+	if o.ReferenceObject != nil {
+		return json.Marshal(o.ReferenceObject)
+	}
+
+	return nil, errors.New("failed to marshal any one of the object properties")
+}
 type ExamplePairingObjectParams []OneOfExampleObjectReferenceObject5DJ6EmZt
 type ExamplePairingObjectresult struct {
 	ExampleObject   *ExampleObject
 	ReferenceObject *ReferenceObject
+}
+// UnmarshalJSON implements the json Unmarshaler interface.
+// This implementation DOES NOT assert that ONE AND ONLY ONE
+// of the simple properties is satisfied; it lazily uses the first one that is satisfied.
+// Ergo, it will not return an error if more than one property is valid.
+func (o *ExamplePairingObjectresult) UnmarshalJSON(bytes []byte) error {
+
+	var myExampleObject ExampleObject
+	if err := json.Unmarshal(bytes, &myExampleObject); err == nil {
+		o.ExampleObject = &myExampleObject
+		return nil
+	}
+
+	var myReferenceObject ReferenceObject
+	if err := json.Unmarshal(bytes, &myReferenceObject); err == nil {
+		o.ReferenceObject = &myReferenceObject
+		return nil
+	}
+
+	return errors.New("failed to unmarshal one of the object properties")
+}
+func (o ExamplePairingObjectresult) MarshalJSON() ([]byte, error) {
+
+	if o.ExampleObject != nil {
+		return json.Marshal(o.ExampleObject)
+	}
+	if o.ReferenceObject != nil {
+		return json.Marshal(o.ReferenceObject)
+	}
+
+	return nil, errors.New("failed to marshal any one of the object properties")
 }
 type ExamplePairingObject struct {
 	Name        *ExamplePairingObjectName        `json:"name"`
@@ -287,6 +546,37 @@ type ExamplePairingObject struct {
 type OneOfExamplePairingObjectReferenceObjectWEBfRSyK struct {
 	ExamplePairingObject *ExamplePairingObject
 	ReferenceObject      *ReferenceObject
+}
+// UnmarshalJSON implements the json Unmarshaler interface.
+// This implementation DOES NOT assert that ONE AND ONLY ONE
+// of the simple properties is satisfied; it lazily uses the first one that is satisfied.
+// Ergo, it will not return an error if more than one property is valid.
+func (o *OneOfExamplePairingObjectReferenceObjectWEBfRSyK) UnmarshalJSON(bytes []byte) error {
+
+	var myExamplePairingObject ExamplePairingObject
+	if err := json.Unmarshal(bytes, &myExamplePairingObject); err == nil {
+		o.ExamplePairingObject = &myExamplePairingObject
+		return nil
+	}
+
+	var myReferenceObject ReferenceObject
+	if err := json.Unmarshal(bytes, &myReferenceObject); err == nil {
+		o.ReferenceObject = &myReferenceObject
+		return nil
+	}
+
+	return errors.New("failed to unmarshal one of the object properties")
+}
+func (o OneOfExamplePairingObjectReferenceObjectWEBfRSyK) MarshalJSON() ([]byte, error) {
+
+	if o.ExamplePairingObject != nil {
+		return json.Marshal(o.ExamplePairingObject)
+	}
+	if o.ReferenceObject != nil {
+		return json.Marshal(o.ReferenceObject)
+	}
+
+	return nil, errors.New("failed to marshal any one of the object properties")
 }
 type MethodObjectExamples []OneOfExamplePairingObjectReferenceObjectWEBfRSyK
 type MethodObjectDeprecated bool
