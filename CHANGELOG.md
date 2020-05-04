@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/open-rpc/schema/compare/1.10.2...1.11.0) (2020-05-04)
+
+
+### Features
+
+* **json-schema-to-types:** bump to v1.11.2 ([93df46c](https://github.com/open-rpc/schema/commit/93df46c64971667f07d49f5a95121626e2b18828))
+
 ## [1.10.2](https://github.com/open-rpc/schema/compare/1.10.1...1.10.2) (2020-04-08)
 
 
