@@ -401,13 +401,13 @@
         "paramStructure": {
           "title": "methodObjectParamStructure",
           "type": "string",
-          "description": "Format the server expects the params. Defaults to 'by-position'.",
+          "description": "Format the server expects the params. Defaults to 'either'.",
           "enum": [
             "by-position",
             "by-name",
             "either"
           ],
-          "default": "by-position"
+          "default": "either"
         },
         "params": {
           "title": "methodObjectParams",
