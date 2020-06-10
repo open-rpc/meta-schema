@@ -3,6 +3,11 @@
   "branch": "master",
   "plugins": [
     "@semantic-release/commit-analyzer",
+    ["@json-schema-tools/semantic-release-transpiler", {
+      "outpath": "./",
+      "schemaLocation": "./build/schema.json",
+      "languages": { "ts": true, "go": true }
+    }],
     "@semantic-release/changelog",
     "@semantic-release/release-notes-generator",
     ["@semantic-release/git", {
@@ -13,10 +18,23 @@
     "@semantic-release/npm"
   ],
   "verifyConditions": [
+    ["@json-schema-tools/semantic-release-transpiler", {
+      "outpath": "./",
+      "schemaLocation": "./build/schema.json",
+      "languages": { "ts": true, "go": true }
+    }],
     "@semantic-release/changelog",
     "@semantic-release/npm",
     "@semantic-release/git",
     "@semantic-release/github"
+  ],
+  "prepare": [
+    ["@json-schema-tools/semantic-release-transpiler", {
+      "outpath": "./",
+      "schemaLocation": "./build/schema.json",
+      "languages": { "ts": true, "go": true }
+    }],
+    "@semantic-release/changelog"
   ],
   "publish": [
     ["@semantic-release/github", {
