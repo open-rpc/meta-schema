@@ -14,7 +14,8 @@
   },
   "scripts": {
     "build": "bin/build.js",
-    "test": "jest src/test.js",
+    "test": "jest src/test.ts",
+    "lint": "eslint . --ext .ts",
     "test:watch": "npm run test -- --watch"
   },
   "license": "Apache-2.0",
@@ -26,8 +27,15 @@
   "devDependencies": {
     "@etclabscore/dl-github-releases": "^1.1.0",
     "@json-schema-tools/semantic-release-transpiler": "^1.1.0",
+    "@types/fs-extra": "^9.0.1",
+    "@types/jest": "^26.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "eslint": "^7.2.0",
     "fs-extra": "^9.0.0",
-    "jest": "^25.1.0"
+    "jest": "^25.1.0",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.5"
   },
   "keywords": [
     "open-rpc",
