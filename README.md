@@ -11,7 +11,7 @@
   </span>
 </center>
 
-This is the JSON Schema file for the OpenRPC Specification.
+This is the JSON Schema file for the [OpenRPC Specification](https://spec.open-rpc.org/).
 
 
 ## License
