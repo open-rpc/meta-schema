@@ -1,3 +1,12 @@
+## [1.11.1](https://github.com/open-rpc/schema/compare/1.11.0...1.11.1) (2020-07-17)
+
+
+### Bug Fixes
+
+* **README:** add openrpc spec link ([ab1aad3](https://github.com/open-rpc/schema/commit/ab1aad33ba9c371c1346150c046881836b3871ac))
+* default param structure to either ([1899f88](https://github.com/open-rpc/schema/commit/1899f883e065144b04519bf4d1e647519069889b))
+* update description ([76f7bba](https://github.com/open-rpc/schema/commit/76f7bba8f3469df2ce9786e4a27d70085cad1859))
+
 # [1.11.0](https://github.com/open-rpc/schema/compare/1.10.2...1.11.0) (2020-05-04)
 
 
