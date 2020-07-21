@@ -112,7 +112,7 @@
   },
   "definitions": {
     "schema": {
-      "$ref": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.0.9/meta-schema.json"
+      "$ref": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.3.0/src/schema.json"
     },
     "referenceObject": {
       "title": "referenceObject",
