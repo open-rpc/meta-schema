@@ -7,7 +7,7 @@
     "email": "developers@open-rpc.com",
     "url": "https://open-rpc.com"
   },
-  "main": "build/src/index.js",
+  "main": "build/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/open-rpc/schema.git"
