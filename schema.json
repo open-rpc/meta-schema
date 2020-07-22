@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.3.0/src/schema.json",
+  "$schema": "https://meta.json-schema.tools/",
   "$id": "https://meta.open-rpc.org/",
   "title": "openrpcDocument",
   "type": "object",
