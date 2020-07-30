@@ -1,6 +1,6 @@
 {
   "name": "@open-rpc/meta-schema",
-  "version": "0.0.0-semantic-dev",
+  "version": "0.0.0-development",
   "description": "OpenRPC Specification JSON schemas",
   "author": {
     "name": "open-rpc",
