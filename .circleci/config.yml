@@ -62,6 +62,7 @@ jobs:
       - run: ls
       - run: ls build
       - run: npm install semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/npm @semantic-release/commit-analyzer @semantic-release/release-notes-generator
+      - run: git checkout .
       - run: ./node_modules/.bin/semantic-release
       - save_cache: *save-deps-cache
 
