@@ -1,6 +1,6 @@
 {
   "name": "@open-rpc/meta-schema",
-  "version": "1.0.6",
+  "version": "0.0.0-semantic-dev",
   "description": "OpenRPC Specification JSON schemas",
   "author": {
     "name": "open-rpc",
@@ -10,7 +10,7 @@
   "main": "build/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/open-rpc/schema.git"
+    "url": "https://github.com/open-rpc/meta-schema.git"
   },
   "scripts": {
     "build": "bin/build.js",
@@ -21,12 +21,12 @@
   "license": "Apache-2.0",
   "readmeFilename": "README.md",
   "files": [
-    "build"
+    "build",
+    "!build/*.test.*"
   ],
   "dependencies": {},
   "devDependencies": {
     "@etclabscore/dl-github-releases": "^1.1.0",
-    "@json-schema-tools/semantic-release-transpiler": "^1.4.0",
     "@types/fs-extra": "^9.0.1",
     "@types/jest": "^26.0.0",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
