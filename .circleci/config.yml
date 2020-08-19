@@ -53,17 +53,25 @@ jobs:
   release:
     <<: *defaults
     docker:
-      - image: circleci/node:lts
+      - image: circleci/python:2.7-stretch
     steps:
       - checkout
-      - restore_cache: *restore-deps-cache
+      - run:
+          name: "Update Node.js and npm"
+          command: |
+            curl -sSL "https://nodejs.org/dist/v10.18.0/node-v10.18.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v10.18.0-linux-x64/bin/node
+            curl https://www.npmjs.com/install.sh | sudo bash
       - run: npm install
-      - run: npm run build
-      - run: ls
-      - run: ls build
-      - run: npm install semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/npm @semantic-release/commit-analyzer @semantic-release/release-notes-generator @json-schema-tools/semantic-release-transpiler
-      - run: git checkout .
       - run: ./node_modules/.bin/semantic-release
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+      - run:
+          name: Deploy to S3
+          command: aws s3 mv src/schema.json s3://meta.open-rpc.org/latest.json
+      - run:
+          name: invalidate cloudfront
+          command: aws cloudfront create-invalidation --distribution-id E2TNH97Q34RX9Z --paths '/*'
       - save_cache: *save-deps-cache
 
 workflows:
