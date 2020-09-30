@@ -1,3 +1,14 @@
+## [1.13.4](https://github.com/open-rpc/meta-schema/compare/1.13.3...1.13.4) (2020-09-30)
+
+
+### Bug Fixes
+
+* dont update package.json during deployment ([4b5cc09](https://github.com/open-rpc/meta-schema/commit/4b5cc097a0f630f8f41bfea989793d1dd65f3d19))
+* get missing deps in order ([1aac554](https://github.com/open-rpc/meta-schema/commit/1aac5544d43c03db01510cf3cacd960e7ba7821d))
+* remove deps ([160eb2c](https://github.com/open-rpc/meta-schema/commit/160eb2c4e3ec378d9a4095e943b57c8a17fad016))
+* remove garb deps ([b103fb8](https://github.com/open-rpc/meta-schema/commit/b103fb8bfa59babb772b4071771a5409e710140e))
+* update dl-gh-releases ([1db7522](https://github.com/open-rpc/meta-schema/commit/1db75227508047907597bb712e8bcaa89b3e358a))
+
 ## [1.13.3](https://github.com/open-rpc/meta-schema/compare/1.13.2...1.13.3) (2020-09-30)
 
 
