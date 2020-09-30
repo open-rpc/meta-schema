@@ -17,7 +17,7 @@ const build = async () => {
 
   const dir = path.resolve(__dirname, "../build/");
   try {
-    fs.makedirSync(dir);
+    fs.mkdirSync(dir);
   } catch (e) {
 
   }
