@@ -14,6 +14,7 @@
       "assets": ["meta_schema.go", "CHANGELOG.md"],
       "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
     }],
+    "@semantic-release/git",
     "@semantic-release/github",
     "@semantic-release/npm"
   ],
@@ -34,7 +35,8 @@
       "schemaLocation": "./build/schema.json",
       "languages": { "ts": true, "go": true }
     }],
-    "@semantic-release/changelog"
+    "@semantic-release/changelog",
+    "@semantic-release/git"
   ],
   "publish": [
     ["@semantic-release/github", {
@@ -46,7 +48,8 @@
         }
       ]
     }],
-    "@semantic-release/npm"
+    "@semantic-release/npm",
+    "@semantic-release/git"
   ],
   "success": [
     "@semantic-release/github"
