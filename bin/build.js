@@ -5,7 +5,6 @@ const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
 const writeFile = promisify(fs.writeFile);
-const { ensureDir } = require('fs-extra');
 const {listReleases} = require("@etclabscore/dl-github-releases");
 
 const setOpenRPCVersionEnum = async (s) => {
@@ -17,7 +16,11 @@ const build = async () => {
   const withVersionEnum = await setOpenRPCVersionEnum(schema);
 
   const dir = path.resolve(__dirname, "../build/");
-  await ensureDir(dir);
+  try {
+    fs.makedirSync(dir);
+  } catch (e) {
+
+  }
   await writeFile(`${dir}/schema.json`, JSON.stringify(withVersionEnum, undefined, "  "));
   console.log("wrote schema.json");
 };
