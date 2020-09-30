@@ -63,6 +63,7 @@ jobs:
             curl https://www.npmjs.com/install.sh | sudo bash
       - run: npm install
       - run: npm install semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/npm @semantic-release/commit-analyzer @semantic-release/release-notes-generator @qiwi/semantic-release-gh-pages-plugin @semantic-release/exec @json-schema-tools/semantic-release-transpiler
+      - run: git checkout package.json package-lock.json
       - run: npm run build
       - run: ./node_modules/.bin/semantic-release
       - run:
