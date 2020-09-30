@@ -1,3 +1,11 @@
+## [1.13.3](https://github.com/open-rpc/meta-schema/compare/1.13.2...1.13.3) (2020-09-30)
+
+
+### Bug Fixes
+
+* git rel ([6c4ec2b](https://github.com/open-rpc/meta-schema/commit/6c4ec2bdc9e6a60df7840d764371e593b6cfcd7f))
+* include git in release ([1db88fc](https://github.com/open-rpc/meta-schema/commit/1db88fc764fe235ecd1ff40aa73850ac946db22e))
+
 ## [1.11.1](https://github.com/open-rpc/schema/compare/1.11.0...1.11.1) (2020-07-17)
 
 
