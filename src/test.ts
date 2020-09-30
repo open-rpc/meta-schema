@@ -1,9 +1,10 @@
-import { readJson } from "fs-extra";
+import * as fs from "fs";
 
 describe("meta-schema", () => {
 
-  it("is valid json", async () => {
-    const schema = await readJson("./schema.json");
-    expect(schema.type).toBe("object");
+  it("is valid json", () => {
+    const schema = fs.readFileSync("./schema.json", "utf8");
+    const asJson = JSON.parse(schema);
+    expect(asJson.type).toBe("object");
   });
 });
