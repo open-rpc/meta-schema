@@ -1,3 +1,11 @@
+## [1.13.9](https://github.com/open-rpc/meta-schema/compare/1.13.8...1.13.9) (2020-10-02)
+
+
+### Bug Fixes
+
+* git release assets ([75b4082](https://github.com/open-rpc/meta-schema/commit/75b4082f4c3ad7901fff733fcf9c3a67391d3049))
+* missing comma in releaserc file ([973ba7b](https://github.com/open-rpc/meta-schema/commit/973ba7b7382603137c757dced0e416ce5e11bcc7))
+
 ## [1.13.8](https://github.com/open-rpc/meta-schema/compare/1.13.7...1.13.8) (2020-10-02)
 
 
