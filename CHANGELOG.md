@@ -1,3 +1,10 @@
+## [1.13.5](https://github.com/open-rpc/meta-schema/compare/1.13.4...1.13.5) (2020-10-02)
+
+
+### Bug Fixes
+
+* add copy from build step to include go typings into master ([730f66d](https://github.com/open-rpc/meta-schema/commit/730f66d278da0078ac9436b5fd64262c80ea61cc))
+
 ## [1.13.4](https://github.com/open-rpc/meta-schema/compare/1.13.3...1.13.4) (2020-09-30)
 
 
