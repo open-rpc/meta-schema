@@ -8,13 +8,10 @@
       "schemaLocation": "./build/schema.json",
       "languages": { "ts": true, "go": true }
     }],
-    ["@semantic-release/exec", {
-      "prepareCmd": "cp ./build/* ."
-    }],
     "@semantic-release/changelog",
     "@semantic-release/release-notes-generator",
     ["@semantic-release/git", {
-      "assets": ["meta_schema.go", "CHANGELOG.md"],
+      "assets": ["build/meta_schema.go", "CHANGELOG.md"],
       "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
     }],
     "@semantic-release/github",
