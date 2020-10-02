@@ -7,7 +7,7 @@
     "email": "developers@open-rpc.com",
     "url": "https://open-rpc.com"
   },
-  "main": "build/index.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/open-rpc/meta-schema.git"
@@ -21,8 +21,8 @@
   "license": "Apache-2.0",
   "readmeFilename": "README.md",
   "files": [
-    "build",
-    "!build/*.test.*"
+    "index.js",
+    "index.d.ts"
   ],
   "dependencies": {},
   "devDependencies": {
