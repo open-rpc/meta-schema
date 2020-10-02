@@ -8,6 +8,9 @@
       "schemaLocation": "./build/schema.json",
       "languages": { "ts": true, "go": true }
     }],
+    ["@semantic-release/exec", {
+      "prepare": "cp ./build/* ."
+    }],
     "@semantic-release/changelog",
     "@semantic-release/release-notes-generator",
     ["@semantic-release/git", {
