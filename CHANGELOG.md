@@ -1,3 +1,10 @@
+## [1.13.6](https://github.com/open-rpc/meta-schema/compare/1.13.5...1.13.6) (2020-10-02)
+
+
+### Bug Fixes
+
+* sem-rel exec command typo ([399dd21](https://github.com/open-rpc/meta-schema/commit/399dd21588a1d61aa9cff6be952fd843ec9078b3))
+
 ## [1.13.5](https://github.com/open-rpc/meta-schema/compare/1.13.4...1.13.5) (2020-10-02)
 
 
