@@ -64,6 +64,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: ./node_modules/.bin/semantic-release
+      - run: ls
       - run:
           name: Install awscli
           command: sudo pip install awscli
