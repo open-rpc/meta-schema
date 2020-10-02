@@ -1,3 +1,10 @@
+## [1.13.7](https://github.com/open-rpc/meta-schema/compare/1.13.6...1.13.7) (2020-10-02)
+
+
+### Bug Fixes
+
+* go build still broken ([034dca5](https://github.com/open-rpc/meta-schema/commit/034dca550ddde387dd10a30d23e5a04290f4ea43))
+
 ## [1.13.6](https://github.com/open-rpc/meta-schema/compare/1.13.5...1.13.6) (2020-10-02)
 
 
