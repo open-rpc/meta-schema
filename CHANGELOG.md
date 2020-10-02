@@ -1,3 +1,10 @@
+## [1.13.11](https://github.com/open-rpc/meta-schema/compare/1.13.10...1.13.11) (2020-10-02)
+
+
+### Bug Fixes
+
+* debugging circle ([2b6491a](https://github.com/open-rpc/meta-schema/commit/2b6491aa6306b7fb1324ac3cc8865a8e3579d263))
+
 ## [1.13.10](https://github.com/open-rpc/meta-schema/compare/1.13.9...1.13.10) (2020-10-02)
 
 
