@@ -1,3 +1,14 @@
+## [1.13.10](https://github.com/open-rpc/meta-schema/compare/1.13.9...1.13.10) (2020-10-02)
+
+
+### Bug Fixes
+
+* add sem rel to dev deps again ([58230a7](https://github.com/open-rpc/meta-schema/commit/58230a7dcd546a79eb70d2d12f7f6ce51fcc9fb3))
+* bump node version during releaase ([cdd6f21](https://github.com/open-rpc/meta-schema/commit/cdd6f2179b24534a3294752b0da451e363be7395))
+* directly write open rpc versions to schema ([d3ab70f](https://github.com/open-rpc/meta-schema/commit/d3ab70f4f6d4501f988bef3933545740363a2901))
+* fix node version ([3849379](https://github.com/open-rpc/meta-schema/commit/384937969232f7cb966e1e2f145eed6b94a65c03))
+* make bin script executable ([1fd092d](https://github.com/open-rpc/meta-schema/commit/1fd092d770290103174d2564dadc67f472bda4ce))
+
 ## [1.13.9](https://github.com/open-rpc/meta-schema/compare/1.13.8...1.13.9) (2020-10-02)
 
 
