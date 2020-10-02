@@ -5,7 +5,7 @@
     "@semantic-release/commit-analyzer",
     ["@json-schema-tools/semantic-release-transpiler", {
       "outpath": "./",
-      "schemaLocation": "./build/schema.json",
+      "schemaLocation": "./schema.json",
       "languages": { "ts": true, "go": true }
     }],
     "@semantic-release/changelog",
@@ -20,7 +20,7 @@
   "verifyConditions": [
     ["@json-schema-tools/semantic-release-transpiler", {
       "outpath": "./",
-      "schemaLocation": "./build/schema.json",
+      "schemaLocation": "./schema.json",
       "languages": { "ts": true, "go": true }
     }],
     "@semantic-release/changelog",
@@ -31,7 +31,7 @@
   "prepare": [
     ["@json-schema-tools/semantic-release-transpiler", {
       "outpath": "./",
-      "schemaLocation": "./build/schema.json",
+      "schemaLocation": "./schema.json",
       "languages": { "ts": true, "go": true }
     }],
     "@semantic-release/changelog",
@@ -42,7 +42,7 @@
       "assets": [
         {
           "name": "open-rpc-meta-schema.json",
-          "path": "build/schema.json",
+          "path": "schema.json",
           "label": "OpenRPC Meta Schema"
         }
       ]
