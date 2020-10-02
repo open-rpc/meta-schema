@@ -9,7 +9,7 @@
       "languages": { "ts": true, "go": true }
     }],
     ["@semantic-release/exec", {
-      "prepare": "cp ./build/* ."
+      "prepareCmd": "cp ./build/* ."
     }],
     "@semantic-release/changelog",
     "@semantic-release/release-notes-generator",
