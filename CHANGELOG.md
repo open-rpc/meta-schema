@@ -1,3 +1,10 @@
+## [1.13.8](https://github.com/open-rpc/meta-schema/compare/1.13.7...1.13.8) (2020-10-02)
+
+
+### Bug Fixes
+
+* remove references to build dir ([f14a570](https://github.com/open-rpc/meta-schema/commit/f14a57062876e9d4ef5fe5fa9d2da106efc6b55a))
+
 ## [1.13.7](https://github.com/open-rpc/meta-schema/compare/1.13.6...1.13.7) (2020-10-02)
 
 
