@@ -11,7 +11,7 @@
     "@semantic-release/changelog",
     "@semantic-release/release-notes-generator",
     ["@semantic-release/git", {
-      "assets": ["build/meta_schema.go", "CHANGELOG.md"],
+      "assets": ["meta_schema.go", "index.*" "CHANGELOG.md"],
       "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
     }],
     "@semantic-release/github",
