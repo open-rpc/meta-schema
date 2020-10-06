@@ -1,3 +1,10 @@
+## [1.13.12](https://github.com/open-rpc/meta-schema/compare/1.13.11...1.13.12) (2020-10-06)
+
+
+### Bug Fixes
+
+* duplication seems to fix things ([8abaf95](https://github.com/open-rpc/meta-schema/commit/8abaf9593f601c3a4902208b5176f3552ff1329c))
+
 ## [1.13.11](https://github.com/open-rpc/meta-schema/compare/1.13.10...1.13.11) (2020-10-02)
 
 
