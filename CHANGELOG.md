@@ -1,3 +1,12 @@
+## [1.13.13](https://github.com/open-rpc/meta-schema/compare/1.13.12...1.13.13) (2020-10-06)
+
+
+### Bug Fixes
+
+* add built assets to release ([eee33a3](https://github.com/open-rpc/meta-schema/commit/eee33a3e886cb9c02883db3c20d93d1fcf9fd7e0))
+* add python and rust typings ([01d790f](https://github.com/open-rpc/meta-schema/commit/01d790fc1b9235f253e1803b3181d520b7d4725c))
+* missing comma ([44ba4a2](https://github.com/open-rpc/meta-schema/commit/44ba4a2295bd609149f2db3628443c45f97bd2a2))
+
 ## [1.13.12](https://github.com/open-rpc/meta-schema/compare/1.13.11...1.13.12) (2020-10-06)
 
 
