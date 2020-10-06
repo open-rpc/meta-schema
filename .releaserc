@@ -11,7 +11,7 @@
     "@semantic-release/changelog",
     "@semantic-release/release-notes-generator",
     ["@semantic-release/git", {
-      "assets": ["meta_schema.go", "index.*", "CHANGELOG.md"],
+      "assets": ["*.go", "index.*", "CHANGELOG.md"],
       "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
     }],
     "@semantic-release/github",
@@ -25,7 +25,10 @@
     }],
     "@semantic-release/changelog",
     "@semantic-release/npm",
-    "@semantic-release/git",
+    ["@semantic-release/git", {
+      "assets": ["*.go", "index.*", "CHANGELOG.md"],
+      "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+    }]
     "@semantic-release/github"
   ],
   "prepare": [
@@ -36,13 +39,15 @@
     }],
     "@semantic-release/changelog",
     ["@semantic-release/git", {
-      "assets": ["meta_schema.go", "index.*", "CHANGELOG.md"],
+      "assets": ["*.go", "index.*", "CHANGELOG.md"],
       "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
     }]
   ],
   "publish": [
     ["@semantic-release/github", {
       "assets": [
+        "index.*",
+        "*.go",
         {
           "name": "open-rpc-meta-schema.json",
           "path": "schema.json",
