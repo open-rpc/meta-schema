@@ -35,7 +35,10 @@
       "languages": { "ts": true, "go": true }
     }],
     "@semantic-release/changelog",
-    "@semantic-release/git"
+    ["@semantic-release/git", {
+      "assets": ["meta_schema.go", "index.*", "CHANGELOG.md"],
+      "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+    }]
   ],
   "publish": [
     ["@semantic-release/github", {
