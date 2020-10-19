@@ -9,4 +9,5 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
   ],
+  ignorePatterns: ["index.d.ts"],
 };
