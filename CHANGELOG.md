@@ -1,3 +1,10 @@
+## [1.13.15](https://github.com/open-rpc/meta-schema/compare/1.13.14...1.13.15) (2020-10-22)
+
+
+### Bug Fixes
+
+* **package.json:** update json schema transpiler version ([90f4ea6](https://github.com/open-rpc/meta-schema/commit/90f4ea624ccf361d138f5cb3da4087ec4e2c4ebc))
+
 ## [1.13.14](https://github.com/open-rpc/meta-schema/compare/1.13.13...1.13.14) (2020-10-22)
 
 
