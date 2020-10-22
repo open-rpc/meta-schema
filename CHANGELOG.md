@@ -1,3 +1,14 @@
+## [1.13.14](https://github.com/open-rpc/meta-schema/compare/1.13.13...1.13.14) (2020-10-22)
+
+
+### Bug Fixes
+
+* add discord link ([8e047d6](https://github.com/open-rpc/meta-schema/commit/8e047d60c0a79c008b8da64f27983c0012dfe999))
+* add eslint dev dep ([97800be](https://github.com/open-rpc/meta-schema/commit/97800beb617c6acc912b72d449552d92775fc8e7))
+* add eslint ignore pattern for typings ([2df8e79](https://github.com/open-rpc/meta-schema/commit/2df8e790aae27a786cc492af16385b000020eb62))
+* correct the ignore glob ([beec471](https://github.com/open-rpc/meta-schema/commit/beec471f63dc1f7e1fc562af7635b84f09d094bf))
+* remove extra meta_schema.go ([a277d5e](https://github.com/open-rpc/meta-schema/commit/a277d5e65fdf65d5ee8a862d241141d0587d1a97)), closes [#291](https://github.com/open-rpc/meta-schema/issues/291)
+
 ## [1.13.13](https://github.com/open-rpc/meta-schema/compare/1.13.12...1.13.13) (2020-10-06)
 
 
