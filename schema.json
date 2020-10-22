@@ -114,7 +114,7 @@
     "JSONSchema": {
       "$ref": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.3.0/src/schema.json"
     },
-    "referenceObject": {
+    "referenceObject": { 
       "title": "referenceObject",
       "type": "object",
       "additionalProperties": false,
@@ -123,9 +123,7 @@
       ],
       "properties": {
         "$ref": {
-          "title": "ref",
-          "type": "string",
-          "format": "uri-reference"
+           "$ref": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.3.0/src/schema.json#definitions/JSONSchemaObject/properties/$ref"
         }
       }
     },
