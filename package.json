@@ -27,7 +27,7 @@
   "dependencies": {},
   "devDependencies": {
     "@etclabscore/dl-github-releases": "^1.2.1",
-    "@json-schema-tools/semantic-release-transpiler": "^1.4.3",
+    "@json-schema-tools/semantic-release-transpiler": "1.4.4",
     "@qiwi/semantic-release-gh-pages-plugin": "^5.0.0",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
