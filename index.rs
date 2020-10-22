@@ -139,37 +139,6 @@ pub struct TagObject {
     pub(crate) description: Option<TagObjectDescription>,
     pub(crate) externalDocs: Option<ExternalDocumentationObject>,
 }
-pub type Ref = String;
-#[derive(Serialize, Deserialize)]
-pub struct ReferenceObject {
-    pub(crate) $ref: Ref,
-}
-#[derive(Serialize, Deserialize)]
-pub enum OneOfReferenceObjectTagObjectMTCfXRqB {
-    TagObject,
-    ReferenceObject
-}
-pub type MethodObjectTags = Vec<OneOfReferenceObjectTagObjectMTCfXRqB>;
-/// MethodObjectParamStructure
-///
-/// Format the server expects the params. Defaults to 'either'.
-///
-/// # Default
-///
-/// either
-///
-#[derive(Serialize, Deserialize)]
-pub enum MethodObjectParamStructure {
-    #[serde(rename = "by-position")]
-    ByPosition,
-    #[serde(rename = "by-name")]
-    ByName,
-    #[serde(rename = "either")]
-    Either,
-}
-pub type ContentDescriptorObjectName = String;
-pub type ContentDescriptorObjectDescription = String;
-pub type ContentDescriptorObjectSummary = String;
 pub type $Id = String;
 pub type $Schema = String;
 pub type $Ref = String;
@@ -299,6 +268,36 @@ pub enum JSONSchema {
     JSONSchemaObject,
     JSONSchemaBoolean
 }
+#[derive(Serialize, Deserialize)]
+pub struct ReferenceObject {
+    pub(crate) $ref: JSONSchema,
+}
+#[derive(Serialize, Deserialize)]
+pub enum OneOfReferenceObjectTagObjectMTCfXRqB {
+    TagObject,
+    ReferenceObject
+}
+pub type MethodObjectTags = Vec<OneOfReferenceObjectTagObjectMTCfXRqB>;
+/// MethodObjectParamStructure
+///
+/// Format the server expects the params. Defaults to 'either'.
+///
+/// # Default
+///
+/// either
+///
+#[derive(Serialize, Deserialize)]
+pub enum MethodObjectParamStructure {
+    #[serde(rename = "by-position")]
+    ByPosition,
+    #[serde(rename = "by-name")]
+    ByName,
+    #[serde(rename = "either")]
+    Either,
+}
+pub type ContentDescriptorObjectName = String;
+pub type ContentDescriptorObjectDescription = String;
+pub type ContentDescriptorObjectSummary = String;
 pub type ContentDescriptorObjectRequired = bool;
 pub type ContentDescriptorObjectDeprecated = bool;
 #[derive(Serialize, Deserialize)]

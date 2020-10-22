@@ -128,27 +128,6 @@ class TagObject(TypedDict):
     description: Optional[TagObjectDescription]
     externalDocs: Optional[ExternalDocumentationObject]
 
-Ref = NewType("Ref", str)
-
-class ReferenceObject(TypedDict):
-    $ref: Optional[Ref]
-
-OneOfReferenceObjectTagObjectMTCfXRqB = NewType("OneOfReferenceObjectTagObjectMTCfXRqB", Union[TagObject, ReferenceObject])
-
-MethodObjectTags = NewType("MethodObjectTags", List[OneOfReferenceObjectTagObjectMTCfXRqB])
-"""Format the server expects the params. Defaults to 'either'.
-"""
-class MethodObjectParamStructure(Enum):
-    BY-POSITION = 0
-    BY-NAME = 1
-    EITHER = 2
-
-ContentDescriptorObjectName = NewType("ContentDescriptorObjectName", str)
-
-ContentDescriptorObjectDescription = NewType("ContentDescriptorObjectDescription", str)
-
-ContentDescriptorObjectSummary = NewType("ContentDescriptorObjectSummary", str)
-
 $Id = NewType("$Id", str)
 
 $Schema = NewType("$Schema", str)
@@ -269,6 +248,25 @@ class JSONSchemaObject(TypedDict):
 JSONSchemaBoolean = NewType("JSONSchemaBoolean", bool)
 
 JSONSchema = NewType("JSONSchema", Union[JSONSchemaObject, JSONSchemaBoolean])
+
+class ReferenceObject(TypedDict):
+    $ref: Optional[JSONSchema]
+
+OneOfReferenceObjectTagObjectMTCfXRqB = NewType("OneOfReferenceObjectTagObjectMTCfXRqB", Union[TagObject, ReferenceObject])
+
+MethodObjectTags = NewType("MethodObjectTags", List[OneOfReferenceObjectTagObjectMTCfXRqB])
+"""Format the server expects the params. Defaults to 'either'.
+"""
+class MethodObjectParamStructure(Enum):
+    BY-POSITION = 0
+    BY-NAME = 1
+    EITHER = 2
+
+ContentDescriptorObjectName = NewType("ContentDescriptorObjectName", str)
+
+ContentDescriptorObjectDescription = NewType("ContentDescriptorObjectDescription", str)
+
+ContentDescriptorObjectSummary = NewType("ContentDescriptorObjectSummary", str)
 
 ContentDescriptorObjectRequired = NewType("ContentDescriptorObjectRequired", bool)
 

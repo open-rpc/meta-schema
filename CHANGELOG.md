@@ -1,3 +1,10 @@
+## [1.13.16](https://github.com/open-rpc/meta-schema/compare/1.13.15...1.13.16) (2020-10-22)
+
+
+### Bug Fixes
+
+* dedupe $ref ([f3b22d9](https://github.com/open-rpc/meta-schema/commit/f3b22d97c3381e43054e5fa76d656bc554914dd6))
+
 ## [1.13.15](https://github.com/open-rpc/meta-schema/compare/1.13.14...1.13.15) (2020-10-22)
 
 
