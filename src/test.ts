@@ -1,6 +1,5 @@
 import * as fs from "fs";
 import Dereferencer from "@json-schema-tools/dereferencer";
-import dereffer from "@json-schema-tools/dereferencer";
 
 describe("meta-schema", () => {
   const s = fs.readFileSync("./schema.json", "utf8");
