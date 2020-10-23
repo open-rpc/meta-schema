@@ -46,7 +46,7 @@ ContactObjectEmail = NewType("ContactObjectEmail", str)
 
 ContactObjectUrl = NewType("ContactObjectUrl", str)
 
-AnyL9Fw4VUO = NewType("AnyL9Fw4VUO", Any)
+SpecificationExtension = NewType("SpecificationExtension", Any)
 
 class ContactObject(TypedDict):
     name: Optional[ContactObjectName]
@@ -252,9 +252,9 @@ JSONSchema = NewType("JSONSchema", Union[JSONSchemaObject, JSONSchemaBoolean])
 class ReferenceObject(TypedDict):
     $ref: Optional[JSONSchema]
 
-OneOfReferenceObjectTagObjectMTCfXRqB = NewType("OneOfReferenceObjectTagObjectMTCfXRqB", Union[TagObject, ReferenceObject])
+TagOrReference = NewType("TagOrReference", Union[TagObject, ReferenceObject])
 
-MethodObjectTags = NewType("MethodObjectTags", List[OneOfReferenceObjectTagObjectMTCfXRqB])
+MethodObjectTags = NewType("MethodObjectTags", List[TagOrReference])
 """Format the server expects the params. Defaults to 'either'.
 """
 class MethodObjectParamStructure(Enum):
@@ -280,9 +280,9 @@ class ContentDescriptorObject(TypedDict):
     required: Optional[ContentDescriptorObjectRequired]
     deprecated: Optional[ContentDescriptorObjectDeprecated]
 
-OneOfContentDescriptorObjectReferenceObjectI0Ye8PrQ = NewType("OneOfContentDescriptorObjectReferenceObjectI0Ye8PrQ", Union[ContentDescriptorObject, ReferenceObject])
+ContentDescriptorOrReference = NewType("ContentDescriptorOrReference", Union[ContentDescriptorObject, ReferenceObject])
 
-MethodObjectParams = NewType("MethodObjectParams", List[OneOfContentDescriptorObjectReferenceObjectI0Ye8PrQ])
+MethodObjectParams = NewType("MethodObjectParams", List[ContentDescriptorOrReference])
 
 MethodObjectResult = NewType("MethodObjectResult", Union[ContentDescriptorObject, ReferenceObject])
 """A Number that indicates the error type that occurred. This MUST be an integer. The error codes from and including -32768 to -32000 are reserved for pre-defined errors. These pre-defined errors SHOULD be assumed to be returned from any JSON-RPC api.
@@ -301,10 +301,10 @@ class ErrorObject(TypedDict):
     message: Optional[ErrorObjectMessage]
     data: Optional[ErrorObjectData]
 
-OneOfErrorObjectReferenceObject1KnseVEO = NewType("OneOfErrorObjectReferenceObject1KnseVEO", Union[ErrorObject, ReferenceObject])
+ErrorOrReference = NewType("ErrorOrReference", Union[ErrorObject, ReferenceObject])
 """Defines an application level error.
 """
-MethodObjectErrors = NewType("MethodObjectErrors", List[OneOfErrorObjectReferenceObject1KnseVEO])
+MethodObjectErrors = NewType("MethodObjectErrors", List[ErrorOrReference])
 
 LinkObjectName = NewType("LinkObjectName", str)
 
@@ -324,9 +324,9 @@ class LinkObject(TypedDict):
     params: Optional[LinkObjectParams]
     server: Optional[ServerObject]
 
-OneOfLinkObjectReferenceObjectXyKfUxb0 = NewType("OneOfLinkObjectReferenceObjectXyKfUxb0", Union[LinkObject, ReferenceObject])
+LinkOrReference = NewType("LinkOrReference", Union[LinkObject, ReferenceObject])
 
-MethodObjectLinks = NewType("MethodObjectLinks", List[OneOfLinkObjectReferenceObjectXyKfUxb0])
+MethodObjectLinks = NewType("MethodObjectLinks", List[LinkOrReference])
 
 ExamplePairingObjectName = NewType("ExamplePairingObjectName", str)
 
@@ -346,21 +346,21 @@ class ExampleObject(TypedDict):
     description: Optional[ExampleObjectDescription]
     name: Optional[ExampleObjectName]
 
-OneOfExampleObjectReferenceObject5DJ6EmZt = NewType("OneOfExampleObjectReferenceObject5DJ6EmZt", Union[ExampleObject, ReferenceObject])
+ExampleOrReference = NewType("ExampleOrReference", Union[ExampleObject, ReferenceObject])
 
-ExamplePairingObjectParams = NewType("ExamplePairingObjectParams", List[OneOfExampleObjectReferenceObject5DJ6EmZt])
+ExamplePairingObjectParams = NewType("ExamplePairingObjectParams", List[ExampleOrReference])
 
-ExamplePairingObjectresult = NewType("ExamplePairingObjectresult", Union[ExampleObject, ReferenceObject])
+ExamplePairingObjectResult = NewType("ExamplePairingObjectResult", Union[ExampleObject, ReferenceObject])
 
 class ExamplePairingObject(TypedDict):
     name: Optional[ExamplePairingObjectName]
     description: Optional[ExamplePairingObjectDescription]
     params: Optional[ExamplePairingObjectParams]
-    result: Optional[ExamplePairingObjectresult]
+    result: Optional[ExamplePairingObjectResult]
 
-OneOfExamplePairingObjectReferenceObjectWEBfRSyK = NewType("OneOfExamplePairingObjectReferenceObjectWEBfRSyK", Union[ExamplePairingObject, ReferenceObject])
+ExamplePairingOrReference = NewType("ExamplePairingOrReference", Union[ExamplePairingObject, ReferenceObject])
 
-MethodObjectExamples = NewType("MethodObjectExamples", List[OneOfExamplePairingObjectReferenceObjectWEBfRSyK])
+MethodObjectExamples = NewType("MethodObjectExamples", List[ExamplePairingOrReference])
 
 MethodObjectDeprecated = NewType("MethodObjectDeprecated", bool)
 
@@ -385,7 +385,7 @@ SchemaComponents = NewType("SchemaComponents", Mapping[Any, Any])
 
 LinkComponents = NewType("LinkComponents", Mapping[Any, Any])
 
-ObjectTfFA84LI = NewType("ObjectTfFA84LI", Mapping[Any, Any])
+ErrorComponents = NewType("ErrorComponents", Mapping[Any, Any])
 
 ExampleComponents = NewType("ExampleComponents", Mapping[Any, Any])
 
@@ -398,7 +398,7 @@ TagComponents = NewType("TagComponents", Mapping[Any, Any])
 class Components(TypedDict):
     schemas: Optional[SchemaComponents]
     links: Optional[LinkComponents]
-    errors: Optional[ObjectTfFA84LI]
+    errors: Optional[ErrorComponents]
     examples: Optional[ExampleComponents]
     examplePairings: Optional[ExamplePairingComponents]
     contentDescriptors: Optional[ContentDescriptorComponents]

@@ -58,7 +58,7 @@ pub type InfoObjectVersion = String;
 pub type ContactObjectName = String;
 pub type ContactObjectEmail = String;
 pub type ContactObjectUrl = String;
-pub type AnyL9Fw4VUO = serde_json::Value;
+pub type SpecificationExtension = serde_json::Value;
 #[derive(Serialize, Deserialize)]
 pub struct ContactObject {
     pub(crate) name: Option<ContactObjectName>,
@@ -273,11 +273,11 @@ pub struct ReferenceObject {
     pub(crate) $ref: JSONSchema,
 }
 #[derive(Serialize, Deserialize)]
-pub enum OneOfReferenceObjectTagObjectMTCfXRqB {
+pub enum TagOrReference {
     TagObject,
     ReferenceObject
 }
-pub type MethodObjectTags = Vec<OneOfReferenceObjectTagObjectMTCfXRqB>;
+pub type MethodObjectTags = Vec<TagOrReference>;
 /// MethodObjectParamStructure
 ///
 /// Format the server expects the params. Defaults to 'either'.
@@ -310,11 +310,11 @@ pub struct ContentDescriptorObject {
     pub(crate) deprecated: Option<ContentDescriptorObjectDeprecated>,
 }
 #[derive(Serialize, Deserialize)]
-pub enum OneOfContentDescriptorObjectReferenceObjectI0Ye8PrQ {
+pub enum ContentDescriptorOrReference {
     ContentDescriptorObject,
     ReferenceObject
 }
-pub type MethodObjectParams = Vec<OneOfContentDescriptorObjectReferenceObjectI0Ye8PrQ>;
+pub type MethodObjectParams = Vec<ContentDescriptorOrReference>;
 #[derive(Serialize, Deserialize)]
 pub enum MethodObjectResult {
     ContentDescriptorObject,
@@ -346,7 +346,7 @@ pub struct ErrorObject {
     pub(crate) data: Option<ErrorObjectData>,
 }
 #[derive(Serialize, Deserialize)]
-pub enum OneOfErrorObjectReferenceObject1KnseVEO {
+pub enum ErrorOrReference {
     ErrorObject,
     ReferenceObject
 }
@@ -354,7 +354,7 @@ pub enum OneOfErrorObjectReferenceObject1KnseVEO {
 ///
 /// Defines an application level error.
 ///
-pub type MethodObjectErrors = Vec<OneOfErrorObjectReferenceObject1KnseVEO>;
+pub type MethodObjectErrors = Vec<ErrorOrReference>;
 pub type LinkObjectName = String;
 pub type LinkObjectSummary = String;
 pub type LinkObjectMethod = String;
@@ -370,11 +370,11 @@ pub struct LinkObject {
     pub(crate) server: Option<ServerObject>,
 }
 #[derive(Serialize, Deserialize)]
-pub enum OneOfLinkObjectReferenceObjectXyKfUxb0 {
+pub enum LinkOrReference {
     LinkObject,
     ReferenceObject
 }
-pub type MethodObjectLinks = Vec<OneOfLinkObjectReferenceObjectXyKfUxb0>;
+pub type MethodObjectLinks = Vec<LinkOrReference>;
 pub type ExamplePairingObjectName = String;
 pub type ExamplePairingObjectDescription = String;
 pub type ExampleObjectSummary = String;
@@ -389,13 +389,13 @@ pub struct ExampleObject {
     pub(crate) name: ExampleObjectName,
 }
 #[derive(Serialize, Deserialize)]
-pub enum OneOfExampleObjectReferenceObject5DJ6EmZt {
+pub enum ExampleOrReference {
     ExampleObject,
     ReferenceObject
 }
-pub type ExamplePairingObjectParams = Vec<OneOfExampleObjectReferenceObject5DJ6EmZt>;
+pub type ExamplePairingObjectParams = Vec<ExampleOrReference>;
 #[derive(Serialize, Deserialize)]
-pub enum ExamplePairingObjectresult {
+pub enum ExamplePairingObjectResult {
     ExampleObject,
     ReferenceObject
 }
@@ -404,14 +404,14 @@ pub struct ExamplePairingObject {
     pub(crate) name: ExamplePairingObjectName,
     pub(crate) description: Option<ExamplePairingObjectDescription>,
     pub(crate) params: ExamplePairingObjectParams,
-    pub(crate) result: ExamplePairingObjectresult,
+    pub(crate) result: ExamplePairingObjectResult,
 }
 #[derive(Serialize, Deserialize)]
-pub enum OneOfExamplePairingObjectReferenceObjectWEBfRSyK {
+pub enum ExamplePairingOrReference {
     ExamplePairingObject,
     ReferenceObject
 }
-pub type MethodObjectExamples = Vec<OneOfExamplePairingObjectReferenceObjectWEBfRSyK>;
+pub type MethodObjectExamples = Vec<ExamplePairingOrReference>;
 pub type MethodObjectDeprecated = bool;
 #[derive(Serialize, Deserialize)]
 pub struct MethodObject {
@@ -432,7 +432,7 @@ pub struct MethodObject {
 pub type Methods = Vec<MethodObject>;
 pub type SchemaComponents = HashMap<String, Option<serde_json::Value>>;
 pub type LinkComponents = HashMap<String, Option<serde_json::Value>>;
-pub type ObjectTfFA84LI = HashMap<String, Option<serde_json::Value>>;
+pub type ErrorComponents = HashMap<String, Option<serde_json::Value>>;
 pub type ExampleComponents = HashMap<String, Option<serde_json::Value>>;
 pub type ExamplePairingComponents = HashMap<String, Option<serde_json::Value>>;
 pub type ContentDescriptorComponents = HashMap<String, Option<serde_json::Value>>;
@@ -441,7 +441,7 @@ pub type TagComponents = HashMap<String, Option<serde_json::Value>>;
 pub struct Components {
     pub(crate) schemas: Option<SchemaComponents>,
     pub(crate) links: Option<LinkComponents>,
-    pub(crate) errors: Option<ObjectTfFA84LI>,
+    pub(crate) errors: Option<ErrorComponents>,
     pub(crate) examples: Option<ExampleComponents>,
     pub(crate) examplePairings: Option<ExamplePairingComponents>,
     pub(crate) contentDescriptors: Option<ContentDescriptorComponents>,

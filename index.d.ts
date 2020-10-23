@@ -6,19 +6,19 @@ export type InfoObjectVersion = string;
 export type ContactObjectName = string;
 export type ContactObjectEmail = string;
 export type ContactObjectUrl = string;
-export type AnyL9Fw4VUO = any;
+export type SpecificationExtension = any;
 export interface ContactObject {
   name?: ContactObjectName;
   email?: ContactObjectEmail;
   url?: ContactObjectUrl;
-  [regex: string]: AnyL9Fw4VUO | any;
+  [regex: string]: SpecificationExtension | any;
 }
 export type LicenseObjectName = string;
 export type LicenseObjectUrl = string;
 export interface LicenseObject {
   name?: LicenseObjectName;
   url?: LicenseObjectUrl;
-  [regex: string]: AnyL9Fw4VUO | any;
+  [regex: string]: SpecificationExtension | any;
 }
 export interface InfoObject {
   title: InfoObjectProperties;
@@ -27,7 +27,7 @@ export interface InfoObject {
   version: InfoObjectVersion;
   contact?: ContactObject;
   license?: LicenseObject;
-  [regex: string]: AnyL9Fw4VUO | any;
+  [regex: string]: SpecificationExtension | any;
 }
 export type ExternalDocumentationObjectDescription = string;
 export type ExternalDocumentationObjectUrl = string;
@@ -39,7 +39,7 @@ export type ExternalDocumentationObjectUrl = string;
 export interface ExternalDocumentationObject {
   description?: ExternalDocumentationObjectDescription;
   url: ExternalDocumentationObjectUrl;
-  [regex: string]: AnyL9Fw4VUO | any;
+  [regex: string]: SpecificationExtension | any;
 }
 export type ServerObjectUrl = string;
 export type ServerObjectName = string;
@@ -62,7 +62,7 @@ export interface ServerObject {
   description?: ServerObjectDescription;
   summary?: ServerObjectSummary;
   variables?: ServerObjectVariables;
-  [regex: string]: AnyL9Fw4VUO | any;
+  [regex: string]: SpecificationExtension | any;
 }
 export type Servers = ServerObject[];
 /**
@@ -89,7 +89,7 @@ export interface TagObject {
   name: TagObjectName;
   description?: TagObjectDescription;
   externalDocs?: ExternalDocumentationObject;
-  [regex: string]: AnyL9Fw4VUO | any;
+  [regex: string]: SpecificationExtension | any;
 }
 export type $Id = string;
 export type $Schema = string;
@@ -214,8 +214,8 @@ export type JSONSchema = JSONSchemaObject | JSONSchemaBoolean;
 export interface ReferenceObject {
   $ref: JSONSchema;
 }
-export type OneOfReferenceObjectTagObjectMTCfXRqB = TagObject | ReferenceObject;
-export type MethodObjectTags = OneOfReferenceObjectTagObjectMTCfXRqB[];
+export type TagOrReference = TagObject | ReferenceObject;
+export type MethodObjectTags = TagOrReference[];
 /**
  *
  * Format the server expects the params. Defaults to 'either'.
@@ -236,10 +236,10 @@ export interface ContentDescriptorObject {
   schema: JSONSchema;
   required?: ContentDescriptorObjectRequired;
   deprecated?: ContentDescriptorObjectDeprecated;
-  [regex: string]: AnyL9Fw4VUO | any;
+  [regex: string]: SpecificationExtension | any;
 }
-export type OneOfContentDescriptorObjectReferenceObjectI0Ye8PrQ = ContentDescriptorObject | ReferenceObject;
-export type MethodObjectParams = OneOfContentDescriptorObjectReferenceObjectI0Ye8PrQ[];
+export type ContentDescriptorOrReference = ContentDescriptorObject | ReferenceObject;
+export type MethodObjectParams = ContentDescriptorOrReference[];
 export type MethodObjectResult = ContentDescriptorObject | ReferenceObject;
 /**
  *
@@ -269,13 +269,13 @@ export interface ErrorObject {
   message: ErrorObjectMessage;
   data?: ErrorObjectData;
 }
-export type OneOfErrorObjectReferenceObject1KnseVEO = ErrorObject | ReferenceObject;
+export type ErrorOrReference = ErrorObject | ReferenceObject;
 /**
  *
  * Defines an application level error.
  *
  */
-export type MethodObjectErrors = OneOfErrorObjectReferenceObject1KnseVEO[];
+export type MethodObjectErrors = ErrorOrReference[];
 export type LinkObjectName = string;
 export type LinkObjectSummary = string;
 export type LinkObjectMethod = string;
@@ -288,10 +288,10 @@ export interface LinkObject {
   description?: LinkObjectDescription;
   params?: LinkObjectParams;
   server?: ServerObject;
-  [regex: string]: AnyL9Fw4VUO | any;
+  [regex: string]: SpecificationExtension | any;
 }
-export type OneOfLinkObjectReferenceObjectXyKfUxb0 = LinkObject | ReferenceObject;
-export type MethodObjectLinks = OneOfLinkObjectReferenceObjectXyKfUxb0[];
+export type LinkOrReference = LinkObject | ReferenceObject;
+export type MethodObjectLinks = LinkOrReference[];
 export type ExamplePairingObjectName = string;
 export type ExamplePairingObjectDescription = string;
 export type ExampleObjectSummary = string;
@@ -303,20 +303,20 @@ export interface ExampleObject {
   value: ExampleObjectValue;
   description?: ExampleObjectDescription;
   name: ExampleObjectName;
-  [regex: string]: AnyL9Fw4VUO | any;
+  [regex: string]: SpecificationExtension | any;
 }
-export type OneOfExampleObjectReferenceObject5DJ6EmZt = ExampleObject | ReferenceObject;
-export type ExamplePairingObjectParams = OneOfExampleObjectReferenceObject5DJ6EmZt[];
-export type ExamplePairingObjectresult = ExampleObject | ReferenceObject;
+export type ExampleOrReference = ExampleObject | ReferenceObject;
+export type ExamplePairingObjectParams = ExampleOrReference[];
+export type ExamplePairingObjectResult = ExampleObject | ReferenceObject;
 export interface ExamplePairingObject {
   name: ExamplePairingObjectName;
   description?: ExamplePairingObjectDescription;
   params: ExamplePairingObjectParams;
-  result: ExamplePairingObjectresult;
+  result: ExamplePairingObjectResult;
   [k: string]: any;
 }
-export type OneOfExamplePairingObjectReferenceObjectWEBfRSyK = ExamplePairingObject | ReferenceObject;
-export type MethodObjectExamples = OneOfExamplePairingObjectReferenceObjectWEBfRSyK[];
+export type ExamplePairingOrReference = ExamplePairingObject | ReferenceObject;
+export type MethodObjectExamples = ExamplePairingOrReference[];
 export type MethodObjectDeprecated = boolean;
 export interface MethodObject {
   name: MethodObjectName;
@@ -332,12 +332,12 @@ export interface MethodObject {
   examples?: MethodObjectExamples;
   deprecated?: MethodObjectDeprecated;
   externalDocs?: ExternalDocumentationObject;
-  [regex: string]: AnyL9Fw4VUO | any;
+  [regex: string]: SpecificationExtension | any;
 }
 export type Methods = MethodObject[];
 export interface SchemaComponents { [key: string]: any; }
 export interface LinkComponents { [key: string]: any; }
-export interface ObjectTfFA84LI { [key: string]: any; }
+export interface ErrorComponents { [key: string]: any; }
 export interface ExampleComponents { [key: string]: any; }
 export interface ExamplePairingComponents { [key: string]: any; }
 export interface ContentDescriptorComponents { [key: string]: any; }
@@ -345,7 +345,7 @@ export interface TagComponents { [key: string]: any; }
 export interface Components {
   schemas?: SchemaComponents;
   links?: LinkComponents;
-  errors?: ObjectTfFA84LI;
+  errors?: ErrorComponents;
   examples?: ExampleComponents;
   examplePairings?: ExamplePairingComponents;
   contentDescriptors?: ContentDescriptorComponents;
@@ -359,5 +359,5 @@ export interface OpenrpcDocument {
   servers?: Servers;
   methods: Methods;
   components?: Components;
-  [regex: string]: AnyL9Fw4VUO | any;
+  [regex: string]: SpecificationExtension | any;
 }

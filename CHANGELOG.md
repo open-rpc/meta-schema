@@ -1,3 +1,17 @@
+## [1.13.18](https://github.com/open-rpc/meta-schema/compare/1.13.17...1.13.18) (2020-10-23)
+
+
+### Bug Fixes
+
+* add dereferencing tests ([09a9f05](https://github.com/open-rpc/meta-schema/commit/09a9f05c1b7f687d8680e52c71508e3eda3edd93))
+* add more titles to things ([bbaa7ca](https://github.com/open-rpc/meta-schema/commit/bbaa7cade2b40ef26184de6bf003a1b16fa709af))
+* add specification extension def ([44d996c](https://github.com/open-rpc/meta-schema/commit/44d996c2ccf58ec71d787eab3107a01ce873a95b))
+* linting issue in tests ([b7523aa](https://github.com/open-rpc/meta-schema/commit/b7523aa3bf4b6583298e51cc7c122bec83cbdc28))
+* remove accidental duplicate definition ([77bed21](https://github.com/open-rpc/meta-schema/commit/77bed2139a30d266a5b862fa31955e23c1023d36))
+* remove console log ([e535112](https://github.com/open-rpc/meta-schema/commit/e535112af4192ffcc1cf9a2aa2d518b7d76960b5))
+* shorten some titles ([65aca7e](https://github.com/open-rpc/meta-schema/commit/65aca7e622952a3a8dda9713a0b846fb9365ae10))
+* typo on examplePairingObjectResult ([5b3f649](https://github.com/open-rpc/meta-schema/commit/5b3f649acc486acdf9f5be5ca4222e03b5989208))
+
 ## [1.13.17](https://github.com/open-rpc/meta-schema/compare/1.13.16...1.13.17) (2020-10-23)
 
 
