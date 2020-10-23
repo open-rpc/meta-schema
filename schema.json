@@ -10,7 +10,9 @@
   ],
   "additionalProperties": false,
   "patternProperties": {
-    "^x-": {}
+    "^x-": {
+      "$ref": "#/definitions/specificationExtension"
+    }
   },
   "properties": {
     "openrpc": {
@@ -402,6 +404,7 @@
           "title": "methodObjectTags",
           "type": "array",
           "items": {
+            "title": "tagOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/tagObject"
@@ -427,6 +430,7 @@
           "title": "methodObjectParams",
           "type": "array",
           "items": {
+            "title": "contentDescriptorOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/contentDescriptorObject"
@@ -453,6 +457,7 @@
           "description": "Defines an application level error.",
           "type": "array",
           "items": {
+            "title": "errorObjectOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/errorObject"
@@ -467,6 +472,7 @@
           "title": "methodObjectLinks",
           "type": "array",
           "items": {
+            "title": "linkObjectOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/linkObject"
@@ -481,6 +487,7 @@
           "title": "methodObjectExamples",
           "type": "array",
           "items": {
+            "title": "examplePairingObjectOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/examplePairingObject"
@@ -586,6 +593,7 @@
           "title": "examplePairingObjectParams",
           "type": "array",
           "items": {
+            "title": "exampleObjectOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/exampleObject"
