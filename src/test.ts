@@ -18,7 +18,6 @@ describe("meta-schema", () => {
     const deref = new Dereferencer(schema);
     const dereffed = await deref.resolve();
     expect(dereffed).toBeTruthy();
-    console.log(dereffed);
     expect(dereffed.definitions).not.toBeDefined();
     expect(dereffed.properties.methods.items.properties.result.oneOf[0].properties.schema.title).toBe("JSONSchema");
     expect(dereffed.properties.methods.items.properties.result.oneOf[1].title).toBe("referenceObject");
