@@ -1,3 +1,10 @@
+## [1.13.17](https://github.com/open-rpc/meta-schema/compare/1.13.16...1.13.17) (2020-10-23)
+
+
+### Bug Fixes
+
+* update semantic release transpiler ([7321f44](https://github.com/open-rpc/meta-schema/commit/7321f44129df5e10c8bf3f6c1f5267571d62eb5f))
+
 ## [1.13.16](https://github.com/open-rpc/meta-schema/compare/1.13.15...1.13.16) (2020-10-22)
 
 
