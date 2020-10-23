@@ -10,13 +10,15 @@
   ],
   "additionalProperties": false,
   "patternProperties": {
-    "^x-": {}
+    "^x-": {
+      "$ref": "#/definitions/specificationExtension"
+    }
   },
   "properties": {
     "openrpc": {
       "title": "openrpc",
       "type": "string",
-      "enum": ["GENERATED FIELD: Do Not Edit"]
+      "enum": ["GENERATED FIELD: Do Not Edit - if you are seeing this unexpectedly, use released meta-schema (https://github.com/open-rpc/meta-schema/releases)"]
     },
     "info": {
       "$ref": "#/definitions/infoObject"
@@ -63,6 +65,7 @@
           }
         },
         "errors": {
+          "title": "errorComponents",
           "type": "object",
           "patternProperties": {
             "[0-z]+": {
@@ -111,6 +114,9 @@
     }
   },
   "definitions": {
+    "specificationExtension": {
+      "title": "specificationExtension"
+    },
     "JSONSchema": {
       "$ref": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.3.0/src/schema.json"
     },
@@ -168,7 +174,9 @@
         }
       },
       "patternProperties": {
-        "^x-": {}
+        "^x-": {
+          "$ref": "#/definitions/specificationExtension"
+        }
       }
     },
     "contactObject": {
@@ -190,7 +198,9 @@
         }
       },
       "patternProperties": {
-        "^x-": {}
+        "^x-": {
+          "$ref": "#/definitions/specificationExtension"
+        }
       }
     },
     "infoObject": {
@@ -227,7 +237,9 @@
         }
       },
       "patternProperties": {
-        "^x-": {}
+        "^x-": {
+          "$ref": "#/definitions/specificationExtension"
+        }
       }
     },
     "serverObject": {
@@ -288,7 +300,9 @@
         }
       },
       "patternProperties": {
-        "^x-": {}
+        "^x-": {
+          "$ref": "#/definitions/specificationExtension"
+        }
       }
     },
     "linkObject": {
@@ -322,7 +336,9 @@
         }
       },
       "patternProperties": {
-        "^x-": {}
+        "^x-": {
+          "$ref": "#/definitions/specificationExtension"
+        }
       }
     },
     "externalDocumentationObject": {
@@ -345,7 +361,9 @@
         }
       },
       "patternProperties": {
-        "^x-": {}
+        "^x-": {
+          "$ref": "#/definitions/specificationExtension"
+        }
       }
     },
     "methodObject": {
@@ -386,6 +404,7 @@
           "title": "methodObjectTags",
           "type": "array",
           "items": {
+            "title": "tagOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/tagObject"
@@ -411,6 +430,7 @@
           "title": "methodObjectParams",
           "type": "array",
           "items": {
+            "title": "contentDescriptorOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/contentDescriptorObject"
@@ -437,6 +457,7 @@
           "description": "Defines an application level error.",
           "type": "array",
           "items": {
+            "title": "errorOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/errorObject"
@@ -451,6 +472,7 @@
           "title": "methodObjectLinks",
           "type": "array",
           "items": {
+            "title": "linkOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/linkObject"
@@ -465,6 +487,7 @@
           "title": "methodObjectExamples",
           "type": "array",
           "items": {
+            "title": "examplePairingOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/examplePairingObject"
@@ -485,7 +508,9 @@
         }
       },
       "patternProperties": {
-        "^x-": {}
+        "^x-": {
+          "$ref": "#/definitions/specificationExtension"
+        }
       }
     },
     "tagObject": {
@@ -510,7 +535,9 @@
         }
       },
       "patternProperties": {
-        "^x-": {}
+        "^x-": {
+          "$ref": "#/definitions/specificationExtension"
+        }
       }
     },
     "exampleObject": {
@@ -539,7 +566,9 @@
         }
       },
       "patternProperties": {
-        "^x-": {}
+        "^x-": {
+          "$ref": "#/definitions/specificationExtension"
+        }
       }
     },
     "examplePairingObject": {
@@ -564,6 +593,7 @@
           "title": "examplePairingObjectParams",
           "type": "array",
           "items": {
+            "title": "exampleOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/exampleObject"
@@ -575,7 +605,7 @@
           }
         },
         "result": {
-          "title": "examplePairingObjectresult",
+          "title": "examplePairingObjectResult",
           "oneOf": [
             {
               "$ref": "#/definitions/exampleObject"
@@ -624,7 +654,9 @@
         }
       },
       "patternProperties": {
-        "^x-": {}
+        "^x-": {
+          "$ref": "#/definitions/specificationExtension"
+        }
       }
     }
   }
