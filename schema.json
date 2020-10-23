@@ -118,9 +118,9 @@
       "title": "specificationExtension"
     },
     "JSONSchema": {
-      "$ref": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.3.0/src/schema.json"
+      "$ref": "https://meta.json-schema.tools/"
     },
-    "referenceObject": { 
+    "referenceObject": {
       "title": "referenceObject",
       "type": "object",
       "additionalProperties": false,
@@ -129,7 +129,7 @@
       ],
       "properties": {
         "$ref": {
-           "$ref": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.3.0/src/schema.json#definitions/JSONSchemaObject/properties/$ref"
+          "$ref": "https://meta.json-schema.tools/#definitions/JSONSchemaObject/properties/$ref"
         }
       }
     },
