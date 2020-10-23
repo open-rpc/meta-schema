@@ -457,7 +457,7 @@
           "description": "Defines an application level error.",
           "type": "array",
           "items": {
-            "title": "errorObjectOrReference",
+            "title": "errorOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/errorObject"
@@ -472,7 +472,7 @@
           "title": "methodObjectLinks",
           "type": "array",
           "items": {
-            "title": "linkObjectOrReference",
+            "title": "linkOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/linkObject"
@@ -487,7 +487,7 @@
           "title": "methodObjectExamples",
           "type": "array",
           "items": {
-            "title": "examplePairingObjectOrReference",
+            "title": "examplePairingOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/examplePairingObject"
@@ -593,7 +593,7 @@
           "title": "examplePairingObjectParams",
           "type": "array",
           "items": {
-            "title": "exampleObjectOrReference",
+            "title": "exampleOrReference",
             "oneOf": [
               {
                 "$ref": "#/definitions/exampleObject"
