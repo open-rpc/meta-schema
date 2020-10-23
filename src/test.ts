@@ -6,7 +6,9 @@ describe("meta-schema", () => {
   let schema = false;
   try {
     schema = JSON.parse(s);
-  } catch (e) { }
+  } catch (e) {
+    console.error(`Cannot parse meta-schema. Recieved: ${s}`);
+  }
 
   it("is valid json", () => {
     expect(schema).toBeTruthy();
