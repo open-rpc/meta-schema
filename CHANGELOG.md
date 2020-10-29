@@ -1,3 +1,11 @@
+## [1.13.19](https://github.com/open-rpc/meta-schema/compare/1.13.18...1.13.19) (2020-10-29)
+
+
+### Bug Fixes
+
+* update json-pointer path for $ref ([77b2b98](https://github.com/open-rpc/meta-schema/commit/77b2b98dd6733e0d912b34aac2185c5834f53361))
+* update semantic-release-transpiler ([4f6d52d](https://github.com/open-rpc/meta-schema/commit/4f6d52d9652630f689f0471ef3c9b51a95c681c8))
+
 ## [1.13.18](https://github.com/open-rpc/meta-schema/compare/1.13.17...1.13.18) (2020-10-23)
 
 

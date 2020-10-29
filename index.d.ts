@@ -91,9 +91,25 @@ export interface TagObject {
   externalDocs?: ExternalDocumentationObject;
   [regex: string]: SpecificationExtension | any;
 }
+export type $Ref = string;
+export interface ReferenceObject {
+  $ref: $Ref;
+}
+export type TagOrReference = TagObject | ReferenceObject;
+export type MethodObjectTags = TagOrReference[];
+/**
+ *
+ * Format the server expects the params. Defaults to 'either'.
+ *
+ * @default either
+ *
+ */
+export type MethodObjectParamStructure = "by-position" | "by-name" | "either";
+export type ContentDescriptorObjectName = string;
+export type ContentDescriptorObjectDescription = string;
+export type ContentDescriptorObjectSummary = string;
 export type $Id = string;
 export type $Schema = string;
-export type $Ref = string;
 export type $Comment = string;
 export type Title = string;
 export type Description = string;
@@ -211,22 +227,6 @@ export type JSONSchemaBoolean = boolean;
  *
  */
 export type JSONSchema = JSONSchemaObject | JSONSchemaBoolean;
-export interface ReferenceObject {
-  $ref: JSONSchema;
-}
-export type TagOrReference = TagObject | ReferenceObject;
-export type MethodObjectTags = TagOrReference[];
-/**
- *
- * Format the server expects the params. Defaults to 'either'.
- *
- * @default either
- *
- */
-export type MethodObjectParamStructure = "by-position" | "by-name" | "either";
-export type ContentDescriptorObjectName = string;
-export type ContentDescriptorObjectDescription = string;
-export type ContentDescriptorObjectSummary = string;
 export type ContentDescriptorObjectRequired = boolean;
 export type ContentDescriptorObjectDeprecated = boolean;
 export interface ContentDescriptorObject {
