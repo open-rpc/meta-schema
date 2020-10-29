@@ -184,8 +184,7 @@ pub type ExclusiveMaximum = f64;
 pub type Minimum = f64;
 pub type ExclusiveMinimum = f64;
 pub type NonNegativeInteger = i64;
-pub type DefaultZero = serde_json::Value;
-pub type NonNegativeIntegerDefaultZero = HashMap<String, Option<serde_json::Value>>;
+pub type NonNegativeIntegerDefaultZero = i64;
 pub type Pattern = String;
 pub type SchemaArray = Vec<JSONSchema>;
 #[derive(Serialize, Deserialize)]

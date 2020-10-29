@@ -1,3 +1,10 @@
+## [1.13.20](https://github.com/open-rpc/meta-schema/compare/1.13.19...1.13.20) (2020-10-29)
+
+
+### Bug Fixes
+
+* use updated json-schema-tools meta-schema ([f79b28e](https://github.com/open-rpc/meta-schema/commit/f79b28e1fa7b2aaa17752e9b9727334bb450dd1d))
+
 ## [1.13.19](https://github.com/open-rpc/meta-schema/compare/1.13.18...1.13.19) (2020-10-29)
 
 

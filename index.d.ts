@@ -122,8 +122,7 @@ export type ExclusiveMaximum = number;
 export type Minimum = number;
 export type ExclusiveMinimum = number;
 export type NonNegativeInteger = number;
-export type DefaultZero = any;
-export type NonNegativeIntegerDefaultZero = NonNegativeInteger & DefaultZero;
+export type NonNegativeIntegerDefaultZero = number;
 export type Pattern = string;
 export type SchemaArray = JSONSchema[];
 /**

@@ -176,9 +176,7 @@ ExclusiveMinimum = NewType("ExclusiveMinimum", float)
 
 NonNegativeInteger = NewType("NonNegativeInteger", int)
 
-DefaultZero = NewType("DefaultZero", Any)
-
-NonNegativeIntegerDefaultZero = NewType("NonNegativeIntegerDefaultZero", Mapping[Any, Any])
+NonNegativeIntegerDefaultZero = NewType("NonNegativeIntegerDefaultZero", int)
 
 Pattern = NewType("Pattern", str)
 
