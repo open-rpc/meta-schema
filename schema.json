@@ -129,7 +129,7 @@
       ],
       "properties": {
         "$ref": {
-           "$ref": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.3.0/src/schema.json#definitions/JSONSchemaObject/properties/$ref"
+           "$ref": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.3.0/src/schema.json#/definitions/JSONSchemaObject/properties/$ref"
         }
       }
     },
