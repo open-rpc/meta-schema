@@ -360,13 +360,21 @@ pub type LinkObjectMethod = String;
 pub type LinkObjectDescription = String;
 pub type LinkObjectParams = serde_json::Value;
 #[derive(Serialize, Deserialize)]
+pub struct LinkObjectServer {
+    pub(crate) url: ServerObjectUrl,
+    pub(crate) name: Option<ServerObjectName>,
+    pub(crate) description: Option<ServerObjectDescription>,
+    pub(crate) summary: Option<ServerObjectSummary>,
+    pub(crate) variables: Option<ServerObjectVariables>,
+}
+#[derive(Serialize, Deserialize)]
 pub struct LinkObject {
     pub(crate) name: Option<LinkObjectName>,
     pub(crate) summary: Option<LinkObjectSummary>,
     pub(crate) method: Option<LinkObjectMethod>,
     pub(crate) description: Option<LinkObjectDescription>,
     pub(crate) params: Option<LinkObjectParams>,
-    pub(crate) server: Option<ServerObject>,
+    pub(crate) server: Option<LinkObjectServer>,
 }
 #[derive(Serialize, Deserialize)]
 pub enum LinkOrReference {

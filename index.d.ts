@@ -280,13 +280,21 @@ export type LinkObjectSummary = string;
 export type LinkObjectMethod = string;
 export type LinkObjectDescription = string;
 export type LinkObjectParams = any;
+export interface LinkObjectServer {
+  url: ServerObjectUrl;
+  name?: ServerObjectName;
+  description?: ServerObjectDescription;
+  summary?: ServerObjectSummary;
+  variables?: ServerObjectVariables;
+  [regex: string]: SpecificationExtension | any;
+}
 export interface LinkObject {
   name?: LinkObjectName;
   summary?: LinkObjectSummary;
   method?: LinkObjectMethod;
   description?: LinkObjectDescription;
   params?: LinkObjectParams;
-  server?: ServerObject;
+  server?: LinkObjectServer;
   [regex: string]: SpecificationExtension | any;
 }
 export type LinkOrReference = LinkObject | ReferenceObject;

@@ -1,3 +1,15 @@
+# [1.14.0](https://github.com/open-rpc/meta-schema/compare/1.13.20...1.14.0) (2020-11-10)
+
+
+### Bug Fixes
+
+* update dev deps ([c0671e9](https://github.com/open-rpc/meta-schema/commit/c0671e97836865839593bbd167b5d3b653274fec))
+
+
+### Features
+
+* update to new sem rel trans ([5112e9b](https://github.com/open-rpc/meta-schema/commit/5112e9b0d8758049a853edca584b04b2412606bc))
+
 ## [1.13.20](https://github.com/open-rpc/meta-schema/compare/1.13.19...1.13.20) (2020-10-29)
 
 

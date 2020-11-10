@@ -314,13 +314,20 @@ LinkObjectDescription = NewType("LinkObjectDescription", str)
 
 LinkObjectParams = NewType("LinkObjectParams", Any)
 
+class LinkObjectServer(TypedDict):
+    url: Optional[ServerObjectUrl]
+    name: Optional[ServerObjectName]
+    description: Optional[ServerObjectDescription]
+    summary: Optional[ServerObjectSummary]
+    variables: Optional[ServerObjectVariables]
+
 class LinkObject(TypedDict):
     name: Optional[LinkObjectName]
     summary: Optional[LinkObjectSummary]
     method: Optional[LinkObjectMethod]
     description: Optional[LinkObjectDescription]
     params: Optional[LinkObjectParams]
-    server: Optional[ServerObject]
+    server: Optional[LinkObjectServer]
 
 LinkOrReference = NewType("LinkOrReference", Union[LinkObject, ReferenceObject])
 
