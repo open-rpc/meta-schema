@@ -216,6 +216,11 @@
           "title": "infoObjectProperties",
           "type": "string"
         },
+        "logoUrl": {
+          "title": "infoObjectLogoUrl",
+          "description": "A URL to the logo of the application.",
+          "type": "string"
+        },
         "description": {
           "title": "infoObjectDescription",
           "type": "string"
