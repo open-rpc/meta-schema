@@ -120,7 +120,7 @@
     "JSONSchema": {
       "$ref": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.5.9/src/schema.json"
     },
-    "referenceObject": { 
+    "referenceObject": {
       "title": "referenceObject",
       "type": "object",
       "additionalProperties": false,
@@ -214,6 +214,11 @@
       "properties": {
         "title": {
           "title": "infoObjectProperties",
+          "type": "string"
+        },
+        "logoUrl": {
+          "title": "infoObjectLogoUrl",
+          "description": "A URL to the logo of the application.",
           "type": "string"
         },
         "description": {
