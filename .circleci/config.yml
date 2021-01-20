@@ -39,6 +39,14 @@ jobs:
       - run: ./node_modules/.bin/codecov
       - save_cache: *save-deps-cache
 
+  test-go:
+    <<: *defaults
+    docker:
+      - image: circleci/golang:1.15
+    steps:
+      - checkout
+      - run: go test .
+
   build:
     <<: *defaults
     docker:
@@ -82,12 +90,16 @@ workflows:
     jobs:
       - test:
           filters: *filter-only-semantic-pr
+      - test-go:
+          filters: *filter-only-semantic-pr
       - build:
           filters: *filter-only-semantic-pr
 
   release:
     jobs:
       - test:
+          filters: *filter-only-master
+      - test-go:
           filters: *filter-only-master
       - build:
           filters: *filter-only-master
@@ -96,6 +108,7 @@ workflows:
           type: approval
           requires:
             - test
+            - test-go
             - build
       - release:
           filters: *filter-only-master
