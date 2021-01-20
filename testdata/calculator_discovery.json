@@ -1,0 +1,227 @@
+{
+  "openrpc": "1.2.6",
+  "info": {
+    "title": "Calculator API",
+    "version": "2021-01-20T14:14:42-06:00"
+  },
+  "methods": [
+    {
+      "name": "CalculatorRPC.Add",
+      "description": "```go\nfunc (c *CalculatorRPC) Add(arg AddArg, reply *AddReply) error {\n\t*reply = AddReply(c.Calculator.Add(arg.A, arg.B))\n\treturn nil\n}// Add sums the A and B fields of the argument.\n\n```",
+      "summary": "Add sums the A and B fields of the argument.\n",
+      "paramStructure": "by-position",
+      "params": [
+        {
+          "name": "arg",
+          "description": "AddArg",
+          "summary": "",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "a": {
+                "type": "integer"
+              },
+              "b": {
+                "type": "integer"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "required": true,
+          "deprecated": false
+        }
+      ],
+      "result": {
+        "name": "reply",
+        "description": "*AddReply",
+        "summary": "",
+        "schema": {
+          "type": [
+            "integer"
+          ]
+        },
+        "required": true,
+        "deprecated": false
+      },
+      "deprecated": false,
+      "externalDocs": {
+        "description": "Github remote link",
+        "url": "https://github.com/etclabscore/go-openrpc-reflect/blob/master/internal/fakearithmetic/fakearithmetic.go#L195"
+      }
+    },
+    {
+      "name": "CalculatorRPC.BigMul",
+      "description": "```go\nfunc (c *CalculatorRPC) BigMul(arg BigMulArg, reply *BigMulReply) error {\n\t(*big.Int)(reply).Mul(arg.A, arg.B)\n\treturn nil\n}\n```",
+      "summary": "",
+      "paramStructure": "by-position",
+      "params": [
+        {
+          "name": "arg",
+          "description": "BigMulArg",
+          "summary": "",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "B": {
+                "additionalProperties": false,
+                "type": "object"
+              },
+              "a": {
+                "additionalProperties": false,
+                "type": "object"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "required": true,
+          "deprecated": false
+        }
+      ],
+      "result": {
+        "name": "reply",
+        "description": "*BigMulReply",
+        "summary": "",
+        "schema": {
+          "additionalProperties": false,
+          "type": [
+            "object"
+          ]
+        },
+        "required": true,
+        "deprecated": false
+      },
+      "deprecated": false,
+      "externalDocs": {
+        "description": "Github remote link",
+        "url": "https://github.com/etclabscore/go-openrpc-reflect/blob/master/internal/fakearithmetic/fakearithmetic.go#L206"
+      }
+    },
+    {
+      "name": "CalculatorRPC.Div",
+      "description": "```go\nfunc (c *CalculatorRPC) Div(arg DivArg, reply *DivReply) error {\n\treturn errors.New(\"disused\")\n}// Div is deprecated. Use Mul instead.\n\n```",
+      "summary": "Div is deprecated. Use Mul instead.\n",
+      "paramStructure": "by-position",
+      "params": [
+        {
+          "name": "arg",
+          "description": "DivArg",
+          "summary": "",
+          "schema": {
+            "additionalProperties": false,
+            "properties": {
+              "a": {
+                "type": "integer"
+              },
+              "b": {
+                "type": "integer"
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "required": true,
+          "deprecated": false
+        }
+      ],
+      "result": {
+        "name": "reply",
+        "description": "*DivReply",
+        "summary": "",
+        "schema": {
+          "type": [
+            "integer"
+          ]
+        },
+        "required": true,
+        "deprecated": false
+      },
+      "deprecated": true,
+      "externalDocs": {
+        "description": "Github remote link",
+        "url": "https://github.com/etclabscore/go-openrpc-reflect/blob/master/internal/fakearithmetic/fakearithmetic.go#L218"
+      }
+    },
+    {
+      "name": "CalculatorRPC.HasBatteries",
+      "description": "```go\nfunc (c *CalculatorRPC) HasBatteries(arg HasBatteriesArg, reply *HasBatteriesReply) error {\n\t*reply = HasBatteriesReply(c.Calculator.HasBatteries())\n\treturn nil\n}// HasBatteries returns true if the calculator has batteries.\n\n```",
+      "summary": "HasBatteries returns true if the calculator has batteries.\n",
+      "paramStructure": "by-position",
+      "params": [
+        {
+          "name": "arg",
+          "description": "HasBatteriesArg",
+          "summary": "",
+          "schema": {
+            "type": [
+              "string"
+            ]
+          },
+          "required": true,
+          "deprecated": false
+        }
+      ],
+      "result": {
+        "name": "reply",
+        "description": "*HasBatteriesReply",
+        "summary": "",
+        "schema": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "required": true,
+        "deprecated": false
+      },
+      "deprecated": false,
+      "externalDocs": {
+        "description": "Github remote link",
+        "url": "https://github.com/etclabscore/go-openrpc-reflect/blob/master/internal/fakearithmetic/fakearithmetic.go#L183"
+      }
+    },
+    {
+      "name": "CalculatorRPC.IsZero",
+      "description": "```go\nfunc (c *CalculatorRPC) IsZero(big.Int, *IsZeroArg) error {\n\treturn errors.New(\"throwaway args\")\n}// IsZero has throwaway parameters.\n\n```",
+      "summary": "IsZero has throwaway parameters.\n",
+      "paramStructure": "by-position",
+      "params": [
+        {
+          "name": "big.Int",
+          "description": "big.Int",
+          "summary": "",
+          "schema": {
+            "additionalProperties": false,
+            "type": [
+              "object"
+            ]
+          },
+          "required": true,
+          "deprecated": false
+        }
+      ],
+      "result": {
+        "name": "*IsZeroArg",
+        "description": "*IsZeroArg",
+        "summary": "",
+        "schema": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "required": true,
+        "deprecated": false
+      },
+      "deprecated": false,
+      "externalDocs": {
+        "description": "Github remote link",
+        "url": "https://github.com/etclabscore/go-openrpc-reflect/blob/master/internal/fakearithmetic/fakearithmetic.go#L235"
+      }
+    }
+  ]
+}
+
+
