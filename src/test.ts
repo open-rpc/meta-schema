@@ -20,7 +20,7 @@ describe("meta-schema", () => {
     const dereffed = await deref.resolve();
     expect(dereffed).toBeTruthy();
     expect(dereffed.definitions).not.toBeDefined();
-    expect(dereffed.properties.methods.items.properties.result.oneOf[0].properties.schema.title).toBe("JSONSchema");
-    expect(dereffed.properties.methods.items.properties.result.oneOf[1].title).toBe("referenceObject");
+    expect(dereffed.properties.methods.items.oneOf[0].properties.result.oneOf[0].properties.schema.title).toBe("JSONSchema");
+    expect(dereffed.properties.methods.items.oneOf[0].properties.result.oneOf[1].title).toBe("referenceObject");
   });
 });
