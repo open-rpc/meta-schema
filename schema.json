@@ -39,7 +39,15 @@
       "type": "array",
       "additionalItems": false,
       "items": {
-        "$ref": "#/definitions/methodObject"
+        "title": "methodReference",
+        "oneOf": [
+          {
+            "$ref": "#/definitions/methodObject"
+          },
+          {
+            "$ref": "#/definitions/referenceObject"
+          }
+        ]
       }
     },
     "components": {
