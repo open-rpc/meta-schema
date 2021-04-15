@@ -164,6 +164,11 @@
         "data": {
           "title": "errorObjectData",
           "description": "A Primitive or Structured value that contains additional information about the error. This may be omitted. The value of this member is defined by the Server (e.g. detailed error information, nested errors etc.)."
+        },
+        "description": {
+          "title": "errorObjectDescription",
+          "description": "A verbose explanation of the error, i.e. what does it mean, when and why it happens and how it can be handled or worked around. GitHub Flavored Markdown syntax MAY be used for rich text representation.",
+          "type": "string"
         }
       }
     },
