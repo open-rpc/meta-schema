@@ -436,7 +436,12 @@ pub struct MethodObject {
     pub(crate) deprecated: Option<MethodObjectDeprecated>,
     pub(crate) externalDocs: Option<ExternalDocumentationObject>,
 }
-pub type Methods = Vec<MethodObject>;
+#[derive(Serialize, Deserialize)]
+pub enum MethodReference {
+    MethodObject,
+    ReferenceObject
+}
+pub type Methods = Vec<MethodReference>;
 pub type SchemaComponents = HashMap<String, Option<serde_json::Value>>;
 pub type LinkComponents = HashMap<String, Option<serde_json::Value>>;
 pub type ErrorComponents = HashMap<String, Option<serde_json::Value>>;

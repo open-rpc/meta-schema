@@ -1,3 +1,11 @@
+## [1.14.1](https://github.com/open-rpc/meta-schema/compare/1.14.0...1.14.1) (2021-03-15)
+
+
+### Bug Fixes
+
+* allow methods array to have refs ([709a380](https://github.com/open-rpc/meta-schema/commit/709a3808f5b712f9fc07dd8a54a66f213924d41e))
+* **github action:** eslint workflow node version ([a51cc70](https://github.com/open-rpc/meta-schema/commit/a51cc70cbef90342b1e1130164bd54b50774023f))
+
 # [1.14.0](https://github.com/open-rpc/meta-schema/compare/1.13.20...1.14.0) (2020-11-10)
 
 

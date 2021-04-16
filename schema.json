@@ -39,7 +39,15 @@
       "type": "array",
       "additionalItems": false,
       "items": {
-        "$ref": "#/definitions/methodObject"
+        "title": "methodOrReference",
+        "oneOf": [
+          {
+            "$ref": "#/definitions/methodObject"
+          },
+          {
+            "$ref": "#/definitions/referenceObject"
+          }
+        ]
       }
     },
     "components": {
@@ -120,7 +128,7 @@
     "JSONSchema": {
       "$ref": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.5.9/src/schema.json"
     },
-    "referenceObject": { 
+    "referenceObject": {
       "title": "referenceObject",
       "type": "object",
       "additionalProperties": false,
