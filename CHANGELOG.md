@@ -1,3 +1,11 @@
+## [1.14.2](https://github.com/open-rpc/meta-schema/compare/1.14.1...1.14.2) (2021-04-16)
+
+
+### Bug Fixes
+
+* use Go-conventional editor config for .go files ([9fce81f](https://github.com/open-rpc/meta-schema/commit/9fce81f3f424ae379af17f387dfba699003edafd))
+* use standard naming convention of methodOrReference ([efd985a](https://github.com/open-rpc/meta-schema/commit/efd985a04982b71a7adfab10406afe8b911989d5)), closes [#385](https://github.com/open-rpc/meta-schema/issues/385)
+
 ## [1.14.1](https://github.com/open-rpc/meta-schema/compare/1.14.0...1.14.1) (2021-03-15)
 
 

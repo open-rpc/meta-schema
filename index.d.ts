@@ -341,8 +341,8 @@ export interface MethodObject {
   externalDocs?: ExternalDocumentationObject;
   [regex: string]: SpecificationExtension | any;
 }
-export type MethodReference = MethodObject | ReferenceObject;
-export type Methods = MethodReference[];
+export type MethodOrReference = MethodObject | ReferenceObject;
+export type Methods = MethodOrReference[];
 export interface SchemaComponents { [key: string]: any; }
 export interface LinkComponents { [key: string]: any; }
 export interface ErrorComponents { [key: string]: any; }

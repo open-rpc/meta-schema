@@ -384,9 +384,9 @@ class MethodObject(TypedDict):
     deprecated: Optional[MethodObjectDeprecated]
     externalDocs: Optional[ExternalDocumentationObject]
 
-MethodReference = NewType("MethodReference", Union[MethodObject, ReferenceObject])
+MethodOrReference = NewType("MethodOrReference", Union[MethodObject, ReferenceObject])
 
-Methods = NewType("Methods", List[MethodReference])
+Methods = NewType("Methods", List[MethodOrReference])
 
 SchemaComponents = NewType("SchemaComponents", Mapping[Any, Any])
 

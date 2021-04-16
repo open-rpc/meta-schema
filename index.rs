@@ -437,11 +437,11 @@ pub struct MethodObject {
     pub(crate) externalDocs: Option<ExternalDocumentationObject>,
 }
 #[derive(Serialize, Deserialize)]
-pub enum MethodReference {
+pub enum MethodOrReference {
     MethodObject,
     ReferenceObject
 }
-pub type Methods = Vec<MethodReference>;
+pub type Methods = Vec<MethodOrReference>;
 pub type SchemaComponents = HashMap<String, Option<serde_json::Value>>;
 pub type LinkComponents = HashMap<String, Option<serde_json::Value>>;
 pub type ErrorComponents = HashMap<String, Option<serde_json::Value>>;
