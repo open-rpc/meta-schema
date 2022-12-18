@@ -119,7 +119,12 @@
           }
         }
       }
-    }
+    },
+    "$schema": {
+       "description": "JSON Schema URI (used by some editors)",
+       "type": "string",
+       "default": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.5.9/src/schema.json"
+     }
   },
   "definitions": {
     "specificationExtension": {
