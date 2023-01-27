@@ -1,3 +1,66 @@
 {
-  "tagFormat": "${version}"
+  "tagFormat": "${version}",
+  "branch": "master",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    ["@json-schema-tools/semantic-release-transpiler", {
+      "outpath": "./",
+      "schemaLocation": "./schema.json",
+      "languages": { "ts": true, "go": true, "py": true, "rs": true }
+    }],
+    "@semantic-release/changelog",
+    "@semantic-release/release-notes-generator",
+    ["@semantic-release/git", {
+      "assets": ["*.go", "*.py", "*.rs", "index.*", "CHANGELOG.md"],
+      "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+    }],
+    "@semantic-release/github",
+    "@semantic-release/npm"
+  ],
+  "verifyConditions": [
+    ["@json-schema-tools/semantic-release-transpiler", {
+      "outpath": "./",
+      "schemaLocation": "./schema.json",
+      "languages": { "ts": true, "go": true, "py": true, "rs": true }
+    }],
+    "@semantic-release/changelog",
+    "@semantic-release/npm",
+    ["@semantic-release/git", {
+      "assets": ["*.go", "*.py", "*.rs", "index.*", "CHANGELOG.md"],
+      "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+    }],
+    "@semantic-release/github"
+  ],
+  "prepare": [
+    ["@json-schema-tools/semantic-release-transpiler", {
+      "outpath": "./",
+      "schemaLocation": "./schema.json",
+      "languages": { "ts": true, "go": true, "py": true, "rs": true }
+    }],
+    "@semantic-release/changelog",
+    ["@semantic-release/git", {
+      "assets": ["*.go", "*.py", "*.rs", "index.*", "CHANGELOG.md"],
+      "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+    }]
+  ],
+  "publish": [
+    ["@semantic-release/github", {
+      "assets": [
+        "index.*",
+        "*.go",
+        {
+          "name": "open-rpc-meta-schema.json",
+          "path": "schema.json",
+          "label": "OpenRPC Meta Schema"
+        }
+      ]
+    }],
+    "@semantic-release/npm"
+  ],
+  "success": [
+    "@semantic-release/github"
+  ],
+  "fail": [
+    "@semantic-release/github"
+  ]
 }

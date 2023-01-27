@@ -1,0 +1,17 @@
+on:
+  pull_request:
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 14.15.1
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.15.1
+    - name: npm install
+      run: npm install
+    - name: lint
+      run: npm run lint

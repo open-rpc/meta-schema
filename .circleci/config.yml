@@ -29,7 +29,7 @@ jobs:
   test:
     <<: *defaults
     docker:
-      - image: circleci/node:10
+      - image: circleci/node:lts
     steps:
       - checkout
       - restore_cache: *restore-deps-cache
@@ -42,7 +42,7 @@ jobs:
   build:
     <<: *defaults
     docker:
-      - image: circleci/node:10
+      - image: circleci/node:lts
     steps:
       - checkout
       - restore_cache: *restore-deps-cache
@@ -53,13 +53,27 @@ jobs:
   release:
     <<: *defaults
     docker:
-      - image: circleci/node:10
+      - image: circleci/python:2.7-stretch
     steps:
       - checkout
-      - restore_cache: *restore-deps-cache
+      - run:
+          name: "Update Node.js and npm"
+          command: |
+            curl -sSL "https://nodejs.org/dist/v12.18.4/node-v12.18.4-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v12.18.4-linux-x64/bin/node
+            curl https://www.npmjs.com/install.sh | sudo bash
       - run: npm install
       - run: npm run build
-      - run: npx semantic-release
+      - run: ./node_modules/.bin/semantic-release
+      - run: ls
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+      - run:
+          name: Deploy to S3
+          command: aws s3 mv src/schema.json s3://meta.open-rpc.org/latest.json
+      - run:
+          name: invalidate cloudfront
+          command: aws cloudfront create-invalidation --distribution-id E2TNH97Q34RX9Z --paths '/*'
       - save_cache: *save-deps-cache
 
 workflows:
@@ -85,5 +99,6 @@ workflows:
             - build
       - release:
           filters: *filter-only-master
+          context: open-rpc-deployer
           requires:
             - hold
