@@ -24,12 +24,12 @@ aliases:
 
 defaults: &defaults
   working_directory: ~/meta-schema
+  docker:
+    - image: cimg/node:18.13.0
 
 jobs:
   test:
     <<: *defaults
-    docker:
-      - image: circleci/node:lts
     steps:
       - checkout
       - restore_cache: *restore-deps-cache
@@ -41,8 +41,6 @@ jobs:
 
   build:
     <<: *defaults
-    docker:
-      - image: circleci/node:lts
     steps:
       - checkout
       - restore_cache: *restore-deps-cache
@@ -53,14 +51,9 @@ jobs:
   release:
     <<: *defaults
     docker:
-      - image: circleci/python:2.7-stretch
+      - image: cimg/python:3.11.1-browsers
     steps:
       - checkout
-      - run:
-          name: "Update Node.js and npm"
-          command: |
-            curl -sSL "https://nodejs.org/dist/v12.18.4/node-v12.18.4-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v12.18.4-linux-x64/bin/node
-            curl https://www.npmjs.com/install.sh | sudo bash
       - run: npm install
       - run: npm run build
       - run: ./node_modules/.bin/semantic-release
