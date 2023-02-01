@@ -1,3 +1,18 @@
+## [1.14.3](https://github.com/open-rpc/meta-schema/compare/1.14.2...1.14.3) (2023-02-01)
+
+
+### Bug Fixes
+
+* big bump of the deps ([965ed1e](https://github.com/open-rpc/meta-schema/commit/965ed1ecf10f8a24db8c38d1a1c2bc78bde3005b))
+* json-schema-tools/semantic-release-transpiler changed outpath ([45ccbd8](https://github.com/open-rpc/meta-schema/commit/45ccbd8eaba4a28683c85ce4aed252dfff2d5a0c))
+* **methodObject:** remove result as required ([37cb075](https://github.com/open-rpc/meta-schema/commit/37cb0750a443124d8202cd310927e925629b9859))
+* npm audit fix ([ccbd44f](https://github.com/open-rpc/meta-schema/commit/ccbd44f91363600e6bf481d9ced1fc29f7655fcf))
+* npm audit fix and update other dev deps ([6272462](https://github.com/open-rpc/meta-schema/commit/6272462cade414c31a5cf36c457d7a0b8f20ab16))
+* **release:** update node and circle images ([4a1850a](https://github.com/open-rpc/meta-schema/commit/4a1850a301b27f03407f9c30905a30db67442dc0))
+* update package.lock ([5b832a7](https://github.com/open-rpc/meta-schema/commit/5b832a78d6de45a0d28758c4e2c30280a1d1c2f8))
+* update sem rel deps ([c7bc829](https://github.com/open-rpc/meta-schema/commit/c7bc829a61a44e2aeeb318fcedef0eaf8a92b43a))
+* use deployment url for metaschema ([f8cd870](https://github.com/open-rpc/meta-schema/commit/f8cd8704cdaf3e30fe198388252f70225817fc69))
+
 ## [1.14.2](https://github.com/open-rpc/meta-schema/compare/1.14.1...1.14.2) (2021-04-16)
 
 

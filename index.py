@@ -8,29 +8,30 @@ from typing import Mapping
 from typing import Union
 
 class Openrpc(Enum):
-    1.2.6 = 0
-    1.2.5 = 1
-    1.2.4 = 2
-    1.2.3 = 3
-    1.2.2 = 4
-    1.2.1 = 5
-    1.2.0 = 6
-    1.1.12 = 7
-    1.1.11 = 8
-    1.1.10 = 9
-    1.1.9 = 10
-    1.1.8 = 11
-    1.1.7 = 12
-    1.1.6 = 13
-    1.1.5 = 14
-    1.1.4 = 15
-    1.1.3 = 16
-    1.1.2 = 17
-    1.1.1 = 18
-    1.1.0 = 19
-    1.0.0 = 20
-    1.0.0-RC1 = 21
-    1.0.0-RC0 = 22
+    OneThreeZero = 0
+    OneTwoSix = 1
+    OneTwoFive = 2
+    OneTwoFour = 3
+    OneTwoThree = 4
+    OneTwoTwo = 5
+    OneTwoOne = 6
+    OneTwoZero = 7
+    OneOneOneTwo = 8
+    OneOneOneOne = 9
+    OneOneOneZero = 10
+    OneOneNine = 11
+    OneOneEight = 12
+    OneOneSeven = 13
+    OneOneSix = 14
+    OneOneFive = 15
+    OneOneFour = 16
+    OneOneThree = 17
+    OneOneTwo = 18
+    OneOneOne = 19
+    OneOneZero = 20
+    OneZeroZero = 21
+    OneZeroZeroRcOne = 22
+    OneZeroZeroRcZero = 23
 
 InfoObjectProperties = NewType("InfoObjectProperties", str)
 
@@ -107,6 +108,7 @@ class ServerObject(TypedDict):
     description: Optional[ServerObjectDescription]
     summary: Optional[ServerObjectSummary]
     variables: Optional[ServerObjectVariables]
+AlwaysFalse = NewType("AlwaysFalse", Any)
 
 Servers = NewType("Servers", List[ServerObject])
 """The cannonical name for the method. The name MUST be unique within the methods array.
@@ -128,7 +130,7 @@ class TagObject(TypedDict):
     description: Optional[TagObjectDescription]
     externalDocs: Optional[ExternalDocumentationObject]
 
-$Ref = NewType("$Ref", str)
+Ref = NewType("Ref", str)
 
 class ReferenceObject(TypedDict):
     $ref: undefined
@@ -139,9 +141,9 @@ MethodObjectTags = NewType("MethodObjectTags", List[TagOrReference])
 """Format the server expects the params. Defaults to 'either'.
 """
 class MethodObjectParamStructure(Enum):
-    BY-POSITION = 0
-    BY-NAME = 1
-    EITHER = 2
+    ByPosition = 0
+    ByName = 1
+    Either = 2
 
 ContentDescriptorObjectName = NewType("ContentDescriptorObjectName", str)
 
@@ -149,11 +151,11 @@ ContentDescriptorObjectDescription = NewType("ContentDescriptorObjectDescription
 
 ContentDescriptorObjectSummary = NewType("ContentDescriptorObjectSummary", str)
 
-$Id = NewType("$Id", str)
+Id = NewType("Id", str)
 
-$Schema = NewType("$Schema", str)
+Schema = NewType("Schema", str)
 
-$Comment = NewType("$Comment", str)
+Comment = NewType("Comment", str)
 
 Title = NewType("Title", str)
 
@@ -180,9 +182,9 @@ NonNegativeIntegerDefaultZero = NewType("NonNegativeIntegerDefaultZero", int)
 
 Pattern = NewType("Pattern", str)
 
-SchemaArray = NewType("SchemaArray", List[JSONSchema])
+SchemaArray = NewType("SchemaArray", List[Undefined])
 
-Items = NewType("Items", Union[JSONSchema, SchemaArray])
+Items = NewType("Items", Union[Undefined, SchemaArray])
 
 UniqueItems = NewType("UniqueItems", bool)
 
@@ -196,7 +198,7 @@ Properties = NewType("Properties", Mapping[Any, Any])
 
 PatternProperties = NewType("PatternProperties", Mapping[Any, Any])
 
-DependenciesSet = NewType("DependenciesSet", Union[JSONSchema, StringArray])
+DependenciesSet = NewType("DependenciesSet", Union[Undefined, StringArray])
 
 Dependencies = NewType("Dependencies", Mapping[Any, Any])
 
@@ -215,10 +217,10 @@ ContentMediaType = NewType("ContentMediaType", str)
 ContentEncoding = NewType("ContentEncoding", str)
 
 class JSONSchemaObject(TypedDict):
-    $id: Optional[$Id]
-    $schema: Optional[$Schema]
-    $ref: Optional[$Ref]
-    $comment: Optional[$Comment]
+    $id: Optional[Id]
+    $schema: Optional[Schema]
+    $ref: Optional[Ref]
+    $comment: Optional[Comment]
     title: Optional[Title]
     description: Optional[Description]
     default: Optional[AlwaysTrue]
@@ -232,34 +234,34 @@ class JSONSchemaObject(TypedDict):
     maxLength: Optional[NonNegativeInteger]
     minLength: Optional[NonNegativeIntegerDefaultZero]
     pattern: Optional[Pattern]
-    additionalItems: Optional[JSONSchema]
+    additionalItems: Optional[Undefined]
     items: Optional[Items]
     maxItems: Optional[NonNegativeInteger]
     minItems: Optional[NonNegativeIntegerDefaultZero]
     uniqueItems: Optional[UniqueItems]
-    contains: Optional[JSONSchema]
+    contains: Optional[Undefined]
     maxProperties: Optional[NonNegativeInteger]
     minProperties: Optional[NonNegativeIntegerDefaultZero]
     required: Optional[StringArray]
-    additionalProperties: Optional[JSONSchema]
+    additionalProperties: Optional[Undefined]
     definitions: Optional[Definitions]
     properties: Optional[Properties]
     patternProperties: Optional[PatternProperties]
     dependencies: Optional[Dependencies]
-    propertyNames: Optional[JSONSchema]
+    propertyNames: Optional[Undefined]
     const: Optional[AlwaysTrue]
     enum: Optional[Enum]
     type: Optional[Type]
     format: Optional[Format]
     contentMediaType: Optional[ContentMediaType]
     contentEncoding: Optional[ContentEncoding]
-    if: Optional[JSONSchema]
-    then: Optional[JSONSchema]
-    else: Optional[JSONSchema]
+    if: Optional[Undefined]
+    then: Optional[Undefined]
+    else: Optional[Undefined]
     allOf: Optional[SchemaArray]
     anyOf: Optional[SchemaArray]
     oneOf: Optional[SchemaArray]
-    not: Optional[JSONSchema]
+    not: Optional[Undefined]
 """Always valid if true. Never valid if false. Is constant.
 """
 JSONSchemaBoolean = NewType("JSONSchemaBoolean", bool)
@@ -274,7 +276,7 @@ class ContentDescriptorObject(TypedDict):
     name: Optional[ContentDescriptorObjectName]
     description: Optional[ContentDescriptorObjectDescription]
     summary: Optional[ContentDescriptorObjectSummary]
-    schema: Optional[JSONSchema]
+    schema: Optional[Undefined]
     required: Optional[ContentDescriptorObjectRequired]
     deprecated: Optional[ContentDescriptorObjectDeprecated]
 
@@ -410,6 +412,9 @@ class Components(TypedDict):
     examplePairings: Optional[ExamplePairingComponents]
     contentDescriptors: Optional[ContentDescriptorComponents]
     tags: Optional[TagComponents]
+"""JSON Schema URI (used by some editors)
+"""
+StringPBC4JHUy = NewType("StringPBC4JHUy", str)
 
 class OpenrpcDocument(TypedDict):
     openrpc: undefined
@@ -418,3 +423,4 @@ class OpenrpcDocument(TypedDict):
     servers: Optional[Servers]
     methods: undefined
     components: Optional[Components]
+    $schema: Optional[StringPBC4JHUy]

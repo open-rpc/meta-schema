@@ -1,4 +1,4 @@
-export type Openrpc = "1.2.6" | "1.2.5" | "1.2.4" | "1.2.3" | "1.2.2" | "1.2.1" | "1.2.0" | "1.1.12" | "1.1.11" | "1.1.10" | "1.1.9" | "1.1.8" | "1.1.7" | "1.1.6" | "1.1.5" | "1.1.4" | "1.1.3" | "1.1.2" | "1.1.1" | "1.1.0" | "1.0.0" | "1.0.0-rc1" | "1.0.0-rc0";
+export type Openrpc = "1.3.0" | "1.2.6" | "1.2.5" | "1.2.4" | "1.2.3" | "1.2.2" | "1.2.1" | "1.2.0" | "1.1.12" | "1.1.11" | "1.1.10" | "1.1.9" | "1.1.8" | "1.1.7" | "1.1.6" | "1.1.5" | "1.1.4" | "1.1.3" | "1.1.2" | "1.1.1" | "1.1.0" | "1.0.0" | "1.0.0-rc1" | "1.0.0-rc0";
 export type InfoObjectProperties = string;
 export type InfoObjectDescription = string;
 export type InfoObjectTermsOfService = string;
@@ -64,6 +64,7 @@ export interface ServerObject {
   variables?: ServerObjectVariables;
   [regex: string]: SpecificationExtension | any;
 }
+type AlwaysFalse = any;
 export type Servers = ServerObject[];
 /**
  *
@@ -124,13 +125,13 @@ export type ExclusiveMinimum = number;
 export type NonNegativeInteger = number;
 export type NonNegativeIntegerDefaultZero = number;
 export type Pattern = string;
-export type SchemaArray = JSONSchema[];
+export type SchemaArray = Undefined[];
 /**
  *
  * @default true
  *
  */
-export type Items = JSONSchema | SchemaArray;
+export type Items = Undefined | SchemaArray;
 export type UniqueItems = boolean;
 export type StringDoaGddGA = string;
 /**
@@ -157,7 +158,7 @@ export interface Properties { [key: string]: any; }
  *
  */
 export interface PatternProperties { [key: string]: any; }
-export type DependenciesSet = JSONSchema | StringArray;
+export type DependenciesSet = Undefined | StringArray;
 export interface Dependencies { [key: string]: any; }
 export type Enum = AlwaysTrue[];
 export type SimpleTypes = any;
@@ -184,34 +185,34 @@ export interface JSONSchemaObject {
   maxLength?: NonNegativeInteger;
   minLength?: NonNegativeIntegerDefaultZero;
   pattern?: Pattern;
-  additionalItems?: JSONSchema;
+  additionalItems?: Undefined;
   items?: Items;
   maxItems?: NonNegativeInteger;
   minItems?: NonNegativeIntegerDefaultZero;
   uniqueItems?: UniqueItems;
-  contains?: JSONSchema;
+  contains?: Undefined;
   maxProperties?: NonNegativeInteger;
   minProperties?: NonNegativeIntegerDefaultZero;
   required?: StringArray;
-  additionalProperties?: JSONSchema;
+  additionalProperties?: Undefined;
   definitions?: Definitions;
   properties?: Properties;
   patternProperties?: PatternProperties;
   dependencies?: Dependencies;
-  propertyNames?: JSONSchema;
+  propertyNames?: Undefined;
   const?: AlwaysTrue;
   enum?: Enum;
   type?: Type;
   format?: Format;
   contentMediaType?: ContentMediaType;
   contentEncoding?: ContentEncoding;
-  if?: JSONSchema;
-  then?: JSONSchema;
-  else?: JSONSchema;
+  if?: Undefined;
+  then?: Undefined;
+  else?: Undefined;
   allOf?: SchemaArray;
   anyOf?: SchemaArray;
   oneOf?: SchemaArray;
-  not?: JSONSchema;
+  not?: Undefined;
   [k: string]: any;
 }
 /**
@@ -232,7 +233,7 @@ export interface ContentDescriptorObject {
   name: ContentDescriptorObjectName;
   description?: ContentDescriptorObjectDescription;
   summary?: ContentDescriptorObjectSummary;
-  schema: JSONSchema;
+  schema: Undefined;
   required?: ContentDescriptorObjectRequired;
   deprecated?: ContentDescriptorObjectDeprecated;
   [regex: string]: SpecificationExtension | any;
@@ -333,7 +334,7 @@ export interface MethodObject {
   tags?: MethodObjectTags;
   paramStructure?: MethodObjectParamStructure;
   params: MethodObjectParams;
-  result: MethodObjectResult;
+  result?: MethodObjectResult;
   errors?: MethodObjectErrors;
   links?: MethodObjectLinks;
   examples?: MethodObjectExamples;
@@ -360,6 +361,14 @@ export interface Components {
   tags?: TagComponents;
   [k: string]: any;
 }
+/**
+ *
+ * JSON Schema URI (used by some editors)
+ *
+ * @default https://meta.open-rpc.org/
+ *
+ */
+export type StringPBC4JHUy = string;
 export interface OpenrpcDocument {
   openrpc: Openrpc;
   info: InfoObject;
@@ -367,5 +376,6 @@ export interface OpenrpcDocument {
   servers?: Servers;
   methods: Methods;
   components?: Components;
+  $schema?: StringPBC4JHUy;
   [regex: string]: SpecificationExtension | any;
 }
