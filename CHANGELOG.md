@@ -1,3 +1,10 @@
+## [1.14.4](https://github.com/open-rpc/meta-schema/compare/1.14.3...1.14.4) (2023-02-01)
+
+
+### Bug Fixes
+
+* dont use sudo for pip ([74f192b](https://github.com/open-rpc/meta-schema/commit/74f192beb12da5dc85f89f3ab9611193be28291d))
+
 ## [1.14.3](https://github.com/open-rpc/meta-schema/compare/1.14.2...1.14.3) (2023-02-01)
 
 
