@@ -4,7 +4,7 @@
   "plugins": [
     "@semantic-release/commit-analyzer",
     ["@json-schema-tools/semantic-release-transpiler", {
-      "outpath": "./",
+      "outpath": ".",
       "schemaLocation": "./schema.json",
       "languages": { "ts": true, "go": true, "py": true, "rs": true }
     }],
@@ -19,7 +19,7 @@
   ],
   "verifyConditions": [
     ["@json-schema-tools/semantic-release-transpiler", {
-      "outpath": "./",
+      "outpath": ".",
       "schemaLocation": "./schema.json",
       "languages": { "ts": true, "go": true, "py": true, "rs": true }
     }],
@@ -33,7 +33,7 @@
   ],
   "prepare": [
     ["@json-schema-tools/semantic-release-transpiler", {
-      "outpath": "./",
+      "outpath": ".",
       "schemaLocation": "./schema.json",
       "languages": { "ts": true, "go": true, "py": true, "rs": true }
     }],
