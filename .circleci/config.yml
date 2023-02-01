@@ -60,7 +60,7 @@ jobs:
       - run: ls
       - run:
           name: Install awscli
-          command: sudo pip install awscli
+          command: pip install awscli
       - run:
           name: Deploy to S3
           command: aws s3 mv src/schema.json s3://meta.open-rpc.org/latest.json
