@@ -3,7 +3,6 @@
 <center>
   <span>
     <img alt="CircleCI branch" src="https://img.shields.io/circleci/project/github/open-rpc/meta-schema/master.svg">
-    <img alt="Dependabot status" src="https://api.dependabot.com/badges/status?host=github&repo=open-rpc/meta-schema" />
     <img alt="npm" src="https://img.shields.io/npm/dt/@open-rpc/meta-schema.svg" />
     <img alt="GitHub release" src="https://img.shields.io/github/release/open-rpc/meta-schema.svg" />
     <img alt="GitHub commits since latest release" src="https://img.shields.io/github/commits-since/open-rpc/meta-schema/latest.svg" />
