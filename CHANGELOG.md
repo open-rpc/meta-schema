@@ -1,3 +1,10 @@
+## [1.14.5](https://github.com/open-rpc/meta-schema/compare/1.14.4...1.14.5) (2023-02-06)
+
+
+### Bug Fixes
+
+* make result optional for notifications ([e944b6c](https://github.com/open-rpc/meta-schema/commit/e944b6c732ed6c7960379eeb5b8b45240c7e35c4))
+
 ## [1.14.4](https://github.com/open-rpc/meta-schema/compare/1.14.3...1.14.4) (2023-02-01)
 
 

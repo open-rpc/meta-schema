@@ -320,7 +320,7 @@ export interface ExamplePairingObject {
   name: ExamplePairingObjectName;
   description?: ExamplePairingObjectDescription;
   params: ExamplePairingObjectParams;
-  result: ExamplePairingObjectResult;
+  result?: ExamplePairingObjectResult;
   [k: string]: any;
 }
 export type ExamplePairingOrReference = ExamplePairingObject | ReferenceObject;
