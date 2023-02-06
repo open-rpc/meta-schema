@@ -121,6 +121,7 @@
       }
     },
     "$schema": {
+       "title": "metaSchema",
        "description": "JSON Schema URI (used by some editors)",
        "type": "string",
        "default": "https://meta.open-rpc.org/"
