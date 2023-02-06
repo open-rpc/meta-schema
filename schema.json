@@ -588,8 +588,7 @@
       "type": "object",
       "required": [
         "name",
-        "params",
-        "result"
+        "params"
       ],
       "properties": {
         "name": {
