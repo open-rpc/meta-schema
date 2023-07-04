@@ -1,4 +1,4 @@
-export type Openrpc = "1.3.0" | "1.2.6" | "1.2.5" | "1.2.4" | "1.2.3" | "1.2.2" | "1.2.1" | "1.2.0" | "1.1.12" | "1.1.11" | "1.1.10" | "1.1.9" | "1.1.8" | "1.1.7" | "1.1.6" | "1.1.5" | "1.1.4" | "1.1.3" | "1.1.2" | "1.1.1" | "1.1.0" | "1.0.0" | "1.0.0-rc1" | "1.0.0-rc0";
+export type Openrpc = "1.3.2" | "1.3.1" | "1.3.0" | "1.2.6" | "1.2.5" | "1.2.4" | "1.2.3" | "1.2.2" | "1.2.1" | "1.2.0" | "1.1.12" | "1.1.11" | "1.1.10" | "1.1.9" | "1.1.8" | "1.1.7" | "1.1.6" | "1.1.5" | "1.1.4" | "1.1.3" | "1.1.2" | "1.1.1" | "1.1.0" | "1.0.0" | "1.0.0-rc1" | "1.0.0-rc0";
 export type InfoObjectProperties = string;
 export type InfoObjectDescription = string;
 export type InfoObjectTermsOfService = string;
@@ -368,7 +368,7 @@ export interface Components {
  * @default https://meta.open-rpc.org/
  *
  */
-export type StringPBC4JHUy = string;
+export type MetaSchema = string;
 export interface OpenrpcDocument {
   openrpc: Openrpc;
   info: InfoObject;
@@ -376,6 +376,6 @@ export interface OpenrpcDocument {
   servers?: Servers;
   methods: Methods;
   components?: Components;
-  $schema?: StringPBC4JHUy;
+  $schema?: MetaSchema;
   [regex: string]: SpecificationExtension | any;
 }

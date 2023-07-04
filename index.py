@@ -8,30 +8,32 @@ from typing import Mapping
 from typing import Union
 
 class Openrpc(Enum):
-    OneThreeZero = 0
-    OneTwoSix = 1
-    OneTwoFive = 2
-    OneTwoFour = 3
-    OneTwoThree = 4
-    OneTwoTwo = 5
-    OneTwoOne = 6
-    OneTwoZero = 7
-    OneOneOneTwo = 8
-    OneOneOneOne = 9
-    OneOneOneZero = 10
-    OneOneNine = 11
-    OneOneEight = 12
-    OneOneSeven = 13
-    OneOneSix = 14
-    OneOneFive = 15
-    OneOneFour = 16
-    OneOneThree = 17
-    OneOneTwo = 18
-    OneOneOne = 19
-    OneOneZero = 20
-    OneZeroZero = 21
-    OneZeroZeroRcOne = 22
-    OneZeroZeroRcZero = 23
+    OneThreeTwo = 0
+    OneThreeOne = 1
+    OneThreeZero = 2
+    OneTwoSix = 3
+    OneTwoFive = 4
+    OneTwoFour = 5
+    OneTwoThree = 6
+    OneTwoTwo = 7
+    OneTwoOne = 8
+    OneTwoZero = 9
+    OneOneOneTwo = 10
+    OneOneOneOne = 11
+    OneOneOneZero = 12
+    OneOneNine = 13
+    OneOneEight = 14
+    OneOneSeven = 15
+    OneOneSix = 16
+    OneOneFive = 17
+    OneOneFour = 18
+    OneOneThree = 19
+    OneOneTwo = 20
+    OneOneOne = 21
+    OneOneZero = 22
+    OneZeroZero = 23
+    OneZeroZeroRcOne = 24
+    OneZeroZeroRcZero = 25
 
 InfoObjectProperties = NewType("InfoObjectProperties", str)
 
@@ -414,7 +416,7 @@ class Components(TypedDict):
     tags: Optional[TagComponents]
 """JSON Schema URI (used by some editors)
 """
-StringPBC4JHUy = NewType("StringPBC4JHUy", str)
+MetaSchema = NewType("MetaSchema", str)
 
 class OpenrpcDocument(TypedDict):
     openrpc: undefined
@@ -423,4 +425,4 @@ class OpenrpcDocument(TypedDict):
     servers: Optional[Servers]
     methods: undefined
     components: Optional[Components]
-    $schema: Optional[StringPBC4JHUy]
+    $schema: Optional[MetaSchema]

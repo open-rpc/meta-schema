@@ -1,3 +1,12 @@
+## [1.14.6](https://github.com/open-rpc/meta-schema/compare/1.14.5...1.14.6) (2023-07-04)
+
+
+### Bug Fixes
+
+* force a release ([037cf0f](https://github.com/open-rpc/meta-schema/commit/037cf0f83f9dd25dad4db8cfad0670ecb4da331a))
+* give $schema a title ([75cea59](https://github.com/open-rpc/meta-schema/commit/75cea59884c1cb0c28509000b93763f1e9c97688)), closes [#445](https://github.com/open-rpc/meta-schema/issues/445)
+* remove dependabot badge ([ec1fdb6](https://github.com/open-rpc/meta-schema/commit/ec1fdb63c6c34f547b01399e8b9b363798816771))
+
 ## [1.14.5](https://github.com/open-rpc/meta-schema/compare/1.14.4...1.14.5) (2023-02-06)
 
 
