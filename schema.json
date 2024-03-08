@@ -132,7 +132,31 @@
       "title": "specificationExtension"
     },
     "JSONSchema": {
-      "$ref": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.5.9/src/schema.json"
+      "allOf": [
+        {
+          "$ref": "https://raw.githubusercontent.com/json-schema-tools/meta-schema/1.5.9/src/schema.json"
+        },
+        {
+          "$ref": "#/definitions/discriminatorObject"
+        }
+      ]
+    },
+    "discriminatorObject": {
+      "type": "object",
+      "required": [
+        "propertyName"
+      ],
+      "properties": {
+        "propertyName": {
+          "type": "string"
+        },
+        "mapping": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
     },
     "referenceObject": {
       "title": "referenceObject",
