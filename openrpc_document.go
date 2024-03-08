@@ -167,21 +167,21 @@ type ExclusiveMinimum float64
 type NonNegativeInteger int64
 type NonNegativeIntegerDefaultZero int64
 type Pattern string
-type SchemaArray []Undefined
+type SchemaArray []JSONSchema
 //
 // --- Default ---
 //
 // true
 type Items struct {
-	Undefined   *Undefined
+	JSONSchema  *JSONSchema
 	SchemaArray *SchemaArray
 }
 func (a *Items) UnmarshalJSON(bytes []byte) error {
 	var ok bool
-	var myUndefined Undefined
-	if err := json.Unmarshal(bytes, &myUndefined); err == nil {
+	var myJSONSchema JSONSchema
+	if err := json.Unmarshal(bytes, &myJSONSchema); err == nil {
 		ok = true
-		a.Undefined = &myUndefined
+		a.JSONSchema= &myJSONSchema
 	}
 	var mySchemaArray SchemaArray
 	if err := json.Unmarshal(bytes, &mySchemaArray); err == nil {
@@ -195,8 +195,8 @@ func (a *Items) UnmarshalJSON(bytes []byte) error {
 }
 func (o Items) MarshalJSON() ([]byte, error) {
 	out := []interface{}{}
-	if o.Undefined != nil {
-		out = append(out, o.Undefined)
+	if o.JSONSchema != nil {
+		out = append(out, o.JSONSchema)
 	}
 	if o.SchemaArray != nil {
 		out = append(out, o.SchemaArray)
@@ -226,15 +226,15 @@ type Properties map[string]interface{}
 // {}
 type PatternProperties map[string]interface{}
 type DependenciesSet struct {
-	Undefined   *Undefined
+	JSONSchema  *JSONSchema
 	StringArray *StringArray
 }
 func (a *DependenciesSet) UnmarshalJSON(bytes []byte) error {
 	var ok bool
-	var myUndefined Undefined
-	if err := json.Unmarshal(bytes, &myUndefined); err == nil {
+	var myJSONSchema JSONSchema
+	if err := json.Unmarshal(bytes, &myJSONSchema); err == nil {
 		ok = true
-		a.Undefined = &myUndefined
+		a.JSONSchema= &myJSONSchema
 	}
 	var myStringArray StringArray
 	if err := json.Unmarshal(bytes, &myStringArray); err == nil {
@@ -248,8 +248,8 @@ func (a *DependenciesSet) UnmarshalJSON(bytes []byte) error {
 }
 func (o DependenciesSet) MarshalJSON() ([]byte, error) {
 	out := []interface{}{}
-	if o.Undefined != nil {
-		out = append(out, o.Undefined)
+	if o.JSONSchema!= nil {
+		out = append(out, o.JSONSchema)
 	}
 	if o.StringArray != nil {
 		out = append(out, o.StringArray)
@@ -312,34 +312,34 @@ type JSONSchemaObject struct {
 	MaxLength            *NonNegativeInteger            `json:"maxLength,omitempty"`
 	MinLength            *NonNegativeIntegerDefaultZero `json:"minLength,omitempty"`
 	Pattern              *Pattern                       `json:"pattern,omitempty"`
-	AdditionalItems      *Undefined                     `json:"additionalItems,omitempty"`
+	AdditionalItems      *JSONSchema                    `json:"additionalItems,omitempty"`
 	Items                *Items                         `json:"items,omitempty"`
 	MaxItems             *NonNegativeInteger            `json:"maxItems,omitempty"`
 	MinItems             *NonNegativeIntegerDefaultZero `json:"minItems,omitempty"`
 	UniqueItems          *UniqueItems                   `json:"uniqueItems,omitempty"`
-	Contains             *Undefined                     `json:"contains,omitempty"`
+	Contains             *JSONSchema                    `json:"contains,omitempty"`
 	MaxProperties        *NonNegativeInteger            `json:"maxProperties,omitempty"`
 	MinProperties        *NonNegativeIntegerDefaultZero `json:"minProperties,omitempty"`
 	Required             *StringArray                   `json:"required,omitempty"`
-	AdditionalProperties *Undefined                     `json:"additionalProperties,omitempty"`
+	AdditionalProperties *JSONSchema                    `json:"additionalProperties,omitempty"`
 	Definitions          *Definitions                   `json:"definitions,omitempty"`
 	Properties           *Properties                    `json:"properties,omitempty"`
 	PatternProperties    *PatternProperties             `json:"patternProperties,omitempty"`
 	Dependencies         *Dependencies                  `json:"dependencies,omitempty"`
-	PropertyNames        *Undefined                     `json:"propertyNames,omitempty"`
+	PropertyNames        *JSONSchema                    `json:"propertyNames,omitempty"`
 	Const                *AlwaysTrue                    `json:"const,omitempty"`
 	Enum                 *Enum                          `json:"enum,omitempty"`
 	Type                 *Type                          `json:"type,omitempty"`
 	Format               *Format                        `json:"format,omitempty"`
 	ContentMediaType     *ContentMediaType              `json:"contentMediaType,omitempty"`
 	ContentEncoding      *ContentEncoding               `json:"contentEncoding,omitempty"`
-	If                   *Undefined                     `json:"if,omitempty"`
-	Then                 *Undefined                     `json:"then,omitempty"`
-	Else                 *Undefined                     `json:"else,omitempty"`
+	If                   *JSONSchema                    `json:"if,omitempty"`
+	Then                 *JSONSchema                    `json:"then,omitempty"`
+	Else                 *JSONSchema                    `json:"else,omitempty"`
 	AllOf                *SchemaArray                   `json:"allOf,omitempty"`
 	AnyOf                *SchemaArray                   `json:"anyOf,omitempty"`
 	OneOf                *SchemaArray                   `json:"oneOf,omitempty"`
-	Not                  *Undefined                     `json:"not,omitempty"`
+	Not                  *JSONSchema                    `json:"not,omitempty"`
 }
 // Always valid if true. Never valid if false. Is constant.
 type JSONSchemaBoolean bool
@@ -383,7 +383,7 @@ type ContentDescriptorObject struct {
 	Name        *ContentDescriptorObjectName        `json:"name"`
 	Description *ContentDescriptorObjectDescription `json:"description,omitempty"`
 	Summary     *ContentDescriptorObjectSummary     `json:"summary,omitempty"`
-	Schema      *Undefined                          `json:"schema"`
+	Schema      *JSONSchema                         `json:"schema"`
 	Required    *ContentDescriptorObjectRequired    `json:"required,omitempty"`
 	Deprecated  *ContentDescriptorObjectDeprecated  `json:"deprecated,omitempty"`
 }
