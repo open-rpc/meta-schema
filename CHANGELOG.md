@@ -1,3 +1,10 @@
+## [1.14.8](https://github.com/open-rpc/meta-schema/compare/1.14.7...1.14.8) (2024-05-07)
+
+
+### Bug Fixes
+
+* use deployed url for json schema meta schema ([370d5ce](https://github.com/open-rpc/meta-schema/commit/370d5cee0f26b00f73e618a38d12b82297374c75))
+
 ## [1.14.7](https://github.com/open-rpc/meta-schema/compare/1.14.6...1.14.7) (2024-05-07)
 
 
