@@ -125,13 +125,13 @@ export type ExclusiveMinimum = number;
 export type NonNegativeInteger = number;
 export type NonNegativeIntegerDefaultZero = number;
 export type Pattern = string;
-export type SchemaArray = Undefined[];
+export type SchemaArray = JSONSchema[];
 /**
  *
  * @default true
  *
  */
-export type Items = Undefined | SchemaArray;
+export type Items = JSONSchema | SchemaArray;
 export type UniqueItems = boolean;
 export type StringDoaGddGA = string;
 /**
@@ -158,7 +158,7 @@ export interface Properties { [key: string]: any; }
  *
  */
 export interface PatternProperties { [key: string]: any; }
-export type DependenciesSet = Undefined | StringArray;
+export type DependenciesSet = JSONSchema | StringArray;
 export interface Dependencies { [key: string]: any; }
 export type Enum = AlwaysTrue[];
 export type SimpleTypes = any;
@@ -185,34 +185,34 @@ export interface JSONSchemaObject {
   maxLength?: NonNegativeInteger;
   minLength?: NonNegativeIntegerDefaultZero;
   pattern?: Pattern;
-  additionalItems?: Undefined;
+  additionalItems?: JSONSchema;
   items?: Items;
   maxItems?: NonNegativeInteger;
   minItems?: NonNegativeIntegerDefaultZero;
   uniqueItems?: UniqueItems;
-  contains?: Undefined;
+  contains?: JSONSchema;
   maxProperties?: NonNegativeInteger;
   minProperties?: NonNegativeIntegerDefaultZero;
   required?: StringArray;
-  additionalProperties?: Undefined;
+  additionalProperties?: JSONSchema;
   definitions?: Definitions;
   properties?: Properties;
   patternProperties?: PatternProperties;
   dependencies?: Dependencies;
-  propertyNames?: Undefined;
+  propertyNames?: JSONSchema;
   const?: AlwaysTrue;
   enum?: Enum;
   type?: Type;
   format?: Format;
   contentMediaType?: ContentMediaType;
   contentEncoding?: ContentEncoding;
-  if?: Undefined;
-  then?: Undefined;
-  else?: Undefined;
+  if?: JSONSchema;
+  then?: JSONSchema;
+  else?: JSONSchema;
   allOf?: SchemaArray;
   anyOf?: SchemaArray;
   oneOf?: SchemaArray;
-  not?: Undefined;
+  not?: JSONSchema;
   [k: string]: any;
 }
 /**
@@ -233,7 +233,7 @@ export interface ContentDescriptorObject {
   name: ContentDescriptorObjectName;
   description?: ContentDescriptorObjectDescription;
   summary?: ContentDescriptorObjectSummary;
-  schema: Undefined;
+  schema: JSONSchema;
   required?: ContentDescriptorObjectRequired;
   deprecated?: ContentDescriptorObjectDeprecated;
   [regex: string]: SpecificationExtension | any;

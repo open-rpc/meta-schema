@@ -1,3 +1,10 @@
+## [1.14.7](https://github.com/open-rpc/meta-schema/compare/1.14.6...1.14.7) (2024-05-07)
+
+
+### Bug Fixes
+
+* bump node and transpiler ([1899504](https://github.com/open-rpc/meta-schema/commit/18995040bb80c7b045b347af26465f827bf19ef3))
+
 ## [1.14.6](https://github.com/open-rpc/meta-schema/compare/1.14.5...1.14.6) (2023-07-04)
 
 
