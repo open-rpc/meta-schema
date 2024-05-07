@@ -184,9 +184,9 @@ NonNegativeIntegerDefaultZero = NewType("NonNegativeIntegerDefaultZero", int)
 
 Pattern = NewType("Pattern", str)
 
-SchemaArray = NewType("SchemaArray", List[Undefined])
+SchemaArray = NewType("SchemaArray", List[JSONSchema])
 
-Items = NewType("Items", Union[Undefined, SchemaArray])
+Items = NewType("Items", Union[JSONSchema, SchemaArray])
 
 UniqueItems = NewType("UniqueItems", bool)
 
@@ -200,7 +200,7 @@ Properties = NewType("Properties", Mapping[Any, Any])
 
 PatternProperties = NewType("PatternProperties", Mapping[Any, Any])
 
-DependenciesSet = NewType("DependenciesSet", Union[Undefined, StringArray])
+DependenciesSet = NewType("DependenciesSet", Union[JSONSchema, StringArray])
 
 Dependencies = NewType("Dependencies", Mapping[Any, Any])
 
@@ -236,34 +236,34 @@ class JSONSchemaObject(TypedDict):
     maxLength: Optional[NonNegativeInteger]
     minLength: Optional[NonNegativeIntegerDefaultZero]
     pattern: Optional[Pattern]
-    additionalItems: Optional[Undefined]
+    additionalItems: Optional[JSONSchema]
     items: Optional[Items]
     maxItems: Optional[NonNegativeInteger]
     minItems: Optional[NonNegativeIntegerDefaultZero]
     uniqueItems: Optional[UniqueItems]
-    contains: Optional[Undefined]
+    contains: Optional[JSONSchema]
     maxProperties: Optional[NonNegativeInteger]
     minProperties: Optional[NonNegativeIntegerDefaultZero]
     required: Optional[StringArray]
-    additionalProperties: Optional[Undefined]
+    additionalProperties: Optional[JSONSchema]
     definitions: Optional[Definitions]
     properties: Optional[Properties]
     patternProperties: Optional[PatternProperties]
     dependencies: Optional[Dependencies]
-    propertyNames: Optional[Undefined]
+    propertyNames: Optional[JSONSchema]
     const: Optional[AlwaysTrue]
     enum: Optional[Enum]
     type: Optional[Type]
     format: Optional[Format]
     contentMediaType: Optional[ContentMediaType]
     contentEncoding: Optional[ContentEncoding]
-    if: Optional[Undefined]
-    then: Optional[Undefined]
-    else: Optional[Undefined]
+    if: Optional[JSONSchema]
+    then: Optional[JSONSchema]
+    else: Optional[JSONSchema]
     allOf: Optional[SchemaArray]
     anyOf: Optional[SchemaArray]
     oneOf: Optional[SchemaArray]
-    not: Optional[Undefined]
+    not: Optional[JSONSchema]
 """Always valid if true. Never valid if false. Is constant.
 """
 JSONSchemaBoolean = NewType("JSONSchemaBoolean", bool)
@@ -278,7 +278,7 @@ class ContentDescriptorObject(TypedDict):
     name: Optional[ContentDescriptorObjectName]
     description: Optional[ContentDescriptorObjectDescription]
     summary: Optional[ContentDescriptorObjectSummary]
-    schema: Optional[Undefined]
+    schema: Optional[JSONSchema]
     required: Optional[ContentDescriptorObjectRequired]
     deprecated: Optional[ContentDescriptorObjectDeprecated]
 
