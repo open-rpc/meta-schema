@@ -1,3 +1,10 @@
+## [1.14.9](https://github.com/open-rpc/meta-schema/compare/1.14.8...1.14.9) (2024-05-08)
+
+
+### Bug Fixes
+
+* big bump, my lovely lady bumps ([7a0a1cb](https://github.com/open-rpc/meta-schema/commit/7a0a1cb2a553f033fd66421f7143fd8aa1844ce4))
+
 ## [1.14.8](https://github.com/open-rpc/meta-schema/compare/1.14.7...1.14.8) (2024-05-07)
 
 
