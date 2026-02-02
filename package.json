@@ -50,5 +50,9 @@
     "JSON schema",
     "JSON RPC",
     "API"
-  ]
+  ],
+  "dependencies": {
+    "mdast": "^2.3.2",
+    "mdast-util-from-markdown": "^2.0.2"
+  }
 }
