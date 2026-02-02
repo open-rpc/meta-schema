@@ -25,7 +25,7 @@ aliases:
 defaults: &defaults
   working_directory: ~/meta-schema
   docker:
-    - image: cimg/node:18.13.0
+    - image: cimg/node:24.11.1
 
 jobs:
   test:
