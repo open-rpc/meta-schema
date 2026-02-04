@@ -16,9 +16,12 @@
   },
   "properties": {
     "openrpc": {
+      "description": "This string MUST be the [semantic version number](https://semver.org/spec/v2.0.0.html) of the [OpenRPC Specification version](#versions) that the OpenRPC document uses. The `openrpc` field SHOULD be used by tooling specifications and clients to interpret the OpenRPC document. This is *not* related to the API [`info.version`](#info-version) string.",
       "title": "openrpc",
       "type": "string",
-      "enum": ["GENERATED FIELD: Do Not Edit - if you are seeing this unexpectedly, use released meta-schema (https://github.com/open-rpc/meta-schema/releases)"]
+      "enum": [
+        "GENERATED FIELD: Do Not Edit - if you are seeing this unexpectedly, use released meta-schema (https://github.com/open-rpc/meta-schema/releases)"
+      ]
     },
     "info": {
       "$ref": "#/definitions/infoObject"
@@ -27,6 +30,7 @@
       "$ref": "#/definitions/externalDocumentationObject"
     },
     "servers": {
+      "description": "An array of Server Objects, which provide connectivity information to a target server. If the `servers` property is not provided, or is an empty array, the default value would be a [Server Object](#server-object) with a [url](#server-url) value of `localhost`. ",
       "title": "servers",
       "type": "array",
       "additionalItems": false,
@@ -37,6 +41,7 @@
     "methods": {
       "title": "methods",
       "type": "array",
+      "description": "The available methods for the API. While it is required, the array may be empty (to handle security filtering, for example).",
       "additionalItems": false,
       "items": {
         "title": "methodOrReference",
@@ -52,6 +57,7 @@
     },
     "components": {
       "title": "components",
+      "description": "Holds a set of reusable objects for different aspects of the OpenRPC. All objects defined within the components object will have no effect on the API unless they are explicitly referenced from properties outside the components object.",
       "type": "object",
       "properties": {
         "schemas": {
@@ -66,6 +72,7 @@
         "links": {
           "title": "linkComponents",
           "type": "object",
+          "description": "An object to hold reusable [Link Objects](#link-object).",
           "patternProperties": {
             "[0-z]+": {
               "$ref": "#/definitions/linkObject"
@@ -90,7 +97,6 @@
             }
           }
         },
-
         "examplePairings": {
           "title": "examplePairingComponents",
           "type": "object",
@@ -121,11 +127,11 @@
       }
     },
     "$schema": {
-       "title": "metaSchema",
-       "description": "JSON Schema URI (used by some editors)",
-       "type": "string",
-       "default": "https://meta.open-rpc.org/"
-     }
+      "title": "metaSchema",
+      "description": "JSON Schema URI (used by some editors)",
+      "type": "string",
+      "default": "https://meta.open-rpc.org/"
+    }
   },
   "definitions": {
     "specificationExtension": {
@@ -143,7 +149,7 @@
       ],
       "properties": {
         "$ref": {
-           "$ref": "https://meta.json-schema.tools/#/definitions/JSONSchemaObject/properties/$ref"
+          "$ref": "https://meta.json-schema.tools/#/definitions/JSONSchemaObject/properties/$ref"
         }
       }
     },
@@ -175,15 +181,18 @@
     },
     "licenseObject": {
       "title": "licenseObject",
+      "description": "License information for the exposed API.",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "name": {
           "title": "licenseObjectName",
+          "description": "The license name used for the API.",
           "type": "string"
         },
         "url": {
           "title": "licenseObjectUrl",
+          "description": "A URL to the license used for the API. MUST be in the format of a URL.",
           "type": "string"
         }
       },
@@ -194,20 +203,24 @@
       }
     },
     "contactObject": {
+      "description": "Contact information for the exposed API.",
       "title": "contactObject",
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "name": {
           "title": "contactObjectName",
+          "description": "The identifying name of the contact person/organization.",
           "type": "string"
         },
         "email": {
           "title": "contactObjectEmail",
+          "description": "The email address of the contact person/organization. MUST be in the format of an email address.",
           "type": "string"
         },
         "url": {
           "title": "contactObjectUrl",
+          "description": "The URL pointing to the contact information. MUST be in the format of a URL.",
           "type": "string"
         }
       },
@@ -219,7 +232,7 @@
     },
     "infoObject": {
       "title": "infoObject",
-      "type": "object",
+      "description": "The object provides metadata about the API. The metadata MAY be used by the clients if needed, and MAY be presented in editing or documentation generation tools for convenience.",
       "additionalProperties": false,
       "required": [
         "title",
@@ -227,20 +240,24 @@
       ],
       "properties": {
         "title": {
-          "title": "infoObjectProperties",
+          "title": "infoObjectTitle",
+          "description": "The title of the application.",
           "type": "string"
         },
         "description": {
           "title": "infoObjectDescription",
+          "description": "A verbose description of the application. [GitHub Flavored Markdown syntax](https://github.github.com/gfm/) MAY be used for rich text representation.",
           "type": "string"
         },
         "termsOfService": {
           "title": "infoObjectTermsOfService",
+          "description": "A URL to the Terms of Service for the API. MUST be in the format of a URL.",
           "type": "string",
           "format": "uri"
         },
         "version": {
           "title": "infoObjectVersion",
+          "description": "The version of the OpenRPC document (which is distinct from the [OpenRPC Specification version](#openrpc-version) or the API implementation version).",
           "type": "string"
         },
         "contact": {
@@ -258,6 +275,7 @@
     },
     "serverObject": {
       "title": "serverObject",
+      "description": "A object representing a Server",
       "type": "object",
       "required": [
         "url"
@@ -266,27 +284,32 @@
       "properties": {
         "url": {
           "title": "serverObjectUrl",
-          "type": "string",
+          "description": "A URL to the target host. This URL supports Server Variables and MAY be relative, to indicate that the host location is relative to the location where the OpenRPC document is being served. [Server Variables](#server-variables) are passed into the [Runtime Expression](#runtime-expression) to produce a server URL.""type": "string",
           "format": "uri"
         },
         "name": {
           "title": "serverObjectName",
+          "description": "An optional string describing the name of the server. [GitHub Flavored Markdown syntax](https://github.github.com/gfm/) MAY be used for rich text representation.",
           "type": "string"
         },
         "description": {
           "title": "serverObjectDescription",
+          "description": "An optional string describing the host designated by the URL. [GitHub Flavored Markdown syntax](https://github.github.com/gfm/) MAY be used for rich text representation.",
           "type": "string"
         },
         "summary": {
           "title": "serverObjectSummary",
+          "description": "A short summary of what the server is.",
           "type": "string"
         },
         "variables": {
           "title": "serverObjectVariables",
+          "description": "A map between a variable name and its value. The value is passed into the [Runtime Expression](#runtime-expression) to produce a server URL.",
           "type": "object",
           "patternProperties": {
             "[0-z]+": {
               "title": "serverObjectVariable",
+              "description": "A object representing a Server Variable",
               "type": "object",
               "required": [
                 "default"
@@ -294,10 +317,12 @@
               "properties": {
                 "default": {
                   "title": "serverObjectVariableDefault",
+                  "description": "The default value to use for substitution, which SHALL be sent if an alternate value is _not_ supplied. Note this behavior is different than the [Schema Object's](#schema-object) treatment of default values, because in those cases parameter values are optional.",
                   "type": "string"
                 },
                 "description": {
                   "title": "serverObjectVariableDescription",
+                  "description": "An optional description for the server variable. [GitHub Flavored Markdown syntax](https://github.github.com/gfm/) MAY be used for rich text representation.",
                   "type": "string"
                 },
                 "enum": {
@@ -305,6 +330,7 @@
                   "type": "array",
                   "items": {
                     "title": "serverObjectVariableEnumItem",
+                    "description": "An enumeration of string values to be used if the substitution options are from a limited set.",
                     "type": "string"
                   }
                 }
@@ -321,12 +347,11 @@
     },
     "linkObject": {
       "title": "linkObject",
-      "type": "object",
+      "description": "A object representing a Link",
       "additionalProperties": false,
       "properties": {
         "name": {
           "title": "linkObjectName",
-          "type": "string",
           "minLength": 1
         },
         "summary": {
@@ -356,19 +381,21 @@
       }
     },
     "externalDocumentationObject": {
+      "description": "Additional external documentation.",
       "title": "externalDocumentationObject",
       "type": "object",
       "additionalProperties": false,
-      "description": "information about external documentation",
       "required": [
         "url"
       ],
       "properties": {
         "description": {
+          "description": "A verbose explanation of the documentation. [GitHub Flavored Markdown syntax](https://github.github.com/gfm/) MAY be used for rich text representation.",
           "title": "externalDocumentationObjectDescription",
           "type": "string"
         },
         "url": {
+          "description": "The URL for the target documentation. Value MUST be in the format of a URL.",
           "title": "externalDocumentationObjectUrl",
           "type": "string",
           "format": "uri"
@@ -382,6 +409,7 @@
     },
     "methodObject": {
       "title": "methodObject",
+      "description": "The available methods for the API. While it is required, the array may be empty (to handle security filtering, for example).",
       "type": "object",
       "required": [
         "name",
@@ -408,10 +436,11 @@
         "servers": {
           "title": "servers",
           "type": "array",
+          "description": "An array of Server Objects, which provide connectivity information to a target server. If the `servers` property is not provided, or is an empty array, the default value would be a [Server Object](#server-object) with a [url](#server-url) value of `localhost`. ",
           "additionalItems": false,
           "items": {
-             "$ref": "#/definitions/serverObject"
-           }
+            "$ref": "#/definitions/serverObject"
+          }
         },
         "tags": {
           "title": "methodObjectTags",
