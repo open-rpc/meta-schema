@@ -1,5 +1,6 @@
 # OpenRPC Meta JSON Schema
 
+
 <center>
   <span>
     <img alt="CircleCI branch" src="https://img.shields.io/circleci/project/github/open-rpc/meta-schema/master.svg">
@@ -9,6 +10,11 @@
   </span>
 </center>
 
+## Deprecated 
+This package has been deprecated by [spec-types](https://github.com/open-rpc/spec-types) and the spec[spec](https://github.com/open-rpc/spec) itself. 
+We recently switched to using strict versioning, so it's important to use the specification that matches the document. Here's more information [here](https://github.com/open-rpc/spec/commit/8824c0560ee5975836fc3b459788de6572aadad4) 
+
+## Info
 This is the JSON Schema file for the [OpenRPC Specification](https://spec.open-rpc.org/). You may use it to validate your open rpc documents.
 
 This repo also contains the code which takes the schema, and generates typings for various languages. Currently supported languages:
