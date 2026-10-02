@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "module": "commonjs",
     "lib": [
-      "ES2015"
+      "ESNext"
     ],
     "declaration": true,
     "outDir": "./build",
     "strict": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true
   }
 }
